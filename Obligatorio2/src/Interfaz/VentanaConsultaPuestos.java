@@ -41,12 +41,22 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         panelPostulantes = new javax.swing.JScrollPane();
         listPostulantes = new javax.swing.JList<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Titulo.setText("Consulta para puesto");
+        getContentPane().add(Titulo);
+        Titulo.setBounds(100, 15, 210, 20);
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonCancelar);
+        botonCancelar.setBounds(20, 472, 90, 23);
 
         botonExportar.setText("Exportar");
         botonExportar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +64,8 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
                 botonExportarActionPerformed(evt);
             }
         });
+        getContentPane().add(botonExportar);
+        botonExportar.setBounds(304, 472, 80, 23);
 
         Puestos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Puestos.setText("Puestos:");
@@ -107,6 +119,9 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(20, 47, 372, 228);
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Postulantes:");
 
@@ -138,41 +153,10 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200)
-                        .addComponent(botonExportar)))
-                .addGap(20, 20, 20))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCancelar)
-                    .addComponent(botonExportar))
-                .addGap(20, 20, 20))
-        );
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(20, 281, 372, 179);
 
-        pack();
+        setBounds(0, 0, 451, 546);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
@@ -182,6 +166,10 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
     private void botonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonExportarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonExportarActionPerformed
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+                dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
      * @param args the command line arguments

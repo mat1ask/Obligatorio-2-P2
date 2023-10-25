@@ -47,31 +47,48 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         radioPresencial = new javax.swing.JRadioButton();
         radioMixto = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Titulo.setText("Alta Postulante");
+        getContentPane().add(Titulo);
+        Titulo.setBounds(164, 6, 150, 25);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(6, 45, 55, 16);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Direccion:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(6, 123, 55, 16);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Telefono:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(6, 162, 55, 16);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Mail:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(6, 198, 55, 16);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Linkedin:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(6, 237, 55, 16);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(6, 278, 55, 16);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Cedula:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(6, 81, 55, 16);
 
         botonSiguiente.setText("Siguiente");
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +96,8 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
                 botonSiguienteActionPerformed(evt);
             }
         });
+        getContentPane().add(botonSiguiente);
+        botonSiguiente.setBounds(322, 315, 90, 23);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +105,8 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
                 botonCancelarActionPerformed(evt);
             }
         });
+        getContentPane().add(botonCancelar);
+        botonCancelar.setBounds(6, 315, 90, 23);
 
         textNombre.setAlignmentX(0.0F);
         textNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -93,20 +114,34 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
                 textNombreActionPerformed(evt);
             }
         });
+        getContentPane().add(textNombre);
+        textNombre.setBounds(95, 42, 317, 22);
 
         textLinkedin.setAlignmentX(0.0F);
+        getContentPane().add(textLinkedin);
+        textLinkedin.setBounds(95, 237, 317, 22);
 
         textMail.setAlignmentX(0.0F);
+        getContentPane().add(textMail);
+        textMail.setBounds(95, 198, 317, 22);
 
         textTelefono.setAlignmentX(0.0F);
+        getContentPane().add(textTelefono);
+        textTelefono.setBounds(95, 159, 317, 22);
 
         textDireccion.setAlignmentX(0.0F);
+        getContentPane().add(textDireccion);
+        textDireccion.setBounds(95, 120, 317, 22);
 
         textCedula.setAlignmentX(0.0F);
+        getContentPane().add(textCedula);
+        textCedula.setBounds(95, 81, 317, 22);
 
         GrupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
         radioRemoto.setAlignmentY(0.0F);
+        getContentPane().add(radioRemoto);
+        radioRemoto.setBounds(96, 276, 90, 21);
 
         GrupoFormato.add(radioPresencial);
         radioPresencial.setText("Presencial");
@@ -116,6 +151,8 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
                 radioPresencialActionPerformed(evt);
             }
         });
+        getContentPane().add(radioPresencial);
+        radioPresencial.setBounds(204, 276, 100, 21);
 
         GrupoFormato.add(radioMixto);
         radioMixto.setText("Mixto");
@@ -125,123 +162,20 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
                 radioMixtoActionPerformed(evt);
             }
         });
+        getContentPane().add(radioMixto);
+        radioMixto.setBounds(316, 276, 80, 21);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textMail, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(textLinkedin, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(35, 35, 35)
-                        .addComponent(radioRemoto, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(radioPresencial)
-                        .addGap(36, 36, 36)
-                        .addComponent(radioMixto))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonCancelar)
-                        .addGap(240, 240, 240)
-                        .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {textCedula, textDireccion, textLinkedin, textMail, textNombre, textTelefono});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Titulo)
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2))
-                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(textCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel3))
-                    .addComponent(textDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel4))
-                    .addComponent(textTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(textMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(textLinkedin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel7))
-                    .addComponent(radioRemoto)
-                    .addComponent(radioPresencial)
-                    .addComponent(radioMixto))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonCancelar)
-                    .addComponent(botonSiguiente))
-                .addContainerGap())
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {textCedula, textDireccion, textLinkedin, textMail, textNombre, textTelefono});
-
-        pack();
+        setBounds(0, 0, 483, 398);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        // TODO add your handling code here:
+            VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2();
+            ventana.setVisible(true);
+            
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed

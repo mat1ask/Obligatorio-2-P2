@@ -34,25 +34,36 @@ public class VentanaMenu extends javax.swing.JFrame {
         menuItemAltaPostulante = new javax.swing.JMenuItem();
         menuItemBajaPostulante = new javax.swing.JMenuItem();
         menuItemREgistroEvaluador = new javax.swing.JMenuItem();
-        menuItemIngresoEntrevista = new javax.swing.JMenuItem();
         menuItemRegistroPuesto = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuItemConsultaPuesto = new javax.swing.JMenuItem();
         menuItemHistorialPostulante = new javax.swing.JMenuItem();
         menuHistorialConsultaTematica = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         TituloMenu.setFont(new java.awt.Font("Javanese Text", 1, 18)); // NOI18N
         TituloMenu.setText("Bienvenidos a ETCHUNIN:");
+        getContentPane().add(TituloMenu);
+        TituloMenu.setBounds(160, 10, 240, 42);
 
         jLabel1.setFont(new java.awt.Font("Javanese Text", 1, 14)); // NOI18N
         jLabel1.setText("Sistema para la gestion de postulantes llamados a puestos de trabajo.");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 50, 480, 33);
 
         jMenuBar1.setToolTipText("");
         jMenuBar1.setAlignmentX(0.0F);
 
         jMenu1.setText("Registro");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         menuItemRegistroTematica.setText("Registro tematica");
         menuItemRegistroTematica.addActionListener(new java.awt.event.ActionListener() {
@@ -63,16 +74,23 @@ public class VentanaMenu extends javax.swing.JFrame {
         jMenu1.add(menuItemRegistroTematica);
 
         menuItemAltaPostulante.setText("Alta postulante");
+        menuItemAltaPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAltaPostulanteActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemAltaPostulante);
 
         menuItemBajaPostulante.setText("Baja posutlante");
+        menuItemBajaPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBajaPostulanteActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemBajaPostulante);
 
         menuItemREgistroEvaluador.setText("Registro evaluador");
         jMenu1.add(menuItemREgistroEvaluador);
-
-        menuItemIngresoEntrevista.setText("Ingresdo entrevista");
-        jMenu1.add(menuItemIngresoEntrevista);
 
         menuItemRegistroPuesto.setText("Registro puesto");
         jMenu1.add(menuItemRegistroPuesto);
@@ -80,6 +98,11 @@ public class VentanaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Consulta");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         menuItemConsultaPuesto.setText("Consulta puesto");
         menuItemConsultaPuesto.addActionListener(new java.awt.event.ActionListener() {
@@ -107,32 +130,21 @@ public class VentanaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setText("Ingresos");
+
+        jMenuItem2.setText("Ingreso de entrevista");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(328, 328, 328))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(TituloMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(243, 243, 243))
-        );
-
-        pack();
+        setBounds(0, 0, 581, 186);
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemRegistroTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroTematicaActionPerformed
@@ -142,16 +154,42 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
-        // TODO add your handling code here:
+        VentanaConsultaPuestos ventana = new VentanaConsultaPuestos();
+            ventana.setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_menuItemConsultaPuestoActionPerformed
 
     private void menuItemHistorialPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialPostulanteActionPerformed
-        // TODO add your handling code here:
+        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante();
+        ventana.setVisible(true);
     }//GEN-LAST:event_menuItemHistorialPostulanteActionPerformed
 
     private void menuHistorialConsultaTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHistorialConsultaTematicaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuHistorialConsultaTematicaActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        VentanaRegistroTematica ventana = new VentanaRegistroTematica();
+            ventana.setVisible(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void menuItemBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBajaPostulanteActionPerformed
+        VentanaBajaPostulante ventana = new VentanaBajaPostulante();
+        ventana.setVisible(true);
+    }//GEN-LAST:event_menuItemBajaPostulanteActionPerformed
+
+    private void menuItemAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAltaPostulanteActionPerformed
+        VentanaAltaPostulante ventana = new VentanaAltaPostulante();
+            ventana.setVisible(true);
+    }//GEN-LAST:event_menuItemAltaPostulanteActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante();
+            ventana.setVisible(true);         
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,13 +232,14 @@ public class VentanaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem menuHistorialConsultaTematica;
     private javax.swing.JMenuItem menuItemAltaPostulante;
     private javax.swing.JMenuItem menuItemBajaPostulante;
     private javax.swing.JMenuItem menuItemConsultaPuesto;
     private javax.swing.JMenuItem menuItemHistorialPostulante;
-    private javax.swing.JMenuItem menuItemIngresoEntrevista;
     private javax.swing.JMenuItem menuItemREgistroEvaluador;
     private javax.swing.JMenuItem menuItemRegistroPuesto;
     private javax.swing.JMenuItem menuItemRegistroTematica;
