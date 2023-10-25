@@ -26,107 +26,107 @@ public class consultaPuestos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Titulo = new javax.swing.JLabel();
+        Puestos = new javax.swing.JLabel();
+        panelPuestos = new javax.swing.JScrollPane();
+        listaPuestos = new javax.swing.JList<>();
+        spinNivel = new javax.swing.JSpinner();
+        labelNivel = new javax.swing.JLabel();
+        botonConsultar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        panelPostulantes = new javax.swing.JScrollPane();
+        listPostulantes = new javax.swing.JList<>();
+        botonCancelar = new javax.swing.JButton();
+        botonExportar = new javax.swing.JButton();
 
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Consulta para puesto");
-        add(jLabel1);
-        jLabel1.setBounds(110, 10, 190, 20);
+        Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Titulo.setText("Consulta para puesto");
+        add(Titulo);
+        Titulo.setBounds(100, 10, 210, 20);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Puestos:");
-        add(jLabel2);
-        jLabel2.setBounds(20, 50, 50, 16);
+        Puestos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Puestos.setText("Puestos:");
+        add(Puestos);
+        Puestos.setBounds(20, 40, 70, 15);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaPuestos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        panelPuestos.setViewportView(listaPuestos);
 
-        add(jScrollPane1);
-        jScrollPane1.setBounds(20, 70, 360, 146);
-        add(jSpinner1);
-        jSpinner1.setBounds(120, 250, 100, 20);
+        add(panelPuestos);
+        panelPuestos.setBounds(20, 60, 360, 154);
+        add(spinNivel);
+        spinNivel.setBounds(120, 240, 100, 20);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Nivel:");
-        add(jLabel3);
-        jLabel3.setBounds(20, 250, 32, 16);
+        labelNivel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelNivel.setText("Nivel:");
+        add(labelNivel);
+        labelNivel.setBounds(20, 240, 34, 15);
 
-        jButton1.setText("Consultar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonConsultar.setText("Consultar");
+        botonConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonConsultarActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(300, 250, 80, 23);
+        add(botonConsultar);
+        botonConsultar.setBounds(290, 240, 90, 23);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Postulantes:");
         add(jLabel4);
-        jLabel4.setBounds(20, 310, 70, 16);
+        jLabel4.setBounds(20, 290, 90, 15);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        listPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        panelPostulantes.setViewportView(listPostulantes);
 
-        add(jScrollPane2);
-        jScrollPane2.setBounds(20, 330, 360, 146);
+        add(panelPostulantes);
+        panelPostulantes.setBounds(20, 310, 360, 154);
 
-        jButton2.setText("Cancelar");
-        add(jButton2);
-        jButton2.setBounds(20, 500, 80, 23);
+        botonCancelar.setText("Cancelar");
+        add(botonCancelar);
+        botonCancelar.setBounds(20, 480, 90, 23);
 
-        jButton3.setText("Exportar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonExportar.setText("Exportar");
+        botonExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonExportarActionPerformed(evt);
             }
         });
-        add(jButton3);
-        jButton3.setBounds(310, 500, 74, 23);
+        add(botonExportar);
+        botonExportar.setBounds(310, 480, 79, 23);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonConsultarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonExportarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botonExportarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel Puestos;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonConsultar;
+    private javax.swing.JButton botonExportar;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel labelNivel;
+    private javax.swing.JList<String> listPostulantes;
+    private javax.swing.JList<String> listaPuestos;
+    private javax.swing.JScrollPane panelPostulantes;
+    private javax.swing.JScrollPane panelPuestos;
+    private javax.swing.JSpinner spinNivel;
     // End of variables declaration//GEN-END:variables
 }

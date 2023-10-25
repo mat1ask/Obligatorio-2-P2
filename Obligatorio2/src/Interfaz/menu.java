@@ -26,109 +26,120 @@ public class menu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuBar4 = new javax.swing.JMenuBar();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        lblTituloMenu = new javax.swing.JLabel();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jMenu1 = new javax.swing.JMenu();
+        menuItemRegistroTematica = new javax.swing.JMenuItem();
+        menuItemAltaPostulante = new javax.swing.JMenuItem();
+        menuItemBajaPostulante = new javax.swing.JMenuItem();
+        menuItemREgistroEvaluador = new javax.swing.JMenuItem();
+        menuItemIngresoEntrevista = new javax.swing.JMenuItem();
+        menuItemRegistroPuesto = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menuItemConsultaPuesto = new javax.swing.JMenuItem();
+        menuItemHistorialPostulante = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        TituloMenu = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        jMenu1.setText("jMenu1");
+        jMenu1.setText("Registro");
 
-        jMenu2.setText("jMenu2");
+        menuItemRegistroTematica.setText("Registro tematica");
+        menuItemRegistroTematica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRegistroTematicaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemRegistroTematica);
 
-        jMenu3.setText("File");
-        jMenuBar1.add(jMenu3);
+        menuItemAltaPostulante.setText("Alta postulante");
+        jMenu1.add(menuItemAltaPostulante);
 
-        jMenu4.setText("Edit");
-        jMenuBar1.add(jMenu4);
+        menuItemBajaPostulante.setText("Baja posutlante");
+        jMenu1.add(menuItemBajaPostulante);
 
-        jMenu5.setText("File");
-        jMenuBar2.add(jMenu5);
+        menuItemREgistroEvaluador.setText("Registro evaluador");
+        jMenu1.add(menuItemREgistroEvaluador);
 
-        jMenu6.setText("Edit");
-        jMenuBar2.add(jMenu6);
+        menuItemIngresoEntrevista.setText("Ingresdo entrevista");
+        jMenu1.add(menuItemIngresoEntrevista);
 
-        jMenu7.setText("File");
-        jMenuBar3.add(jMenu7);
+        menuItemRegistroPuesto.setText("Registro puesto");
+        jMenu1.add(menuItemRegistroPuesto);
 
-        jMenu8.setText("Edit");
-        jMenuBar3.add(jMenu8);
+        jMenuBar1.add(jMenu1);
 
-        jMenu9.setText("jMenu9");
+        jMenu2.setText("Consulta");
 
-        jMenuItem1.setText("jMenuItem1");
+        menuItemConsultaPuesto.setText("Consulta puesto");
+        menuItemConsultaPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemConsultaPuestoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemConsultaPuesto);
 
-        jMenu10.setText("File");
-        jMenuBar4.add(jMenu10);
+        menuItemHistorialPostulante.setText("Historial postulante");
+        menuItemHistorialPostulante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemHistorialPostulanteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemHistorialPostulante);
 
-        jMenu11.setText("Edit");
-        jMenuBar4.add(jMenu11);
+        jMenuItem2.setText("Consulta tematica");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu2);
 
         setLayout(null);
 
-        lblTituloMenu.setFont(new java.awt.Font("Javanese Text", 1, 18)); // NOI18N
-        lblTituloMenu.setText("Bienvenidos a ETCHUNIN:");
-        add(lblTituloMenu);
-        lblTituloMenu.setBounds(20, 10, 240, 30);
-
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        add(jInternalFrame1);
-        jInternalFrame1.setBounds(260, 0, 220, 36);
+        TituloMenu.setFont(new java.awt.Font("Javanese Text", 1, 18)); // NOI18N
+        TituloMenu.setText("Bienvenidos a ETCHUNIN:");
+        add(TituloMenu);
+        TituloMenu.setBounds(10, 30, 240, 30);
 
         jLabel1.setFont(new java.awt.Font("Javanese Text", 1, 14)); // NOI18N
         jLabel1.setText("Sistema para la gestion de postulantes llamados a puestos de trabajo.");
         add(jLabel1);
-        jLabel1.setBounds(20, 40, 460, 33);
+        jLabel1.setBounds(10, 60, 540, 17);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menuItemHistorialPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialPostulanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemHistorialPostulanteActionPerformed
+
+    private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemConsultaPuestoActionPerformed
+
+    private void menuItemRegistroTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroTematicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel TituloMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JLabel lblTituloMenu;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem menuItemAltaPostulante;
+    private javax.swing.JMenuItem menuItemBajaPostulante;
+    private javax.swing.JMenuItem menuItemConsultaPuesto;
+    private javax.swing.JMenuItem menuItemHistorialPostulante;
+    private javax.swing.JMenuItem menuItemIngresoEntrevista;
+    private javax.swing.JMenuItem menuItemREgistroEvaluador;
+    private javax.swing.JMenuItem menuItemRegistroPuesto;
+    private javax.swing.JMenuItem menuItemRegistroTematica;
     // End of variables declaration//GEN-END:variables
 }

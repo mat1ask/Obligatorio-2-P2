@@ -27,7 +27,7 @@ public class AltaPostulante extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -35,17 +35,17 @@ public class AltaPostulante extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        botonSiguiente = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
+        textNombre = new javax.swing.JTextField();
+        textLinkedin = new javax.swing.JTextField();
+        textMail = new javax.swing.JTextField();
+        textTelefono = new javax.swing.JTextField();
+        textDireccion = new javax.swing.JTextField();
+        textCedula = new javax.swing.JTextField();
+        radioRemoto = new javax.swing.JRadioButton();
+        radioPresencial = new javax.swing.JRadioButton();
+        radioMixto = new javax.swing.JRadioButton();
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -56,125 +56,135 @@ public class AltaPostulante extends javax.swing.JPanel {
 
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Alta Postulante");
-        add(jLabel1);
-        jLabel1.setBounds(193, 6, 140, 25);
+        Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Titulo.setText("Alta Postulante");
+        add(Titulo);
+        Titulo.setBounds(180, 10, 150, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
         add(jLabel2);
-        jLabel2.setBounds(22, 46, 49, 16);
+        jLabel2.setBounds(22, 46, 52, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Direccion:");
         add(jLabel3);
-        jLabel3.setBounds(22, 126, 56, 16);
+        jLabel3.setBounds(22, 126, 61, 15);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Telefono:");
         add(jLabel4);
-        jLabel4.setBounds(22, 166, 53, 16);
+        jLabel4.setBounds(22, 166, 58, 15);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Mail:");
         add(jLabel5);
-        jLabel5.setBounds(22, 203, 30, 16);
+        jLabel5.setBounds(22, 203, 30, 15);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Linkedin:");
         add(jLabel6);
-        jLabel6.setBounds(22, 243, 50, 16);
+        jLabel6.setBounds(22, 243, 57, 15);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
         add(jLabel7);
-        jLabel7.setBounds(22, 285, 60, 16);
+        jLabel7.setBounds(22, 285, 60, 15);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Cedula:");
         add(jLabel8);
-        jLabel8.setBounds(22, 83, 40, 16);
+        jLabel8.setBounds(22, 83, 46, 15);
 
-        jButton1.setText("Siguiente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonSiguiente.setText("Siguiente");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonSiguienteActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(353, 322, 80, 23);
+        add(botonSiguiente);
+        botonSiguiente.setBounds(343, 322, 90, 23);
 
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonCancelarActionPerformed(evt);
             }
         });
-        add(jButton3);
-        jButton3.setBounds(22, 322, 76, 23);
-        add(jTextField1);
-        jTextField1.setBounds(117, 43, 317, 22);
-        add(jTextField2);
-        jTextField2.setBounds(117, 243, 317, 22);
-        add(jTextField3);
-        jTextField3.setBounds(117, 203, 317, 22);
-        add(jTextField4);
-        jTextField4.setBounds(117, 163, 317, 22);
-        add(jTextField5);
-        jTextField5.setBounds(117, 123, 317, 22);
-        add(jTextField6);
-        jTextField6.setBounds(117, 83, 317, 22);
+        add(botonCancelar);
+        botonCancelar.setBounds(22, 322, 81, 23);
 
-        jRadioButton1.setText("Remoto");
-        add(jRadioButton1);
-        jRadioButton1.setBounds(117, 283, 76, 21);
-
-        jRadioButton2.setText("Presencial");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                textNombreActionPerformed(evt);
             }
         });
-        add(jRadioButton2);
-        jRadioButton2.setBounds(235, 283, 76, 21);
+        add(textNombre);
+        textNombre.setBounds(117, 43, 317, 23);
+        add(textLinkedin);
+        textLinkedin.setBounds(117, 243, 317, 23);
+        add(textMail);
+        textMail.setBounds(117, 203, 317, 23);
+        add(textTelefono);
+        textTelefono.setBounds(117, 163, 317, 23);
+        add(textDireccion);
+        textDireccion.setBounds(117, 123, 317, 23);
+        add(textCedula);
+        textCedula.setBounds(117, 83, 317, 23);
 
-        jRadioButton3.setText("Mixto");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        radioRemoto.setText("Remoto");
+        add(radioRemoto);
+        radioRemoto.setBounds(117, 283, 76, 21);
+
+        radioPresencial.setText("Presencial");
+        radioPresencial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                radioPresencialActionPerformed(evt);
             }
         });
-        add(jRadioButton3);
-        jRadioButton3.setBounds(354, 283, 54, 21);
+        add(radioPresencial);
+        radioPresencial.setBounds(235, 283, 83, 21);
+
+        radioMixto.setText("Mixto");
+        radioMixto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioMixtoActionPerformed(evt);
+            }
+        });
+        add(radioMixto);
+        radioMixto.setBounds(354, 283, 55, 21);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radioPresencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPresencialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_radioPresencialActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void radioMixtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMixtoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_radioMixtoActionPerformed
+
+    private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonSiguiente;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -182,14 +192,14 @@ public class AltaPostulante extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JRadioButton radioMixto;
+    private javax.swing.JRadioButton radioPresencial;
+    private javax.swing.JRadioButton radioRemoto;
+    private javax.swing.JTextField textCedula;
+    private javax.swing.JTextField textDireccion;
+    private javax.swing.JTextField textLinkedin;
+    private javax.swing.JTextField textMail;
+    private javax.swing.JTextField textNombre;
+    private javax.swing.JTextField textTelefono;
     // End of variables declaration//GEN-END:variables
 }

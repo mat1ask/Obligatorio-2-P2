@@ -29,79 +29,77 @@ public class RegistroTematica extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        textNombre = new javax.swing.JTextField();
+        textDescripcion = new javax.swing.JTextField();
+        botonCancelar = new javax.swing.JButton();
+        botonRegistrar = new javax.swing.JButton();
 
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro Tematica");
         add(jLabel1);
-        jLabel1.setBounds(158, 6, 154, 25);
+        jLabel1.setBounds(160, 20, 168, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Nombre:");
         add(jLabel2);
-        jLabel2.setBounds(36, 52, 60, 16);
+        jLabel2.setBounds(40, 60, 60, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Descripcion:");
         add(jLabel3);
-        jLabel3.setBounds(36, 89, 68, 16);
-        add(jTextField1);
-        jTextField1.setBounds(158, 49, 309, 22);
+        jLabel3.setBounds(40, 100, 76, 15);
+        add(textNombre);
+        textNombre.setBounds(160, 60, 309, 23);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        textDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                textDescripcionActionPerformed(evt);
             }
         });
-        add(jTextField2);
-        jTextField2.setBounds(158, 89, 309, 119);
+        add(textDescripcion);
+        textDescripcion.setBounds(160, 100, 309, 119);
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonCancelarActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(36, 243, 99, 23);
+        add(botonCancelar);
+        botonCancelar.setBounds(40, 260, 99, 23);
 
-        jButton2.setText("Registrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonRegistrarActionPerformed(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(368, 243, 99, 23);
+        add(botonRegistrar);
+        botonRegistrar.setBounds(370, 260, 99, 23);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonRegistrarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void textDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDescripcionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_textDescripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JButton botonRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField textDescripcion;
+    private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
 }
