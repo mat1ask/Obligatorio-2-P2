@@ -6,7 +6,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="alignmentX" type="float" value="0.0"/>
-        <Property name="alignmentY" type="float" value="0.0"/>
       </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -107,15 +106,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="TituloMenu" max="32767" attributes="0"/>
-                      <EmptySpace min="272" pref="272" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="328" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,9 +124,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="TituloMenu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

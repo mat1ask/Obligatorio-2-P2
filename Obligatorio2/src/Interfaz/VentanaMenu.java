@@ -8,12 +8,12 @@ package Interfaz;
  *
  * @author matiaskunin
  */
-public class menuFrame extends javax.swing.JFrame {
+public class VentanaMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form menuFrame
      */
-    public menuFrame() {
+    public VentanaMenu() {
         initComponents();
     }
 
@@ -51,7 +51,6 @@ public class menuFrame extends javax.swing.JFrame {
 
         jMenuBar1.setToolTipText("");
         jMenuBar1.setAlignmentX(0.0F);
-        jMenuBar1.setAlignmentY(0.0F);
 
         jMenu1.setText("Registro");
 
@@ -119,9 +118,10 @@ public class menuFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TituloMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(272, 272, 272))
-                    .addComponent(jLabel1))
-                .addGap(56, 56, 56))
+                        .addGap(328, 328, 328))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,14 +129,16 @@ public class menuFrame extends javax.swing.JFrame {
                 .addComponent(TituloMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(231, 231, 231))
+                .addGap(243, 243, 243))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemRegistroTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroTematicaActionPerformed
-        // TODO add your handling code here:
+        // ESTA BIEN???
+        VentanaRegistroTematica ventRegTematica = new VentanaRegistroTematica();
+        ventRegTematica.setVisible(true);
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
@@ -168,20 +170,21 @@ public class menuFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menuFrame().setVisible(true);
+                new VentanaMenu().setVisible(true);
             }
         });
     }
