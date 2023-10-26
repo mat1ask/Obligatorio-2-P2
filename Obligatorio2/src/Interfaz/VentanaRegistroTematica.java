@@ -4,6 +4,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author matiaskunin
@@ -33,6 +35,9 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         textDescripcion = new javax.swing.JTextField();
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -80,7 +85,15 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         getContentPane().add(botonRegistrar);
         botonRegistrar.setBounds(316, 257, 99, 23);
 
-        setBounds(0, 0, 503, 346);
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
+        setBounds(0, 0, 460, 357);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDescripcionActionPerformed
@@ -92,7 +105,7 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     /**
@@ -136,6 +149,9 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField textDescripcion;
     private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
