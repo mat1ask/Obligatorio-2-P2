@@ -46,19 +46,22 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Titulo.setText("Consulta para puesto");
+        Titulo.setAlignmentY(0.0F);
         getContentPane().add(Titulo);
         Titulo.setBounds(100, 15, 210, 20);
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.setAlignmentY(0.0F);
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCancelarActionPerformed(evt);
             }
         });
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(20, 472, 90, 23);
+        botonCancelar.setBounds(30, 470, 90, 23);
 
         botonExportar.setText("Exportar");
+        botonExportar.setAlignmentY(0.0F);
         botonExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonExportarActionPerformed(evt);
@@ -66,6 +69,9 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         });
         getContentPane().add(botonExportar);
         botonExportar.setBounds(304, 472, 80, 23);
+
+        jPanel1.setAlignmentX(0.0F);
+        jPanel1.setAlignmentY(0.0F);
 
         Puestos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Puestos.setText("Puestos:");
@@ -120,7 +126,10 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 47, 372, 228);
+        jPanel1.setBounds(20, 47, 372, 235);
+
+        jPanel2.setAlignmentX(0.0F);
+        jPanel2.setAlignmentY(0.0F);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Postulantes:");
@@ -154,9 +163,9 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 281, 372, 179);
+        jPanel2.setBounds(20, 281, 372, 186);
 
-        setBounds(0, 0, 451, 546);
+        setBounds(0, 0, 412, 546);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed

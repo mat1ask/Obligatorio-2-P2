@@ -34,23 +34,23 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         listPostulantes = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelExperiencia = new javax.swing.JScrollPane();
         listExperiencia = new javax.swing.JList<>();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        labelNombre = new javax.swing.JLabel();
+        JLabelCedula = new javax.swing.JLabel();
+        JLabelDireccion = new javax.swing.JLabel();
+        JLabelTelefono = new javax.swing.JLabel();
+        JLabelMail = new javax.swing.JLabel();
+        JLabelLinkedin = new javax.swing.JLabel();
+        JLabelFormato = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         textBuscar = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -74,7 +74,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Historial de postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(298, 12, 210, 25);
+        jLabel1.setBounds(298, 12, 230, 22);
 
         listPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -135,6 +135,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel5.setText("Telefono:");
         jLabel5.setAlignmentY(0.0F);
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Mail:");
+        jLabel6.setAlignmentY(0.0F);
+
         listExperiencia.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -142,9 +146,33 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         });
         panelExperiencia.setViewportView(listExperiencia);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("Mail:");
-        jLabel6.setAlignmentY(0.0F);
+        labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelNombre.setText("JLabelNombre");
+        labelNombre.setAlignmentY(0.0F);
+
+        JLabelCedula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelCedula.setText("JLabelCedula");
+        JLabelCedula.setAlignmentY(0.0F);
+
+        JLabelDireccion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelDireccion.setText("JLabelDireccion");
+        JLabelDireccion.setAlignmentY(0.0F);
+
+        JLabelTelefono.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelTelefono.setText("JLabelTelefono");
+        JLabelTelefono.setAlignmentY(0.0F);
+
+        JLabelMail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelMail.setText("JLabelMail");
+        JLabelMail.setAlignmentY(0.0F);
+
+        JLabelLinkedin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelLinkedin.setText("JLabelLinkedin");
+        JLabelLinkedin.setAlignmentY(0.0F);
+
+        JLabelFormato.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelFormato.setText("JLabelFormato");
+        JLabelFormato.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,15 +192,15 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1)
-                    .addComponent(panelExperiencia))
-                .addContainerGap())
+                    .addComponent(labelNombre)
+                    .addComponent(JLabelCedula)
+                    .addComponent(JLabelDireccion)
+                    .addComponent(JLabelTelefono)
+                    .addComponent(JLabelMail)
+                    .addComponent(JLabelLinkedin)
+                    .addComponent(JLabelFormato)
+                    .addComponent(panelExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel10, jLabel2, jLabel3, jLabel4, jLabel5});
@@ -181,43 +209,39 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel3)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel4)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel5)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel6)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel9)
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel10))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(labelNombre))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(JLabelCedula))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(JLabelDireccion))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(JLabelTelefono))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(JLabelMail))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(JLabelLinkedin))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(JLabelFormato))
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(panelExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7});
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel10, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel8, jLabel9});
 
@@ -323,9 +347,9 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 860, 603);
+        jPanel3.setBounds(18, 65, 867, 604);
 
-        setBounds(0, 0, 966, 755);
+        setBounds(0, 0, 850, 748);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
@@ -380,6 +404,12 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabelCedula;
+    private javax.swing.JLabel JLabelDireccion;
+    private javax.swing.JLabel JLabelFormato;
+    private javax.swing.JLabel JLabelLinkedin;
+    private javax.swing.JLabel JLabelMail;
+    private javax.swing.JLabel JLabelTelefono;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JButton botonReset;
     private javax.swing.JButton botonSalir;
@@ -400,13 +430,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel labelNombre;
     private javax.swing.JList<String> listExperiencia;
     private javax.swing.JList<String> listPostulantes;
     private javax.swing.JScrollPane panelExperiencia;

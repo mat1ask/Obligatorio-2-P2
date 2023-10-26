@@ -44,17 +44,17 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Tema:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 20, 50, 16);
+        jLabel1.setBounds(20, 20, 50, 15);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("NIvel:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 50, 16);
+        jLabel2.setBounds(20, 60, 50, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Experiencia:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(15, 99, 70, 16);
+        jLabel3.setBounds(15, 99, 80, 15);
 
         comboTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboTema.addActionListener(new java.awt.event.ActionListener() {
@@ -63,9 +63,9 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboTema);
-        comboTema.setBounds(112, 18, 247, 22);
+        comboTema.setBounds(112, 18, 247, 23);
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(114, 58, 87, 22);
+        jSpinner1.setBounds(114, 58, 87, 23);
 
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         getContentPane().add(scrollExperiencias);
         scrollExperiencias.setBounds(109, 99, 250, 106);
 
-        setBounds(0, 0, 440, 338);
+        setBounds(0, 0, 389, 283);
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTemaActionPerformed

@@ -53,42 +53,42 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Titulo.setText("Alta Postulante");
         getContentPane().add(Titulo);
-        Titulo.setBounds(164, 6, 150, 25);
+        Titulo.setBounds(180, 10, 150, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(6, 45, 55, 16);
+        jLabel2.setBounds(20, 50, 55, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Direccion:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(6, 123, 55, 16);
+        jLabel3.setBounds(20, 120, 61, 15);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Telefono:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(6, 162, 55, 16);
+        jLabel4.setBounds(20, 160, 70, 15);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Mail:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(6, 198, 55, 16);
+        jLabel5.setBounds(20, 200, 55, 15);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Linkedin:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(6, 237, 55, 16);
+        jLabel6.setBounds(20, 240, 60, 15);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(6, 278, 55, 16);
+        jLabel7.setBounds(20, 280, 55, 15);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Cedula:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(6, 81, 55, 16);
+        jLabel8.setBounds(20, 80, 55, 15);
 
         botonSiguiente.setText("Siguiente");
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonSiguiente);
-        botonSiguiente.setBounds(322, 315, 90, 23);
+        botonSiguiente.setBounds(330, 320, 90, 23);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(6, 315, 90, 23);
+        botonCancelar.setBounds(20, 320, 90, 23);
 
         textNombre.setAlignmentX(0.0F);
         textNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -115,33 +115,33 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textNombre);
-        textNombre.setBounds(95, 42, 317, 22);
+        textNombre.setBounds(110, 40, 317, 23);
 
         textLinkedin.setAlignmentX(0.0F);
         getContentPane().add(textLinkedin);
-        textLinkedin.setBounds(95, 237, 317, 22);
+        textLinkedin.setBounds(110, 240, 317, 23);
 
         textMail.setAlignmentX(0.0F);
         getContentPane().add(textMail);
-        textMail.setBounds(95, 198, 317, 22);
+        textMail.setBounds(110, 200, 317, 23);
 
         textTelefono.setAlignmentX(0.0F);
         getContentPane().add(textTelefono);
-        textTelefono.setBounds(95, 159, 317, 22);
+        textTelefono.setBounds(110, 160, 317, 23);
 
         textDireccion.setAlignmentX(0.0F);
         getContentPane().add(textDireccion);
-        textDireccion.setBounds(95, 120, 317, 22);
+        textDireccion.setBounds(110, 120, 317, 23);
 
         textCedula.setAlignmentX(0.0F);
         getContentPane().add(textCedula);
-        textCedula.setBounds(95, 81, 317, 22);
+        textCedula.setBounds(110, 80, 317, 23);
 
         GrupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
         radioRemoto.setAlignmentY(0.0F);
         getContentPane().add(radioRemoto);
-        radioRemoto.setBounds(96, 276, 90, 21);
+        radioRemoto.setBounds(110, 280, 90, 21);
 
         GrupoFormato.add(radioPresencial);
         radioPresencial.setText("Presencial");
@@ -152,7 +152,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(radioPresencial);
-        radioPresencial.setBounds(204, 276, 100, 21);
+        radioPresencial.setBounds(220, 280, 100, 21);
 
         GrupoFormato.add(radioMixto);
         radioMixto.setText("Mixto");
@@ -163,7 +163,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(radioMixto);
-        radioMixto.setBounds(316, 276, 80, 21);
+        radioMixto.setBounds(330, 280, 80, 21);
 
         setBounds(0, 0, 483, 398);
     }// </editor-fold>//GEN-END:initComponents
