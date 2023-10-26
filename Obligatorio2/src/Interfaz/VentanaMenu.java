@@ -173,7 +173,8 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemHistorialPostulanteActionPerformed
 
     private void menuItemHistorialConsultaTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialConsultaTematicaActionPerformed
-        // TODO add your handling code here:
+        VentanaConsultaPorTematica ventana = new VentanaConsultaPorTematica();
+        ventana.setVisible(true);
     }//GEN-LAST:event_menuItemHistorialConsultaTematicaActionPerformed
 
     private void MenuRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistroActionPerformed
