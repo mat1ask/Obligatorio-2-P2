@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author matiaskunin
- */
+import Dominio.Postulante;
+import java.util.HashMap;
+            
 public class VentanaAltaPostulante extends javax.swing.JFrame {
-
     /**
      * Creates new form VentanaAltaPostulante
      */
@@ -26,7 +20,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GrupoFormato = new javax.swing.ButtonGroup();
+        grupoFormato = new javax.swing.ButtonGroup();
         Titulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -137,13 +131,13 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         getContentPane().add(textCedula);
         textCedula.setBounds(110, 80, 317, 23);
 
-        GrupoFormato.add(radioRemoto);
+        grupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
         radioRemoto.setAlignmentY(0.0F);
         getContentPane().add(radioRemoto);
         radioRemoto.setBounds(110, 280, 90, 21);
 
-        GrupoFormato.add(radioPresencial);
+        grupoFormato.add(radioPresencial);
         radioPresencial.setText("Presencial");
         radioPresencial.setAlignmentY(0.0F);
         radioPresencial.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +148,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         getContentPane().add(radioPresencial);
         radioPresencial.setBounds(220, 280, 100, 21);
 
-        GrupoFormato.add(radioMixto);
+        grupoFormato.add(radioMixto);
         radioMixto.setText("Mixto");
         radioMixto.setAlignmentY(0.0F);
         radioMixto.addActionListener(new java.awt.event.ActionListener() {
@@ -169,9 +163,41 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        String formato = "";
+        if(radioMixto.isSelected()){
+            formato = "Mixto";
+        }else{
+            if(radioPresencial.isSelected()){
+                formato = "Presencial";
+            }else{
+                if(radioRemoto.isSelected()){
+                    formato = "Remoto";
+                }
+            }
+        }
+        
+        String[] valores = { textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato};       
+        
+        //Comprobar si algun campo esta vacio
+        boolean bien = true;
+        //HACER cedula repetida
+        for (int i = 0; i < valores.length && bien; i++) {
+            if(valores[i].equalsIgnoreCase("") || valores[i].isBlank() || valores[i].isEmpty()) bien = false;
+        }        
+        //Formato direccion?? hay que comprobar??
+        //Formato telefono
+        if(bien){
+            for (int i = 0; i < valores[3].length() && bien; i++) {
+                if(valores[3].matches("[0-9]+")) bien = false;
+            }
+        }
+        
+        //
+        if(bien){
+            Postulante postulante = new Postulante(valores);
             VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2();
             ventana.setVisible(true);
-            
+        }
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
@@ -226,10 +252,10 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup GrupoFormato;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonSiguiente;
+    private javax.swing.ButtonGroup grupoFormato;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

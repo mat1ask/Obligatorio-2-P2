@@ -1,14 +1,12 @@
 
 package Dominio;
 
+import java.util.*;
+
 public class Sistema {
-    public class Postulante{
-        String nombre;
-        int cedula;
-        String direccion;
-        int telefono;
-        String mail;
-        String linkedin;
-        String formato;
-    }
+    HashMap postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
+    ArrayList tematicas;
+    HashMap evaluadores;
+    ArrayList puestos;
+    HashMap entrevistas;
 }
