@@ -4,17 +4,20 @@
  */
 package Interfaz;
 
+import Dominio.Sistema;
+
 /**
  *
  * @author nacho
  */
 public class VentanaBajaPostulante extends javax.swing.JFrame {
-
+    private Sistema sistema;
     /**
      * Creates new form VentanaBajaPostulante
      */
-    public VentanaBajaPostulante() {
+    public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
     }
 
     /**
@@ -92,7 +95,8 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaBajaPostulante().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaBajaPostulante(sistema).setVisible(true);
             }
         });
     }

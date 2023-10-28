@@ -1,6 +1,7 @@
 package Dominio;
 
 public class Evaluador {
+
     String nombre;
     int cedula;
     String direccion;
@@ -21,6 +22,5 @@ public class Evaluador {
     public int getAnoIngreso() {
         return anoIngreso;
     }
-    
-    
+
 }

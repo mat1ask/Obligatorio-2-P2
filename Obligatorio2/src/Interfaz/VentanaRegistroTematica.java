@@ -1,12 +1,14 @@
 package Interfaz;
 
+import Dominio.Sistema;
+
 public class VentanaRegistroTematica extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaRegistroTematica
-     */
-    public VentanaRegistroTematica() {
+    private Sistema sistema;
+    
+    public VentanaRegistroTematica(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
     }
 
     /**
@@ -128,7 +130,8 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistroTematica().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaRegistroTematica(sistema).setVisible(true);
             }
         });
     }

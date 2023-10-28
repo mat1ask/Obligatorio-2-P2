@@ -4,17 +4,20 @@
  */
 package Interfaz;
 
+import Dominio.Sistema;
+
 /**
  *
  * @author matiaskunin
  */
 public class VentanaConsultaPorTematica extends javax.swing.JFrame {
-
+    private Sistema sistema;
     /**
      * Creates new form VentanaConsultaPorTematica
      */
-    public VentanaConsultaPorTematica() {
+    public VentanaConsultaPorTematica(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
     }
 
     /**
@@ -182,7 +185,8 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaConsultaPorTematica().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaConsultaPorTematica(sistema).setVisible(true);
             }
         });
     }

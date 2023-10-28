@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author matiaskunin
- */
+import Dominio.Sistema;
+
 public class VentanaRegistroPuesto extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaRegistroPuesto
-     */
-    public VentanaRegistroPuesto() {
+    private Sistema sistema;
+    
+    public VentanaRegistroPuesto(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
     }
 
     /**
@@ -241,7 +235,8 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistroPuesto().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaRegistroPuesto(sistema).setVisible(true);
             }
         });
     }

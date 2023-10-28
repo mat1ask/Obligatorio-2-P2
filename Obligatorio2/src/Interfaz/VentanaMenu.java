@@ -4,17 +4,17 @@
  */
 package Interfaz;
 
-/**
- *
- * @author matiaskunin
- */
-public class VentanaMenu extends javax.swing.JFrame {
+import Dominio.Sistema;
 
+public class VentanaMenu extends javax.swing.JFrame {
+    
+    private Sistema sistema;
     /**
      * Creates new form menuFrame
      */
     public VentanaMenu() {
         initComponents();
+        this.sistema = new Sistema();
     }
 
     /**
@@ -158,22 +158,22 @@ public class VentanaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemRegistroTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroTematicaActionPerformed
-        VentanaRegistroTematica ventana = new VentanaRegistroTematica();
+        VentanaRegistroTematica ventana = new VentanaRegistroTematica(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
-        VentanaConsultaPuestos ventana = new VentanaConsultaPuestos();
+        VentanaConsultaPuestos ventana = new VentanaConsultaPuestos(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemConsultaPuestoActionPerformed
 
     private void menuItemHistorialPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialPostulanteActionPerformed
-        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante();
+        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemHistorialPostulanteActionPerformed
 
     private void menuItemHistorialConsultaTematicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialConsultaTematicaActionPerformed
-        VentanaConsultaPorTematica ventana = new VentanaConsultaPorTematica();
+        VentanaConsultaPorTematica ventana = new VentanaConsultaPorTematica(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemHistorialConsultaTematicaActionPerformed
 
@@ -182,32 +182,32 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistroActionPerformed
 
     private void menuItemBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBajaPostulanteActionPerformed
-        VentanaBajaPostulante ventana = new VentanaBajaPostulante();
+        VentanaBajaPostulante ventana = new VentanaBajaPostulante(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemBajaPostulanteActionPerformed
 
     private void menuItemAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAltaPostulanteActionPerformed
-        VentanaAltaPostulante ventana = new VentanaAltaPostulante();
+        VentanaAltaPostulante ventana = new VentanaAltaPostulante(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemAltaPostulanteActionPerformed
 
     private void menuConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaActionPerformed
-        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante();
+        VentanaHistorialPostulante ventana = new VentanaHistorialPostulante(this.sistema);
         ventana.setVisible(true);         
     }//GEN-LAST:event_menuConsultaActionPerformed
 
     private void menuItemIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIngresoEntrevistaActionPerformed
-        VentanaIngresoEntrevista ventana = new VentanaIngresoEntrevista();
+        VentanaIngresoEntrevista ventana = new VentanaIngresoEntrevista(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemIngresoEntrevistaActionPerformed
 
     private void menuItemRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroEvaluadorActionPerformed
-        VentanaRegistroEvaluador ventana = new VentanaRegistroEvaluador();
+        VentanaRegistroEvaluador ventana = new VentanaRegistroEvaluador(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemRegistroEvaluadorActionPerformed
 
     private void menuItemRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroPuestoActionPerformed
-        VentanaRegistroPuesto ventana = new VentanaRegistroPuesto();
+        VentanaRegistroPuesto ventana = new VentanaRegistroPuesto(this.sistema);
         ventana.setVisible(true);
     }//GEN-LAST:event_menuItemRegistroPuestoActionPerformed
 

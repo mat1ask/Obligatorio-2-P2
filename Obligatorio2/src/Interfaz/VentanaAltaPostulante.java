@@ -1,14 +1,17 @@
 package Interfaz;
 
 import Dominio.Postulante;
-import java.util.HashMap;
-            
+import Dominio.Sistema;
+import Dominio.ComprobarFormato;
+import javax.swing.JOptionPane;
+
 public class VentanaAltaPostulante extends javax.swing.JFrame {
-    /**
-     * Creates new form VentanaAltaPostulante
-     */
-    public VentanaAltaPostulante() {
+
+    private Sistema sistema;
+
+    public VentanaAltaPostulante(Sistema sistema) {
         initComponents();
+        this.sistema = sistema;
     }
 
     /**
@@ -164,39 +167,41 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         String formato = "";
-        if(radioMixto.isSelected()){
+        if (radioMixto.isSelected()) {
             formato = "Mixto";
-        }else{
-            if(radioPresencial.isSelected()){
+        } else {
+            if (radioPresencial.isSelected()) {
                 formato = "Presencial";
-            }else{
-                if(radioRemoto.isSelected()){
+            } else {
+                if (radioRemoto.isSelected()) {
                     formato = "Remoto";
                 }
             }
         }
-        
-        String[] valores = { textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato};       
-        
-        //Comprobar si algun campo esta vacio
+
+        String[] valores = {textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato};
+
+        //PASAR CADA METODO A VALID INPUT EN SU CAMPO CORRESPONDIENTE ????
         boolean bien = true;
-        //HACER cedula repetida
+
         for (int i = 0; i < valores.length && bien; i++) {
-            if(valores[i].equalsIgnoreCase("") || valores[i].isBlank() || valores[i].isEmpty()) bien = false;
-        }        
-        //Formato direccion?? hay que comprobar??
-        //Formato telefono
-        if(bien){
-            for (int i = 0; i < valores[3].length() && bien; i++) {
-                if(valores[3].matches("[0-9]+")) bien = false;
+            if( !(valores[i].length() > 1) || valores[i] == null){
+                bien = false;
             }
+            System.out.println(valores[i]);
         }
+
+        if(!ComprobarFormato.linkedin(textLinkedin.getText()) || !ComprobarFormato.mail(textMail.getText()) || !ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textTelefono.getText()) ){
+            bien = false;
+        }
+         
         
-        //
-        if(bien){
-            Postulante postulante = new Postulante(valores);
-            VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2();
+        if (bien) {
+            Postulante postulante = new Postulante(textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
+            VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2(this.sistema, postulante);
             ventana.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error de formato en alguno de los datos.", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
@@ -246,7 +251,8 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAltaPostulante().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaAltaPostulante(sistema).setVisible(true);
             }
         });
     }

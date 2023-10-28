@@ -1,20 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-/**
- *
- * @author matiaskunin
- */
+import Dominio.Postulante;
+import Dominio.Sistema;
+import javax.swing.JOptionPane;
+
 public class VentanaAltaPostulante2 extends javax.swing.JFrame {
+
+    private Postulante postulante;
+    private Sistema sistema;
 
     /**
      * Creates new form VentanaAltaPostulante2
      */
-    public VentanaAltaPostulante2() {
+    public VentanaAltaPostulante2(Sistema sistema, Postulante postulante) {
         initComponents();
+        this.sistema = sistema;
+        this.postulante = postulante;
     }
 
     /**
@@ -116,15 +117,20 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTemaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        // TODO add your handling code here:
+        if (sistema.altaPostulante(postulante)) {     // En la condicion del if se llama al metodo que se encarga de agregar al postulante en caso de que el formato sea correcto
+            JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "El postulante NO se ingreso al sistema. Tiene un error en el formato", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
@@ -157,7 +163,9 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAltaPostulante2().setVisible(true);
+                Postulante postulante = new Postulante();
+                Sistema sistema = new Sistema();
+                new VentanaAltaPostulante2(sistema, postulante).setVisible(true);
             }
         });
     }
