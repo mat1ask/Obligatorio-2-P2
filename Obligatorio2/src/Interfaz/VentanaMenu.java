@@ -8,7 +8,6 @@ import Dominio.Sistema;
 
 public class VentanaMenu extends javax.swing.JFrame {
     
-    private Sistema sistema;
     /**
      * Creates new form menuFrame
      */
@@ -264,4 +263,5 @@ public class VentanaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemRegistroPuesto;
     private javax.swing.JMenuItem menuItemRegistroTematica;
     // End of variables declaration//GEN-END:variables
+    private Sistema sistema;
 }

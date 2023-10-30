@@ -185,17 +185,15 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         boolean bien = true;
 
         for (int i = 0; i < valores.length && bien; i++) {
-            if( !(valores[i].length() > 1) || valores[i] == null){
+            if (!(valores[i].length() > 1) || valores[i] == null) {
                 bien = false;
             }
-            System.out.println(valores[i]);
         }
 
-        if(!ComprobarFormato.linkedin(textLinkedin.getText()) || !ComprobarFormato.mail(textMail.getText()) || !ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textTelefono.getText()) ){
+        if (!ComprobarFormato.linkedin(textLinkedin.getText()) || !ComprobarFormato.mail(textMail.getText()) || !ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textTelefono.getText())) {
             bien = false;
         }
-         
-        
+
         if (bien) {
             Postulante postulante = new Postulante(textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
             VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2(this.sistema, postulante);

@@ -13,8 +13,8 @@ public class Sistema {
     public Sistema() {
         this.postulantes = new HashMap<>();
         this.tematicas = new ArrayList<>();
-        this.evaluadores = evaluadores;
-        this.puestos = puestos;
+        this.evaluadores = new HashMap<String, Evaluador>();
+        this.puestos = new ArrayList<>();
         this.entrevistas = entrevistas;
     }
 
@@ -49,5 +49,9 @@ public class Sistema {
 
     public void bajaPostulante(Postulante postulante) {
         this.postulantes.remove(postulante.cedula);
+    }
+    
+    public void agregarTematica(Tematica tematica){
+        this.tematicas.add(tematica);
     }
 }
