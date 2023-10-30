@@ -1,6 +1,7 @@
 package Dominio;
 
 import java.util.*;
+import javax.swing.*;
 
 public class Sistema {
 
@@ -54,4 +55,12 @@ public class Sistema {
     public void agregarTematica(Tematica tematica){
         this.tematicas.add(tematica);
     }
+    public void limpiarCamposField( JTextField texto){
+        texto.setText("");
+    }
+    public void limpiarCamposArea( JTextArea texto){
+        texto.setText("");
+    }
+    
+    
 }

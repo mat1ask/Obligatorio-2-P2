@@ -2,6 +2,7 @@ package Interfaz;
 
 import Dominio.Sistema;
 import Dominio.Tematica;
+import javax.swing.*;
 
 public class VentanaRegistroTematica extends javax.swing.JFrame {
     
@@ -23,9 +24,10 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
-        textDescripcion = new javax.swing.JTextField();
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textDescripcion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -33,27 +35,19 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro Tematica");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(140, 15, 210, 22);
+        jLabel1.setBounds(140, 15, 210, 25);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 58, 80, 15);
+        jLabel2.setBounds(20, 58, 80, 16);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Descripcion:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 97, 100, 15);
+        jLabel3.setBounds(20, 97, 100, 16);
         getContentPane().add(textNombre);
-        textNombre.setBounds(106, 58, 309, 23);
-
-        textDescripcion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textDescripcionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(textDescripcion);
-        textDescripcion.setBounds(106, 97, 309, 119);
+        textNombre.setBounds(106, 58, 309, 22);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,12 +67,15 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         getContentPane().add(botonRegistrar);
         botonRegistrar.setBounds(316, 257, 99, 23);
 
+        textDescripcion.setColumns(20);
+        textDescripcion.setRows(5);
+        jScrollPane1.setViewportView(textDescripcion);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(110, 100, 300, 130);
+
         setBounds(0, 0, 460, 357);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void textDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDescripcionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textDescripcionActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
                 dispose();
@@ -86,8 +83,10 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
-        
         sistema.agregarTematica(tema);
+        sistema.limpiarCamposField(textNombre);
+        sistema.limpiarCamposArea(textDescripcion);
+        JOptionPane.showMessageDialog(this,"La tematica a sido ingresada correctamente");
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     /**
@@ -132,7 +131,8 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField textDescripcion;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textDescripcion;
     private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
     private Sistema sistema;

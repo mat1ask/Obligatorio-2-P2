@@ -1,21 +1,29 @@
 package Interfaz;
 
-import Dominio.Postulante;
-import Dominio.Sistema;
-import javax.swing.JOptionPane;
+import Dominio.*;
+import java.util.*;
+import javax.swing.*;
 
 public class VentanaAltaPostulante2 extends javax.swing.JFrame {
 
     private Postulante postulante;
     private Sistema sistema;
 
-    /**
-     * Creates new form VentanaAltaPostulante2
-     */
+    
     public VentanaAltaPostulante2(Sistema sistema, Postulante postulante) {
         initComponents();
         this.sistema = sistema;
         this.postulante = postulante;
+        comboTema.removeAllItems();
+        DefaultListModel<String> modeloVacio = new DefaultListModel<>();
+        listaExperiencia.setModel(modeloVacio);
+
+        ArrayList<Tematica> tematicas =sistema.getTematicas();
+            for(Tematica elemento : tematicas ){
+                comboTema.addItem(elemento.toString());
+            }
+        
+
     }
 
     /**
@@ -37,7 +45,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
         scrollExperiencias = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaExperiencia = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -45,17 +53,17 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Tema:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 20, 50, 15);
+        jLabel1.setBounds(20, 20, 50, 16);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("NIvel:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 50, 15);
+        jLabel2.setBounds(20, 60, 50, 16);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Experiencia:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(15, 99, 80, 15);
+        jLabel3.setBounds(15, 99, 80, 16);
 
         comboTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboTema.addActionListener(new java.awt.event.ActionListener() {
@@ -64,9 +72,9 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboTema);
-        comboTema.setBounds(112, 18, 247, 23);
+        comboTema.setBounds(112, 18, 247, 22);
         getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(114, 58, 87, 23);
+        jSpinner1.setBounds(114, 58, 87, 22);
 
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,12 +107,12 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         getContentPane().add(botonRegistrar);
         botonRegistrar.setBounds(270, 220, 90, 23);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaExperiencia.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        scrollExperiencias.setViewportView(jList1);
+        scrollExperiencias.setViewportView(listaExperiencia);
 
         getContentPane().add(scrollExperiencias);
         scrollExperiencias.setBounds(109, 99, 250, 106);
@@ -113,7 +121,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTemaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_comboTemaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
@@ -123,6 +131,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         if (sistema.altaPostulante(postulante)) {     // En la condicion del if se llama al metodo que se encarga de agregar al postulante en caso de que el formato sea correcto
             JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+            
         } else {
             JOptionPane.showMessageDialog(null, "El postulante NO se ingreso al sistema. Tiene un error en el formato", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
 
@@ -179,8 +188,8 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JList<String> listaExperiencia;
     private javax.swing.JScrollPane scrollExperiencias;
     // End of variables declaration//GEN-END:variables
 }
