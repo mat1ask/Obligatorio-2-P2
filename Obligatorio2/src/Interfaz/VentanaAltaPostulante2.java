@@ -8,15 +8,14 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
 
     private Postulante postulante;
     private Sistema sistema;
-
+    private DefaultListModel<String> listaExp = new DefaultListModel<>();
     
     public VentanaAltaPostulante2(Sistema sistema, Postulante postulante) {
         initComponents();
         this.sistema = sistema;
         this.postulante = postulante;
         comboTema.removeAllItems();
-        DefaultListModel<String> modeloVacio = new DefaultListModel<>();
-        listaExperiencia.setModel(modeloVacio);
+        listaExperiencia.setModel(listaExp);
 
         ArrayList<Tematica> tematicas =sistema.getTematicas();
             for(Tematica elemento : tematicas ){
@@ -39,7 +38,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         comboTema = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
+        nivel = new javax.swing.JSpinner();
         botonAgregar = new javax.swing.JButton();
         botonEliminar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
@@ -73,8 +72,8 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         });
         getContentPane().add(comboTema);
         comboTema.setBounds(112, 18, 247, 22);
-        getContentPane().add(jSpinner1);
-        jSpinner1.setBounds(114, 58, 87, 22);
+        getContentPane().add(nivel);
+        nivel.setBounds(114, 58, 87, 22);
 
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +85,11 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         botonAgregar.setBounds(219, 58, 90, 23);
 
         botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
+            }
+        });
         getContentPane().add(botonEliminar);
         botonEliminar.setBounds(11, 121, 90, 23);
 
@@ -125,13 +129,18 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     }//GEN-LAST:event_comboTemaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-
+        int level = (int) nivel.getValue();
+        postulante.setNivel(level);
+        String tema = (String)comboTema.getSelectedItem();
+        listaExp.addElement(tema + "("+level+")");
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         if (sistema.altaPostulante(postulante)) {     // En la condicion del if se llama al metodo que se encarga de agregar al postulante en caso de que el formato sea correcto
-            JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
             
+            
+            JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(null, "El postulante NO se ingreso al sistema. Tiene un error en el formato", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
 
@@ -141,6 +150,16 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+    
+    int indiceSeleccionado = listaExperiencia.getSelectedIndex();
+
+    if (indiceSeleccionado != -1) {
+        DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
+        modeloLista.remove(indiceSeleccionado);
+    }
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,8 +207,8 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JList<String> listaExperiencia;
+    private javax.swing.JSpinner nivel;
     private javax.swing.JScrollPane scrollExperiencias;
     // End of variables declaration//GEN-END:variables
 }

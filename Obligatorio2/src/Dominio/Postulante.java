@@ -12,6 +12,8 @@ public class Postulante {
     String linkedin;
     String formato;
     HashMap temas;
+    int nivel;
+    String experiencia;
 
     public Postulante(String nombre, String cedula, String direccion, String telefono, String mail, String linkedin, String formato) {
         this.nombre = nombre;
@@ -24,6 +26,10 @@ public class Postulante {
         this.temas = new HashMap();
     }
 
+    public int getNivel(){
+        return nivel;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -54,6 +60,17 @@ public class Postulante {
 
     public HashMap getTemas() {
         return temas;
+    }
+    
+    public String getExperiencia() {
+        return experiencia;
+    }
+    
+    public void setExperiencia(String exp){
+        this.experiencia=exp;
+    }
+    public void setNivel(int nivel){
+        this.nivel=nivel;
     }
 
     public void setNombre(String nombre) {

@@ -1,7 +1,7 @@
 package Interfaz;
 
-import Dominio.Sistema;
-import Dominio.Tematica;
+import Dominio.*;
+import java.util.*;
 import javax.swing.*;
 
 public class VentanaRegistroTematica extends javax.swing.JFrame {
@@ -9,6 +9,18 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     public VentanaRegistroTematica(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
+    }
+    
+    public boolean yaRegistrada(){
+        boolean registrada=false;
+        String nombreT = textNombre.getText();
+        ArrayList<Tematica> listaNombres = sistema.getTematicas();
+        for(Tematica elemento: listaNombres){
+            if(nombreT.equals(elemento.toString())){
+                registrada=true;
+            }
+        }
+        return registrada;
     }
 
     /**
@@ -82,13 +94,17 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
+        if(yaRegistrada()!=true){
         Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
         sistema.agregarTematica(tema);
         sistema.limpiarCamposField(textNombre);
         sistema.limpiarCamposArea(textDescripcion);
         JOptionPane.showMessageDialog(this,"La tematica a sido ingresada correctamente");
+        }else{
+            JOptionPane.showMessageDialog(this, "Esta tematica ya ha sido ingresada, intente nuevamente");
+        }
     }//GEN-LAST:event_botonRegistrarActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
