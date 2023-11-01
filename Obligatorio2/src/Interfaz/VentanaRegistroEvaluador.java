@@ -1,8 +1,9 @@
 package Interfaz;
 
-import Dominio.ComprobarFormato;
-import Dominio.Evaluador;
-import Dominio.Sistema;
+import dominio.ComprobarFormato;
+import dominio.Evaluador;
+import dominio.Sistema;
+import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author nacho
  */
 public class VentanaRegistroEvaluador extends javax.swing.JFrame {
-    
+    Evaluador evaluador;
 
     public VentanaRegistroEvaluador(Sistema sistema) {
         initComponents();
@@ -90,7 +91,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         getContentPane().add(botonCancelar);
         botonCancelar.setBounds(20, 166, 90, 23);
 
-        pack();
+        setBounds(0, 0, 414, 307);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
@@ -109,9 +110,14 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         if (!ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textAnoDeIngreso.getText())) {
             bien = false;
         }
+        
         if (bien) {
-            Evaluador evaluador = new Evaluador(textNombre.getText(),textCedula.getText(), TextDireccion.getText(),textAnoDeIngreso.getText());
-            
+            long cedula=Long.parseLong(textCedula.getText());
+            int anoIngreso =parseInt(textAnoDeIngreso.getText());
+            evaluador = new Evaluador(textNombre.getText(),cedula, TextDireccion.getText(),anoIngreso);
+            if(sistema.esUnica(evaluador)==true){
+               //hacer metodo de agregar al hashmap el evaluador 
+            }
             sistema.limpiarCamposField(textCedula);
             sistema.limpiarCamposField(TextDireccion);
             sistema.limpiarCamposField(textNombre);

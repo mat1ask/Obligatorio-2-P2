@@ -1,11 +1,11 @@
-package Dominio;
+package dominio;
 
 import java.util.*;
 
 public class Postulante {
 
     String nombre;
-    String cedula;
+    long cedula;
     String direccion;
     String telefono;
     String mail;
@@ -15,7 +15,7 @@ public class Postulante {
     int nivel;
     String experiencia;
 
-    public Postulante(String nombre, String cedula, String direccion, String telefono, String mail, String linkedin, String formato) {
+    public Postulante(String nombre, long cedula, String direccion, String telefono, String mail, String linkedin, String formato) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.direccion = direccion;
@@ -34,7 +34,7 @@ public class Postulante {
         return nombre;
     }
 
-    public String getCedula() {
+    public long getCedula() {
         return cedula;
     }
 
@@ -77,7 +77,7 @@ public class Postulante {
         this.nombre = nombre;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(long cedula) {
         this.cedula = cedula;
     }
 

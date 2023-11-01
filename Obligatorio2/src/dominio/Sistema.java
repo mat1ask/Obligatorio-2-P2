@@ -1,4 +1,4 @@
-package Dominio;
+package dominio;
 
 import java.util.*;
 import javax.swing.*;
@@ -41,15 +41,17 @@ public class Sistema {
 
     public boolean altaPostulante(Postulante postulante) {
         boolean ret = false;
-        if (!postulantes.containsKey(postulante.cedula)) {
-            this.postulantes.put(postulante.cedula, postulante);
+        String cedula=String.valueOf(postulante.cedula);
+        if (!postulantes.containsKey(cedula)) {
+            this.postulantes.put(cedula, postulante);
             ret = true;
         }
         return ret;
     }
 
     public void bajaPostulante(Postulante postulante) {
-        this.postulantes.remove(postulante.cedula);
+        String cedula=String.valueOf(postulante.cedula);
+        this.postulantes.remove(cedula);
     }
     
     public void agregarTematica(Tematica tematica){
@@ -62,5 +64,14 @@ public class Sistema {
         texto.setText("");
     }
     
+    public boolean esUnica (Evaluador evaluador){
+        boolean ret = false;
+        String cedula=String.valueOf(evaluador.cedula);
+        if (!evaluadores.containsKey(cedula)) {
+            this.evaluadores.put(cedula, evaluador);
+            ret = true;
+        }
+        return ret;
+    }
     
 }

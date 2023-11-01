@@ -1,8 +1,9 @@
 package Interfaz;
 
-import Dominio.Postulante;
-import Dominio.Sistema;
-import Dominio.ComprobarFormato;
+import dominio.Postulante;
+import dominio.Sistema;
+import dominio.ComprobarFormato;
+import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
 public class VentanaAltaPostulante extends javax.swing.JFrame {
@@ -190,11 +191,12 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             }
         }
 
-        if (/*!ComprobarFormato.linkedin(textLinkedin.getText()) || !ComprobarFormato.mail(textMail.getText()) || */!ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textTelefono.getText())) {
+        if (!ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textTelefono.getText())) {
             bien = false;
         }
         if (bien) {
-            Postulante postulante = new Postulante(textNombre.getText(), textCedula.getText(), textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
+            long cedula=Long.parseLong(textCedula.getText());
+            Postulante postulante = new Postulante(textNombre.getText(), cedula, textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
             VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2(this.sistema, postulante);
             ventana.setVisible(true);
             sistema.limpiarCamposField(textCedula);

@@ -4,7 +4,7 @@
  */
 package Interfaz;
 
-import Dominio.Sistema;
+import dominio.Sistema;
 
 /**
  *
