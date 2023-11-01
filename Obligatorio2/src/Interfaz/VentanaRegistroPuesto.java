@@ -1,6 +1,6 @@
 package Interfaz;
 
-import dominio.Sistema;
+import Dominio.Sistema;
 
 public class VentanaRegistroPuesto extends javax.swing.JFrame {
 

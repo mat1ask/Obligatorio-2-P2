@@ -1,6 +1,7 @@
 package Interfaz;
 
-import dominio.*;
+import Dominio.Tematica;
+import Dominio.Sistema;
 import java.util.*;
 import javax.swing.*;
 

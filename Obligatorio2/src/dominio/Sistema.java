@@ -1,4 +1,4 @@
-package dominio;
+package Dominio;
 
 import java.util.*;
 import javax.swing.*;
@@ -73,5 +73,4 @@ public class Sistema {
         }
         return ret;
     }
-    
 }

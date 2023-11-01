@@ -1,23 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaz;
 
-import dominio.Sistema;
+import Dominio.Sistema;
+import Dominio.Postulante;
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.swing.DefaultListModel;
 
-/**
- *
- * @author nacho
- */
 public class VentanaBajaPostulante extends javax.swing.JFrame {
+
     private Sistema sistema;
+    private DefaultListModel<String> listaPost = new DefaultListModel<>();
+
     /**
      * Creates new form VentanaBajaPostulante
      */
     public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
+
+        listaPostulantes.removeAll();
+        listaPostulantes.setModel(listaPost);
+        Collection<Postulante> values = sistema.getPostulantes().values();
+        ArrayList<Postulante> losPostulantes = new ArrayList<Postulante>(values);
+        for (Postulante pos : losPostulantes) {
+            listaPost.addElement(pos.toString());
+        }
     }
 
     /**
@@ -32,8 +39,8 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        listaPostulantes = new javax.swing.JList<>();
+        botonEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -41,29 +48,40 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Baja de Postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(140, 10, 180, 25);
+        jLabel1.setBounds(140, 10, 180, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Postulantes:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 80, 16);
+        jLabel2.setBounds(20, 60, 80, 15);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaPostulantes);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 80, 300, 146);
+        jScrollPane1.setBounds(20, 80, 300, 154);
 
-        jButton1.setText("Eliminar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(325, 270, 80, 30);
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonEliminar);
+        botonEliminar.setBounds(325, 270, 80, 30);
 
         setBounds(0, 0, 452, 340);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        
+        Postulante post = 
+        sistema.bajaPostulante(post);
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,10 +120,10 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaPostulantes;
     // End of variables declaration//GEN-END:variables
 }

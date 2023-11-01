@@ -1,4 +1,4 @@
-package dominio;
+package Dominio;
 
 import java.util.*;
 
@@ -109,4 +109,8 @@ public class Postulante {
         this.nombre = "CONSTRUCTOR SIN ARGUMENTOS";
     }
 
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
 }

@@ -4,7 +4,7 @@
  */
 package Interfaz;
 
-import dominio.Sistema;
+import Dominio.Sistema;
 
 public class VentanaMenu extends javax.swing.JFrame {
     

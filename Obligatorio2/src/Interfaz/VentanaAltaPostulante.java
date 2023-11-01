@@ -1,8 +1,8 @@
 package Interfaz;
 
-import dominio.Postulante;
-import dominio.Sistema;
-import dominio.ComprobarFormato;
+import Dominio.Postulante;
+import Dominio.Sistema;
+import Dominio.ComprobarFormato;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 

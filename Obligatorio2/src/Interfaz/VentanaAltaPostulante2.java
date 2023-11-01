@@ -1,6 +1,8 @@
 package Interfaz;
 
-import dominio.*;
+import Dominio.Tematica;
+import Dominio.Sistema;
+import Dominio.Postulante;
 import java.util.*;
 import javax.swing.*;
 
@@ -9,7 +11,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private Postulante postulante;
     private Sistema sistema;
     private DefaultListModel<String> listaExp = new DefaultListModel<>();
-    
+
     public VentanaAltaPostulante2(Sistema sistema, Postulante postulante) {
         initComponents();
         this.sistema = sistema;
@@ -17,12 +19,10 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         comboTema.removeAllItems();
         listaExperiencia.setModel(listaExp);
 
-        ArrayList<Tematica> tematicas =sistema.getTematicas();
-            for(Tematica elemento : tematicas ){
-                comboTema.addItem(elemento.toString());
-            }
-        
-
+        ArrayList<Tematica> tematicas = sistema.getTematicas();
+        for (Tematica elemento : tematicas) {
+            comboTema.addItem(elemento.toString());
+        }
     }
 
     /**
@@ -125,20 +125,19 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboTemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTemaActionPerformed
-        
+
     }//GEN-LAST:event_comboTemaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         int level = (int) nivel.getValue();
         postulante.setNivel(level);
-        String tema = (String)comboTema.getSelectedItem();
-        listaExp.addElement(tema + "("+level+")");
+        String tema = (String) comboTema.getSelectedItem();
+        listaExp.addElement(tema + "(" + level + ")");
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         if (sistema.altaPostulante(postulante)) {     // En la condicion del if se llama al metodo que se encarga de agregar al postulante en caso de que el formato sea correcto
-            
-            
+
             JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } else {
@@ -152,13 +151,13 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-    
-    int indiceSeleccionado = listaExperiencia.getSelectedIndex();
 
-    if (indiceSeleccionado != -1) {
-        DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
-        modeloLista.remove(indiceSeleccionado);
-    }
+        int indiceSeleccionado = listaExperiencia.getSelectedIndex();
+
+        if (indiceSeleccionado != -1) {
+            DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
+            modeloLista.remove(indiceSeleccionado);
+        }
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**
