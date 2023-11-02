@@ -12,7 +12,7 @@ public class Sistema {
     HashMap entrevistas;
 
     public Sistema() {
-        this.postulantes = new HashMap<>();
+        this.postulantes = new HashMap<String, Postulante>();
         this.tematicas = new ArrayList<>();
         this.evaluadores = new HashMap<String, Evaluador>();
         this.puestos = new ArrayList<>();
@@ -49,8 +49,7 @@ public class Sistema {
         return ret;
     }
 
-    public void bajaPostulante(Postulante postulante) {
-        String cedula=String.valueOf(postulante.cedula);
+    public void bajaPostulante(String cedula) {
         this.postulantes.remove(cedula);
     }
     

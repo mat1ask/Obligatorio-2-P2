@@ -5,11 +5,13 @@ import Dominio.Postulante;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class VentanaBajaPostulante extends javax.swing.JFrame {
 
     private Sistema sistema;
     private DefaultListModel<String> listaPost = new DefaultListModel<>();
+    ArrayList<Postulante> losPostulantes = new ArrayList<Postulante>();
 
     /**
      * Creates new form VentanaBajaPostulante
@@ -17,11 +19,18 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
-
+        
+        this.renovarDatos();
+    }
+    
+    private void renovarDatos(){
+        this.losPostulantes.clear();
         listaPostulantes.removeAll();
+        listaPost.clear();
+        
         listaPostulantes.setModel(listaPost);
         Collection<Postulante> values = sistema.getPostulantes().values();
-        ArrayList<Postulante> losPostulantes = new ArrayList<Postulante>(values);
+        this.losPostulantes = new ArrayList<Postulante>(values);
         for (Postulante pos : losPostulantes) {
             listaPost.addElement(pos.toString());
         }
@@ -78,9 +87,10 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        
-        Postulante post = 
+        String post = losPostulantes.get(listaPostulantes.getSelectedIndex()).getCedula()+"";
         sistema.bajaPostulante(post);
+        JOptionPane.showMessageDialog(null, "El postulante ha sido eliminado", "Baja de postulante", JOptionPane.INFORMATION_MESSAGE);
+        renovarDatos();
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**
