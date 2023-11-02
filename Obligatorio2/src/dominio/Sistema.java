@@ -41,7 +41,7 @@ public class Sistema {
 
     public boolean altaPostulante(Postulante postulante) {
         boolean ret = false;
-        String cedula=String.valueOf(postulante.cedula);
+        String cedula = String.valueOf(postulante.cedula);
         if (!postulantes.containsKey(cedula)) {
             this.postulantes.put(cedula, postulante);
             ret = true;
@@ -52,23 +52,53 @@ public class Sistema {
     public void bajaPostulante(String cedula) {
         this.postulantes.remove(cedula);
     }
-    
-    public void agregarTematica(Tematica tematica){
+
+    public void agregarTematica(Tematica tematica) {
         this.tematicas.add(tematica);
     }
-    public void limpiarCamposField( JTextField texto){
+
+    public void limpiarCamposField(JTextField texto) {
         texto.setText("");
     }
-    public void limpiarCamposArea( JTextArea texto){
+
+    public void limpiarCamposArea(JTextArea texto) {
         texto.setText("");
     }
-    
-    public boolean esUnica (Evaluador evaluador){
+
+    public boolean esUnica(Evaluador evaluador) {
         boolean ret = false;
-        String cedula=String.valueOf(evaluador.cedula);
+        String cedula = String.valueOf(evaluador.cedula);
         if (!evaluadores.containsKey(cedula)) {
             this.evaluadores.put(cedula, evaluador);
             ret = true;
+        }
+        return ret;
+    }
+
+    public boolean hay(String que) {
+        boolean ret = true;
+
+        switch (que) {
+            case "tematicas" -> {
+                if (this.tematicas.isEmpty()) {
+                    ret = false;
+                }
+            }
+            case "postulantes" -> {
+                if (this.postulantes.isEmpty()) {
+                    ret = false;
+                }
+            }
+            case "evaluadores" -> {
+                if (this.evaluadores.isEmpty()) {
+                    ret = false;
+                }
+            }
+            case "puestos" -> {
+                if (this.puestos.isEmpty()) {
+                    ret = false;
+                }
+            }
         }
         return ret;
     }

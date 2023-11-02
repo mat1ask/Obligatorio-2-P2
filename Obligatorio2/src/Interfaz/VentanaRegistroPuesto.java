@@ -1,14 +1,26 @@
 package Interfaz;
 
 import Dominio.Sistema;
+import Dominio.Tematica;
+import java.util.ArrayList;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 
 public class VentanaRegistroPuesto extends javax.swing.JFrame {
 
     private Sistema sistema;
-    
+
     public VentanaRegistroPuesto(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
+
+        ArrayList<Tematica> temas = this.sistema.getTematicas();
+
+        for (Tematica elem : temas) {
+            System.out.println(elem.toString());
+            JCheckBox checkbox = new JCheckBox(elem.toString());
+            panelTemas.add(checkbox);
+        }
     }
 
     /**
@@ -32,8 +44,8 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        scrollTemas = new javax.swing.JScrollPane();
+        panelTemas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -43,17 +55,17 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         Titulo.setText("Registro Puesto");
         Titulo.setAlignmentY(0.0F);
         getContentPane().add(Titulo);
-        Titulo.setBounds(102, 6, 135, 20);
+        Titulo.setBounds(102, 6, 145, 20);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(19, 39, 70, 16);
+        jLabel3.setBounds(19, 39, 70, 15);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(19, 73, 70, 16);
+        jLabel7.setBounds(19, 73, 70, 15);
 
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +73,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textNombre);
-        textNombre.setBounds(102, 36, 219, 22);
+        textNombre.setBounds(102, 36, 219, 23);
 
         GrupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
@@ -90,7 +102,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         panelRadioLayout.setHorizontalGroup(
             panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRadioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addComponent(radioRemoto)
                 .addGap(15, 15, 15)
                 .addComponent(radioPresencial)
@@ -105,12 +117,12 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         );
 
         getContentPane().add(panelRadio);
-        panelRadio.setBounds(102, 73, 220, 21);
+        panelRadio.setBounds(102, 73, 270, 21);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Temas Requeridos:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(19, 109, 106, 16);
+        jLabel4.setBounds(19, 109, 118, 15);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +131,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(36, 151, 90, 23);
+        botonCancelar.setBounds(40, 200, 90, 23);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,20 +140,17 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegistrar);
-        botonRegistrar.setBounds(231, 151, 90, 23);
+        botonRegistrar.setBounds(230, 200, 90, 23);
 
-        jCheckBox1.setText("ES ASI???");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jCheckBox1);
+        scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(140, 109, 75, 22);
+        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
+        scrollTemas.setViewportView(panelTemas);
 
-        pack();
+        getContentPane().add(scrollTemas);
+        scrollTemas.setBounds(150, 110, 130, 80);
+
+        setBounds(0, 0, 392, 265);
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioPresencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPresencialActionPerformed
@@ -161,12 +170,8 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonRegistrarActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,15 +214,15 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonRegistrar;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelRadio;
+    private javax.swing.JPanel panelTemas;
     private javax.swing.JRadioButton radioMixto;
     private javax.swing.JRadioButton radioPresencial;
     private javax.swing.JRadioButton radioRemoto;
+    private javax.swing.JScrollPane scrollTemas;
     private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -137,7 +137,6 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         if (sistema.altaPostulante(postulante)) {     // En la condicion del if se llama al metodo que se encarga de agregar al postulante en caso de que el formato sea correcto
-
             JOptionPane.showMessageDialog(null, "El postulante se ingreso al sistema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         } else {
