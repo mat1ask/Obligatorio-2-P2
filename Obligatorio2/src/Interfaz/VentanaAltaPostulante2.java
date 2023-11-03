@@ -72,6 +72,8 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         });
         getContentPane().add(comboTema);
         comboTema.setBounds(112, 18, 247, 23);
+
+        nivel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(nivel);
         nivel.setBounds(114, 58, 87, 23);
 

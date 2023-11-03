@@ -102,25 +102,28 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
                 bien = false;
             }
         }
-
-        if (!ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textAnoDeIngreso.getText())) {
+        if ((textAnoDeIngreso.getText().length() != 4 || !ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textAnoDeIngreso.getText())) && bien) {
             bien = false;
+        }
+        if (bien) {
+            if (Integer.parseInt(textAnoDeIngreso.getText()) > 2023) {
+                bien = false;
+            }
         }
 
         if (bien) {
             long cedula = Long.parseLong(textCedula.getText());
             int anoIngreso = parseInt(textAnoDeIngreso.getText());
             evaluador = new Evaluador(textNombre.getText(), cedula, TextDireccion.getText(), anoIngreso);
-            if (sistema.esUnica(evaluador) == true) {
-                //hacer metodo de agregar al hashmap el evaluador 
+            if (sistema.esUnica(evaluador)) {
+                sistema.altaEvaluador(evaluador);
+                Sistema.limpiarCamposField(textCedula);
+                Sistema.limpiarCamposField(TextDireccion);
+                Sistema.limpiarCamposField(textNombre);
+                Sistema.limpiarCamposField(textAnoDeIngreso);
             }
-            sistema.limpiarCamposField(textCedula);
-            sistema.limpiarCamposField(TextDireccion);
-            sistema.limpiarCamposField(textNombre);
-            sistema.limpiarCamposField(textAnoDeIngreso);
-
         } else {
-            JOptionPane.showMessageDialog(null, "Error de formato en alguno de los datos.", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error en el formato de los datos.", "Registro evaluador", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_botonRegistrarActionPerformed

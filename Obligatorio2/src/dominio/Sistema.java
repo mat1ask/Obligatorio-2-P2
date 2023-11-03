@@ -56,12 +56,23 @@ public class Sistema {
     public void agregarTematica(Tematica tematica) {
         this.tematicas.add(tematica);
     }
+    
+    public boolean altaEvaluador(Evaluador evaluador){
+        boolean ret = false;
+        
+        if(!evaluadores.containsKey(evaluador.cedula)){
+            this.evaluadores.put(evaluador.cedula+"", evaluador);
+            ret = true;
+        }
+        
+        return ret;
+    }
 
-    public void limpiarCamposField(JTextField texto) {
+    public static void limpiarCamposField(JTextField texto) {
         texto.setText("");
     }
 
-    public void limpiarCamposArea(JTextArea texto) {
+    public static void limpiarCamposArea(JTextArea texto) {
         texto.setText("");
     }
 

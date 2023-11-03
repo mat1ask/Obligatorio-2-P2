@@ -199,12 +199,12 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             Postulante postulante = new Postulante(textNombre.getText(), cedula, textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
             VentanaAltaPostulante2 ventana = new VentanaAltaPostulante2(this.sistema, postulante);
             ventana.setVisible(true);
-            sistema.limpiarCamposField(textCedula);
-            sistema.limpiarCamposField(textMail);
-            sistema.limpiarCamposField(textDireccion);
-            sistema.limpiarCamposField(textNombre);
-            sistema.limpiarCamposField(textTelefono);
-            sistema.limpiarCamposField(textLinkedin);
+            Sistema.limpiarCamposField(textCedula);
+            Sistema.limpiarCamposField(textMail);
+            Sistema.limpiarCamposField(textDireccion);
+            Sistema.limpiarCamposField(textNombre);
+            Sistema.limpiarCamposField(textTelefono);
+            Sistema.limpiarCamposField(textLinkedin);
 
         } else {
             JOptionPane.showMessageDialog(null, "Error de formato en alguno de los datos.", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);

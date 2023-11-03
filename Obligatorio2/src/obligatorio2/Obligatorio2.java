@@ -8,5 +8,4 @@ public class Obligatorio2 {
         VentanaMenu vent = new VentanaMenu();
         vent.setVisible(true);
     }
-
 }

@@ -69,6 +69,8 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
 
+        spinNivel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+
         Puestos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Puestos.setText("Puestos:");
 
@@ -122,7 +124,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 47, 0, 0);
+        jPanel1.setBounds(20, 47, 372, 235);
 
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
@@ -159,7 +161,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 281, 0, 0);
+        jPanel2.setBounds(20, 281, 372, 186);
 
         setBounds(0, 0, 412, 546);
     }// </editor-fold>//GEN-END:initComponents

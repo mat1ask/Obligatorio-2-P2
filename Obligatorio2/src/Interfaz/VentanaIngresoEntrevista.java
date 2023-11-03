@@ -76,6 +76,8 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         jLabel2.setText("Puntaje:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 102, 90, 17);
+
+        Puntaje.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(Puntaje);
         Puntaje.setBounds(116, 100, 80, 23);
 

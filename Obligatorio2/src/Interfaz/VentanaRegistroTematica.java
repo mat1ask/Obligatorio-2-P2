@@ -107,8 +107,8 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     } else {
         Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
         sistema.agregarTematica(tema);
-        sistema.limpiarCamposField(textNombre);
-        sistema.limpiarCamposArea(textDescripcion);
+        Sistema.limpiarCamposField(textNombre);
+        Sistema.limpiarCamposArea(textDescripcion);
         JOptionPane.showMessageDialog(this, "La temática ha sido ingresada correctamente.");
     }
     }//GEN-LAST:event_botonRegistrarActionPerformed

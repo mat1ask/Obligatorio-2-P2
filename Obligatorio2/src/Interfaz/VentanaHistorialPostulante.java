@@ -23,8 +23,6 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonSalir = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         panelPostulantes = new javax.swing.JScrollPane();
@@ -55,23 +53,11 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         botonBuscar = new javax.swing.JButton();
         botonReset = new javax.swing.JButton();
+        botonSalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        botonSalir.setText("Salir");
-        botonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonSalir);
-        botonSalir.setBounds(24, 680, 72, 23);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Historial de postulante");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(298, 12, 230, 22);
 
         listPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -327,7 +313,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60))
         );
@@ -344,7 +330,21 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 0, 0);
+        jPanel3.setBounds(18, 65, 868, 604);
+
+        botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonSalir);
+        botonSalir.setBounds(24, 680, 72, 23);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Historial de postulante");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(298, 12, 230, 22);
 
         setBounds(0, 0, 850, 748);
     }// </editor-fold>//GEN-END:initComponents
