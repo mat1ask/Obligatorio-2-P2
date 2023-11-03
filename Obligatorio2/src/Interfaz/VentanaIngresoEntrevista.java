@@ -1,6 +1,6 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
+import dominio.Sistema;
 
 /**
  *
@@ -77,14 +77,14 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Puntaje:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 102, 90, 18);
+        jLabel2.setBounds(20, 102, 90, 17);
         getContentPane().add(Puntaje);
-        Puntaje.setBounds(116, 100, 80, 22);
+        Puntaje.setBounds(116, 100, 80, 23);
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Comentarios:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 139, 90, 18);
+        jLabel5.setBounds(20, 139, 90, 17);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {

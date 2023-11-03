@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
+import dominio.Sistema;
 
 /**
  *
@@ -61,7 +61,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Tematicas:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 30, 80, 16);
+        jLabel2.setBounds(20, 30, 80, 15);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -81,17 +81,17 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Estadisticas:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(118, 30, 80, 16);
+        jLabel5.setBounds(118, 30, 80, 15);
 
         textCantMay5.setEditable(false);
         textCantMay5.setText("CantMay5");
         getContentPane().add(textCantMay5);
-        textCantMay5.setBounds(422, 52, 79, 22);
+        textCantMay5.setBounds(422, 52, 79, 23);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Cantidad de peuestos que lo requieren:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(118, 80, 298, 16);
+        jLabel6.setBounds(118, 80, 298, 15);
 
         textCantPuestos.setEditable(false);
         textCantPuestos.setText("CantPuestos");
@@ -101,7 +101,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textCantPuestos);
-        textCantPuestos.setBounds(422, 80, 79, 22);
+        textCantPuestos.setBounds(422, 80, 89, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

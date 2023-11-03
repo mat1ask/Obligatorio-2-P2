@@ -1,8 +1,8 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Tematica;
-import Dominio.Sistema;
-import Dominio.Postulante;
+import dominio.Tematica;
+import dominio.Sistema;
+import dominio.Postulante;
 import java.util.*;
 import javax.swing.*;
 
@@ -52,17 +52,17 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Tema:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 20, 50, 16);
+        jLabel1.setBounds(20, 20, 50, 15);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("NIvel:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 50, 16);
+        jLabel2.setBounds(20, 60, 50, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Experiencia:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(15, 99, 80, 16);
+        jLabel3.setBounds(15, 99, 80, 15);
 
         comboTema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboTema.addActionListener(new java.awt.event.ActionListener() {
@@ -71,9 +71,9 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboTema);
-        comboTema.setBounds(112, 18, 247, 22);
+        comboTema.setBounds(112, 18, 247, 23);
         getContentPane().add(nivel);
-        nivel.setBounds(114, 58, 87, 22);
+        nivel.setBounds(114, 58, 87, 23);
 
         botonAgregar.setText("Agregar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {

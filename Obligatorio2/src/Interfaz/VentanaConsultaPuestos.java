@@ -1,6 +1,6 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
+import dominio.Sistema;
 
 /**
  *
@@ -124,7 +124,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 47, 372, 235);
+        jPanel1.setBounds(20, 47, 0, 0);
 
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
@@ -161,7 +161,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 281, 372, 186);
+        jPanel2.setBounds(20, 281, 0, 0);
 
         setBounds(0, 0, 412, 546);
     }// </editor-fold>//GEN-END:initComponents

@@ -1,7 +1,7 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Tematica;
-import Dominio.Sistema;
+import dominio.Tematica;
+import dominio.Sistema;
 import java.util.*;
 import javax.swing.*;
 
@@ -53,19 +53,19 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro Tematica");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(140, 15, 210, 25);
+        jLabel1.setBounds(140, 15, 210, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 58, 80, 16);
+        jLabel2.setBounds(20, 58, 80, 15);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Descripcion:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 97, 100, 16);
+        jLabel3.setBounds(20, 97, 100, 15);
         getContentPane().add(textNombre);
-        textNombre.setBounds(106, 58, 309, 22);
+        textNombre.setBounds(106, 58, 309, 23);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {

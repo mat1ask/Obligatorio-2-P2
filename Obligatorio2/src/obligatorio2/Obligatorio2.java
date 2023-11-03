@@ -1,6 +1,6 @@
 
 package obligatorio2;
-import Interfaz.*;
+import interfaz.VentanaMenu;
 public class Obligatorio2 {
 
     public static void main(String[] args) {

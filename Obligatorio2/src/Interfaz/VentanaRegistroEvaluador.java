@@ -1,8 +1,8 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.ComprobarFormato;
-import Dominio.Evaluador;
-import Dominio.Sistema;
+import dominio.ComprobarFormato;
+import dominio.Evaluador;
+import dominio.Sistema;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
@@ -41,7 +41,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro Evaluador");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(67, 0, 180, 25);
+        jLabel1.setBounds(67, 0, 180, 22);
 
         jLabel2.setText("Cedula:");
         getContentPane().add(jLabel2);
@@ -53,7 +53,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
 
         jLabel4.setText("Año de ingreso a la empresa:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 131, 184, 16);
+        jLabel4.setBounds(20, 131, 184, 17);
 
         jLabel6.setText("Nombre:");
         getContentPane().add(jLabel6);

@@ -1,6 +1,6 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
+import dominio.Sistema;
 
 /**
  *
@@ -346,7 +346,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 867, 604);
+        jPanel3.setBounds(18, 65, 0, 0);
 
         setBounds(0, 0, 850, 748);
     }// </editor-fold>//GEN-END:initComponents

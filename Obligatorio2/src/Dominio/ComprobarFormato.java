@@ -1,4 +1,4 @@
-package Dominio;
+package dominio;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

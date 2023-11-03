@@ -1,7 +1,7 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
-import Dominio.Postulante;
+import dominio.Sistema;
+import dominio.Postulante;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.DefaultListModel;

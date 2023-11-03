@@ -1,7 +1,7 @@
-package Interfaz;
+package interfaz;
 
-import Dominio.Sistema;
-import Dominio.Tematica;
+import dominio.Sistema;
+import dominio.Tematica;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -117,7 +117,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         );
 
         getContentPane().add(panelRadio);
-        panelRadio.setBounds(102, 73, 270, 21);
+        panelRadio.setBounds(102, 73, 270, 0);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Temas Requeridos:");
