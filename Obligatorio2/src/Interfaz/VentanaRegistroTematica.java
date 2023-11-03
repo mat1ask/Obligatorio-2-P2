@@ -12,6 +12,11 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
         this.sistema = sistema;
     }
     
+    private boolean esNombreVacio() {
+    String nombreT = textNombre.getText().trim(); // Obtengo el texto del campo y elimina espacios en blanco al inicio y al final
+    return nombreT.isEmpty(); // Devuelve true si el campo está vacío, de lo contrario, devuelve false
+}
+  
     public boolean yaRegistrada(){
         boolean registrada=false;
         String nombreT = textNombre.getText();
@@ -95,15 +100,17 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        if(yaRegistrada()!=true){
+    if (esNombreVacio()) {
+        JOptionPane.showMessageDialog(this, "El campo Nombre está vacío, por favor ingrese un nombre.");
+    } else if (yaRegistrada()) {
+        JOptionPane.showMessageDialog(this, "Esta temática ya ha sido ingresada, intente nuevamente.");
+    } else {
         Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
         sistema.agregarTematica(tema);
         sistema.limpiarCamposField(textNombre);
         sistema.limpiarCamposArea(textDescripcion);
-        JOptionPane.showMessageDialog(this,"La tematica a sido ingresada correctamente");
-        }else{
-            JOptionPane.showMessageDialog(this, "Esta tematica ya ha sido ingresada, intente nuevamente");
-        }
+        JOptionPane.showMessageDialog(this, "La temática ha sido ingresada correctamente.");
+    }
     }//GEN-LAST:event_botonRegistrarActionPerformed
     
     /**
