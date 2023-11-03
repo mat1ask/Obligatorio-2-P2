@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package interfaz;
 
 import dominio.Sistema;
 import javax.swing.JOptionPane;
 
 public class VentanaMenu extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form menuFrame
      */
@@ -182,26 +178,26 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistroActionPerformed
 
     private void menuItemBajaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBajaPostulanteActionPerformed
-        if(sistema.hay("postulantes")){
+        if (sistema.hay("postulantes")) {
             VentanaBajaPostulante ventana = new VentanaBajaPostulante(this.sistema);
             ventana.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Debe ingresar Postulantes primero");
         }
     }//GEN-LAST:event_menuItemBajaPostulanteActionPerformed
 
     private void menuItemAltaPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAltaPostulanteActionPerformed
-        if(sistema.hay("tematicas")){
+        if (sistema.hay("tematicas")) {
             VentanaAltaPostulante ventana = new VentanaAltaPostulante(this.sistema);
             ventana.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Debe ingresar tematicas primero");
         }
     }//GEN-LAST:event_menuItemAltaPostulanteActionPerformed
 
     private void menuConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaActionPerformed
         VentanaHistorialPostulante ventana = new VentanaHistorialPostulante(this.sistema);
-        ventana.setVisible(true);         
+        ventana.setVisible(true);
     }//GEN-LAST:event_menuConsultaActionPerformed
 
     private void menuItemIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIngresoEntrevistaActionPerformed

@@ -6,18 +6,14 @@ import dominio.Sistema;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author nacho
- */
 public class VentanaRegistroEvaluador extends javax.swing.JFrame {
+
     Evaluador evaluador;
 
     public VentanaRegistroEvaluador(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -99,31 +95,30 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
     }//GEN-LAST:event_textNombreActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        String[] valores = {textNombre.getText(), textCedula.getText(), TextDireccion.getText(),textAnoDeIngreso.getText()};
+        String[] valores = {textNombre.getText(), textCedula.getText(), TextDireccion.getText(), textAnoDeIngreso.getText()};
         boolean bien = true;
         for (int i = 0; i < valores.length && bien; i++) {
             if (!(valores[i].length() > 1) || valores[i] == null) {
                 bien = false;
             }
         }
-        
+
         if (!ComprobarFormato.soloNumeros(textCedula.getText()) || !ComprobarFormato.soloNumeros(textAnoDeIngreso.getText())) {
             bien = false;
         }
-        
+
         if (bien) {
-            long cedula=Long.parseLong(textCedula.getText());
-            int anoIngreso =parseInt(textAnoDeIngreso.getText());
-            evaluador = new Evaluador(textNombre.getText(),cedula, TextDireccion.getText(),anoIngreso);
-            if(sistema.esUnica(evaluador)==true){
-               //hacer metodo de agregar al hashmap el evaluador 
+            long cedula = Long.parseLong(textCedula.getText());
+            int anoIngreso = parseInt(textAnoDeIngreso.getText());
+            evaluador = new Evaluador(textNombre.getText(), cedula, TextDireccion.getText(), anoIngreso);
+            if (sistema.esUnica(evaluador) == true) {
+                //hacer metodo de agregar al hashmap el evaluador 
             }
             sistema.limpiarCamposField(textCedula);
             sistema.limpiarCamposField(TextDireccion);
             sistema.limpiarCamposField(textNombre);
             sistema.limpiarCamposField(textAnoDeIngreso);
 
-            
         } else {
             JOptionPane.showMessageDialog(null, "Error de formato en alguno de los datos.", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
         }

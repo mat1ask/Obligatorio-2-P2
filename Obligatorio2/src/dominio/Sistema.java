@@ -75,6 +75,7 @@ public class Sistema {
         return ret;
     }
 
+    //COMPRUEBA SI HAY ITEMS EN LA LISTA
     public boolean hay(String que) {
         boolean ret = true;
 

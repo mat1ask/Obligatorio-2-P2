@@ -2,12 +2,10 @@ package interfaz;
 
 import dominio.Sistema;
 
-/**
- *
- * @author matiaskunin
- */
 public class VentanaHistorialPostulante extends javax.swing.JFrame {
+
     private Sistema sistema;
+
     /**
      * Creates new form VentanaHistorialPostulante
      */
@@ -360,7 +358,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_textBuscarActionPerformed
 
     private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed

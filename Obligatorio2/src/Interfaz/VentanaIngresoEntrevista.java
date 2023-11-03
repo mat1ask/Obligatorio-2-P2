@@ -2,12 +2,10 @@ package interfaz;
 
 import dominio.Sistema;
 
-/**
- *
- * @author nacho
- */
 public class VentanaIngresoEntrevista extends javax.swing.JFrame {
+
     private Sistema sistema;
+
     /**
      * Creates new form IngresosDeEntrevista
      */

@@ -26,10 +26,10 @@ public class Postulante {
         this.temas = new HashMap();
     }
 
-    public int getNivel(){
+    public int getNivel() {
         return nivel;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -61,16 +61,17 @@ public class Postulante {
     public HashMap getTemas() {
         return temas;
     }
-    
+
     public String getExperiencia() {
         return experiencia;
     }
-    
-    public void setExperiencia(String exp){
-        this.experiencia=exp;
+
+    public void setExperiencia(String exp) {
+        this.experiencia = exp;
     }
-    public void setNivel(int nivel){
-        this.nivel=nivel;
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 
     public void setNombre(String nombre) {
@@ -110,7 +111,7 @@ public class Postulante {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.nombre;
     }
 }

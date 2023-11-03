@@ -19,15 +19,15 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
-        
+
         this.renovarDatos();
     }
-    
-    private void renovarDatos(){
+
+    private void renovarDatos() {
         this.losPostulantes.clear();
         listaPostulantes.removeAll();
         listaPost.clear();
-        
+
         listaPostulantes.setModel(listaPost);
         Collection<Postulante> values = sistema.getPostulantes().values();
         this.losPostulantes = new ArrayList<Postulante>(values);
@@ -87,7 +87,7 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        String post = losPostulantes.get(listaPostulantes.getSelectedIndex()).getCedula()+"";
+        String post = losPostulantes.get(listaPostulantes.getSelectedIndex()).getCedula() + "";
         sistema.bajaPostulante(post);
         JOptionPane.showMessageDialog(null, "El postulante ha sido eliminado", "Baja de postulante", JOptionPane.INFORMATION_MESSAGE);
         renovarDatos();

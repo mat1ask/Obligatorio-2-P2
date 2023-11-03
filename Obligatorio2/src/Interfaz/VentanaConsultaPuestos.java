@@ -2,12 +2,10 @@ package interfaz;
 
 import dominio.Sistema;
 
-/**
- *
- * @author matiaskunin
- */
 public class VentanaConsultaPuestos extends javax.swing.JFrame {
+
     private Sistema sistema;
+
     /**
      * Creates new form VentanaConsultaPuestos
      */
@@ -175,7 +173,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
     }//GEN-LAST:event_botonExportarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
