@@ -217,8 +217,6 @@ public class VentanaMenu extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Debe ingresar tematicas primero");
         }
-        
-        
     }//GEN-LAST:event_menuItemRegistroPuestoActionPerformed
 
     /**
