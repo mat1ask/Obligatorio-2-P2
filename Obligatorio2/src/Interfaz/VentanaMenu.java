@@ -211,8 +211,14 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemRegistroEvaluadorActionPerformed
 
     private void menuItemRegistroPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroPuestoActionPerformed
-        VentanaRegistroPuesto ventana = new VentanaRegistroPuesto(this.sistema);
-        ventana.setVisible(true);
+        if (sistema.hay("tematicas")) {
+            VentanaRegistroPuesto ventana = new VentanaRegistroPuesto(this.sistema);
+            ventana.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar tematicas primero");
+        }
+        
+        
     }//GEN-LAST:event_menuItemRegistroPuestoActionPerformed
 
     /**

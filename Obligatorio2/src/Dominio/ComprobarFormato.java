@@ -11,7 +11,6 @@ public class ComprobarFormato {
 
         return cedula.matches(formato);
     }
-    /*
     public static boolean mail(String mail) {
         String formato = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
@@ -22,5 +21,5 @@ public class ComprobarFormato {
         String formato = "^(https:\\/\\/www\\.linkedin\\.com\\/in\\/\\S+)";
 
         return linkedin.matches(formato);
-    }*/
+    }
 }

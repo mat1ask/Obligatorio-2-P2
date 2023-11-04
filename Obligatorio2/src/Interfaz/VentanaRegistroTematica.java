@@ -6,24 +6,24 @@ import java.util.*;
 import javax.swing.*;
 
 public class VentanaRegistroTematica extends javax.swing.JFrame {
-    
+
     public VentanaRegistroTematica(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
     }
-    
+
     private boolean esNombreVacio() {
-    String nombreT = textNombre.getText().trim(); // Obtengo el texto del campo y elimina espacios en blanco al inicio y al final
-    return nombreT.isEmpty(); // Devuelve true si el campo está vacío, de lo contrario, devuelve false
-}
-  
-    public boolean yaRegistrada(){
-        boolean registrada=false;
+        String nombreT = textNombre.getText().trim(); // Obtengo el texto del campo y elimina espacios en blanco al inicio y al final
+        return nombreT.isEmpty(); // Devuelve true si el campo está vacío, de lo contrario, devuelve false
+    }
+
+    public boolean yaRegistrada() {
+        boolean registrada = false;
         String nombreT = textNombre.getText();
         ArrayList<Tematica> listaNombres = sistema.getTematicas();
-        for(Tematica elemento: listaNombres){
-            if(nombreT.equals(elemento.toString())){
-                registrada=true;
+        for (Tematica elemento : listaNombres) {
+            if (nombreT.equals(elemento.toString())) {
+                registrada = true;
             }
         }
         return registrada;
@@ -96,23 +96,25 @@ public class VentanaRegistroTematica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-    if (esNombreVacio()) {
-        JOptionPane.showMessageDialog(this, "El campo Nombre está vacío, por favor ingrese un nombre.");
-    } else if (yaRegistrada()) {
-        JOptionPane.showMessageDialog(this, "Esta temática ya ha sido ingresada, intente nuevamente.");
-    } else {
-        Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
-        sistema.agregarTematica(tema);
-        Sistema.limpiarCamposField(textNombre);
-        Sistema.limpiarCamposArea(textDescripcion);
-        JOptionPane.showMessageDialog(this, "La temática ha sido ingresada correctamente.");
-    }
+        if (esNombreVacio()) {
+            JOptionPane.showMessageDialog(this, "El campo Nombre está vacío, por favor ingrese un nombre.");
+        } else if (yaRegistrada()) {
+            JOptionPane.showMessageDialog(this, "Esta temática ya ha sido ingresada, intente nuevamente.");
+        } else if (textDescripcion.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El campo Descripcion está vacío, por favor ingrese una descripcion.");
+        } else {
+            Tematica tema = new Tematica(textNombre.getText(), textDescripcion.getText());
+            sistema.agregarTematica(tema);
+            Sistema.limpiarCamposField(textNombre);
+            Sistema.limpiarCamposArea(textDescripcion);
+            JOptionPane.showMessageDialog(this, "La temática ha sido ingresada correctamente.");
+        }
     }//GEN-LAST:event_botonRegistrarActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
