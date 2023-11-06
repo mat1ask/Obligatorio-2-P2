@@ -12,7 +12,7 @@ public class ComprobarFormato {
         return cedula.matches(formato);
     }
     public static boolean mail(String mail) {
-        String formato = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        String formato =  "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+$";
 
         return mail.matches(formato);
     }
