@@ -121,6 +121,8 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
                 Sistema.limpiarCamposField(TextDireccion);
                 Sistema.limpiarCamposField(textNombre);
                 Sistema.limpiarCamposField(textAnoDeIngreso);
+                JOptionPane.showMessageDialog(this, "Se ingreso el evaluador correctamente");
+
             }
         } else {
             JOptionPane.showMessageDialog(this, "Error en el formato de los datos.", "Registro evaluador", JOptionPane.INFORMATION_MESSAGE);

@@ -57,12 +57,12 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Baja de Postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(140, 10, 180, 22);
+        jLabel1.setBounds(140, 10, 180, 25);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Postulantes:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 80, 15);
+        jLabel2.setBounds(20, 60, 80, 16);
 
         listaPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -72,7 +72,7 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaPostulantes);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 80, 300, 154);
+        jScrollPane1.setBounds(20, 80, 390, 146);
 
         botonEliminar.setText("Eliminar");
         botonEliminar.addActionListener(new java.awt.event.ActionListener() {

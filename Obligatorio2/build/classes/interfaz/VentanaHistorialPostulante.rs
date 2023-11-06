@@ -1,0 +1,8 @@
+interfaz.VentanaHistorialPostulante$5
+interfaz.VentanaHistorialPostulante$4
+interfaz.VentanaHistorialPostulante
+interfaz.VentanaHistorialPostulante$7
+interfaz.VentanaHistorialPostulante$6
+interfaz.VentanaHistorialPostulante$1
+interfaz.VentanaHistorialPostulante$3
+interfaz.VentanaHistorialPostulante$2

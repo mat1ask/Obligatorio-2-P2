@@ -9,14 +9,14 @@ public class Sistema {
     ArrayList tematicas;
     HashMap<String, Evaluador> evaluadores;
     ArrayList puestos;
-    HashMap entrevistas;
+    ArrayList entrevista;
 
     public Sistema() {
         this.postulantes = new HashMap<String, Postulante>();
         this.tematicas = new ArrayList<>();
         this.evaluadores = new HashMap<String, Evaluador>();
         this.puestos = new ArrayList<>();
-        this.entrevistas = entrevistas;
+        this.entrevista = new ArrayList<>();
     }
 
     public HashMap<String, Postulante> getPostulantes() {
@@ -30,13 +30,21 @@ public class Sistema {
     public HashMap getEvaluadores() {
         return evaluadores;
     }
+    
+    public Evaluador getEvaluadorCedula(String cedula){
+        return evaluadores.get(cedula);
+    }
+    
+    public Postulante getPostulanteCedula(String cedula){
+        return postulantes.get(cedula);
+    }
 
     public ArrayList getPuestos() {
         return puestos;
     }
 
-    public HashMap getEntrevistas() {
-        return entrevistas;
+    public ArrayList getEntrevista() {
+        return entrevista;
     }
 
     public boolean altaPostulante(Postulante postulante) {
@@ -114,4 +122,5 @@ public class Sistema {
         }
         return ret;
     }
+    
 }
