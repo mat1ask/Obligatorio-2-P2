@@ -15,7 +15,7 @@ public class Sistema {
         this.postulantes = new HashMap<String, Postulante>();
         this.tematicas = new ArrayList<>();
         this.evaluadores = new HashMap<String, Evaluador>();
-        this.puestos = new ArrayList<>();
+        this.puestos = new ArrayList<Puesto>();
         this.entrevista = new ArrayList<>();
     }
 

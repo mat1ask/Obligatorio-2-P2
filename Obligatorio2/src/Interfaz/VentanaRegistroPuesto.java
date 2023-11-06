@@ -1,7 +1,8 @@
 package interfaz;
 
-import dominio.Sistema;
+import dominio.*;
 import dominio.Tematica;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -38,14 +39,14 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
         panelRadio = new javax.swing.JPanel();
-        radioRemoto = new javax.swing.JRadioButton();
-        radioMixto = new javax.swing.JRadioButton();
-        radioPresencial = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
         scrollTemas = new javax.swing.JScrollPane();
         panelTemas = new javax.swing.JPanel();
+        radioRemoto = new javax.swing.JRadioButton();
+        radioPresencial = new javax.swing.JRadioButton();
+        radioMixto = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -55,17 +56,17 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         Titulo.setText("Registro Puesto");
         Titulo.setAlignmentY(0.0F);
         getContentPane().add(Titulo);
-        Titulo.setBounds(102, 6, 145, 20);
+        Titulo.setBounds(102, 6, 134, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(19, 39, 70, 15);
+        jLabel3.setBounds(20, 60, 70, 16);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(19, 73, 70, 15);
+        jLabel7.setBounds(20, 90, 70, 16);
 
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,20 +74,58 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textNombre);
-        textNombre.setBounds(102, 36, 219, 23);
+        textNombre.setBounds(100, 60, 219, 22);
+
+        javax.swing.GroupLayout panelRadioLayout = new javax.swing.GroupLayout(panelRadio);
+        panelRadio.setLayout(panelRadioLayout);
+        panelRadioLayout.setHorizontalGroup(
+            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+        );
+        panelRadioLayout.setVerticalGroup(
+            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 21, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panelRadio);
+        panelRadio.setBounds(102, 73, 270, 21);
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Temas Requeridos:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 130, 105, 16);
+
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonCancelar);
+        botonCancelar.setBounds(40, 220, 90, 23);
+
+        botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonRegistrar);
+        botonRegistrar.setBounds(230, 220, 90, 23);
+
+        scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
+        scrollTemas.setViewportView(panelTemas);
+
+        getContentPane().add(scrollTemas);
+        scrollTemas.setBounds(150, 130, 170, 80);
 
         GrupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
         radioRemoto.setAlignmentY(0.0F);
-
-        GrupoFormato.add(radioMixto);
-        radioMixto.setText("Mixto");
-        radioMixto.setAlignmentY(0.0F);
-        radioMixto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioMixtoActionPerformed(evt);
-            }
-        });
+        getContentPane().add(radioRemoto);
+        radioRemoto.setBounds(100, 90, 80, 21);
 
         GrupoFormato.add(radioPresencial);
         radioPresencial.setText("Presencial");
@@ -96,61 +135,21 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
                 radioPresencialActionPerformed(evt);
             }
         });
+        getContentPane().add(radioPresencial);
+        radioPresencial.setBounds(180, 90, 90, 21);
 
-        javax.swing.GroupLayout panelRadioLayout = new javax.swing.GroupLayout(panelRadio);
-        panelRadio.setLayout(panelRadioLayout);
-        panelRadioLayout.setHorizontalGroup(
-            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRadioLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(radioRemoto)
-                .addGap(15, 15, 15)
-                .addComponent(radioPresencial)
-                .addGap(10, 10, 10)
-                .addComponent(radioMixto))
-        );
-        panelRadioLayout.setVerticalGroup(
-            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(radioRemoto)
-            .addComponent(radioPresencial)
-            .addComponent(radioMixto)
-        );
-
-        getContentPane().add(panelRadio);
-        panelRadio.setBounds(102, 73, 270, 0);
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("Temas Requeridos:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(19, 109, 118, 15);
-
-        botonCancelar.setText("Cancelar");
-        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        GrupoFormato.add(radioMixto);
+        radioMixto.setText("Mixto");
+        radioMixto.setAlignmentY(0.0F);
+        radioMixto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCancelarActionPerformed(evt);
+                radioMixtoActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(40, 200, 90, 23);
+        getContentPane().add(radioMixto);
+        radioMixto.setBounds(280, 90, 70, 21);
 
-        botonRegistrar.setText("Registrar");
-        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonRegistrar);
-        botonRegistrar.setBounds(230, 200, 90, 23);
-
-        scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
-        scrollTemas.setViewportView(panelTemas);
-
-        getContentPane().add(scrollTemas);
-        scrollTemas.setBounds(150, 110, 130, 80);
-
-        setBounds(0, 0, 392, 265);
+        setBounds(0, 0, 430, 294);
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioPresencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPresencialActionPerformed
@@ -170,7 +169,46 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-        
+    String nombrePuesto = textNombre.getText();
+    ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
+    boolean repetido=false;
+    for (Puesto elem : listaDePuestos) {
+        if (nombrePuesto.equals(elem.getNombres())) { 
+            repetido = true;
+    break; 
+    }
+}
+    String formato = "";
+    if (radioMixto.isSelected()) {
+        formato = "Mixto";
+    } else if (radioPresencial.isSelected()) {
+        formato = "Presencial";
+    } else if (radioRemoto.isSelected()) {
+        formato = "Remoto";
+    }
+
+    Component[] components = panelTemas.getComponents();
+    ArrayList<String> temasSeleccionados = new ArrayList<>();
+
+    for (Component component : components) {
+        if (component instanceof JCheckBox) {
+            JCheckBox checkbox = (JCheckBox) component;
+            if (checkbox.isSelected()) {
+                temasSeleccionados.add(checkbox.getText());
+            }
+        }
+    }
+    String[] temas = temasSeleccionados.toArray(new String[0]);
+    if(repetido==false){
+        Puesto puesto = new Puesto(nombrePuesto,formato,temas);
+        sistema.getPuestos().add(puesto); 
+        JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
+        sistema.limpiarCamposField(textNombre);
+    } else {
+        JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
+        sistema.limpiarCamposField(textNombre);
+    }
+    
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     /**
