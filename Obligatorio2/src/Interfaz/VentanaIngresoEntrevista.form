@@ -43,8 +43,8 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="comboPostulante">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="this.modeloPost" type="code"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -73,11 +73,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboEvaluador">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="this.modeloEval" type="code"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboEvaluadorActionPerformed"/>
       </Events>

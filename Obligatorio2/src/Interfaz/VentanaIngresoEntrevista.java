@@ -2,14 +2,10 @@ package interfaz;
 
 import dominio.*;
 import java.util.*;
-import javax.swing.*;
-import java.awt.*;
 
 public class VentanaIngresoEntrevista extends javax.swing.JFrame {
 
     private Sistema sistema;
-    private DefaultComboBoxModel modeloEval = new DefaultComboBoxModel();
-    private DefaultComboBoxModel modeloPost = new DefaultComboBoxModel();
     
     public VentanaIngresoEntrevista(Sistema sistema) {
         initComponents();
@@ -17,16 +13,14 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         comboEvaluador.removeAllItems();
         comboPostulante.removeAllItems();
         
-        ArrayList<ComboItem>itemsEval = new ArrayList<>();
         HashMap<String, Evaluador> evaluadores = sistema.getEvaluadores();
             for (Map.Entry<String, Evaluador> entrada : evaluadores.entrySet()) {
-                itemsEval.add(entrada.getValue().getNombre() , entrada.getKey());
+                comboEvaluador.addItem(entrada.getValue().getNombre() + "-" + entrada.getKey());
             }
         
-        ArrayList<ComboItem>itemsPost = new ArrayList<>();
         HashMap<String, Postulante> postulantes = sistema.getPostulantes();
             for (Map.Entry<String, Postulante> entrada : postulantes.entrySet()) {
-                itemsPost.add(entrada.getValue().getNombre() , entrada.getKey());
+                comboPostulante.addItem(entrada.getValue().getNombre() + "-"+entrada.getKey());
             }
     }
 
@@ -56,7 +50,6 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(90, 0, 230, 40);
 
-        comboPostulante.setModel(this.modeloPost);
         comboPostulante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPostulanteActionPerformed(evt);
@@ -70,7 +63,6 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 41, 90, 18);
 
-        comboEvaluador.setModel(this.modeloEval);
         comboEvaluador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEvaluadorActionPerformed(evt);
@@ -87,16 +79,16 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Puntaje:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 102, 90, 18);
+        jLabel2.setBounds(20, 102, 90, 17);
 
         puntaje.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
         getContentPane().add(puntaje);
-        puntaje.setBounds(116, 100, 80, 22);
+        puntaje.setBounds(116, 100, 80, 23);
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Comentarios:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 139, 90, 18);
+        jLabel5.setBounds(20, 139, 90, 17);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +130,9 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         String comentarios = textAreaComentarios.getText();
         String evaluador = (String) comboEvaluador.getSelectedItem();
+        evaluador = evaluador.split("-")[1];
         String postulante = (String) comboPostulante.getSelectedItem();
+        postulante = postulante.split("-")[1];
         int puntajes = (int) puntaje.getValue();
         
         Entrevista entrevista = new Entrevista(sistema.getEvaluadorCedula(evaluador),sistema.getPostulanteCedula(postulante),puntajes,comentarios);
@@ -201,6 +195,4 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
     private javax.swing.JSpinner puntaje;
     private javax.swing.JTextArea textAreaComentarios;
     // End of variables declaration//GEN-END:variables
-
-    
 }
