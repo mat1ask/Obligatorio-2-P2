@@ -9,15 +9,16 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     private Sistema sistema;
         private DefaultListModel<String> listPuestos = new DefaultListModel<>();
+        private ArrayList<Puesto> puestos = sistema.getPuestos();
         private DefaultListModel<String> listPostulantes = new DefaultListModel<>();
     
         public VentanaConsultaPuestos(Sistema sistema) {
             listaPuestos.setModel(listPuestos);
             listaPostulantes.setModel(listPostulantes);
             
-        ArrayList<Puesto> puestos = sistema.getPuestos();
+        
         for (Puesto elemento : puestos) {
-            listPuestos.addElement(elemento.getNombres());
+            listPuestos.addElement(elemento.toString());
         }
             
         initComponents();
@@ -174,12 +175,35 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         HashMap<String, Postulante> postulantes= sistema.getPostulantes();
+        Puesto puestosD = sistema.devolverPuestos(puestos.get(listaPostulantes.getSelectedIndex()).getNombres());
+        int nivelD=(int)spinNivel.getValue();
+        boolean esta=false;
+        boolean formaTrabajo=false;
+        boolean nivelMayorIgual=false;
         ArrayList<Entrevista> entrevistas = new ArrayList<>();
+        entrevistas = sistema.getEntrevista();
         for (String cedula : postulantes.keySet()) {
             Postulante postulante = postulantes.get(cedula);
             for(Entrevista elem : entrevistas){
-                //if(elem.getPostulante==postulante) seguir a partir de aca
-            
+                if(elem.getPostulante()==postulante){
+                    esta=true;
+                    if(puestosD.getformato().equals(postulante.getFormato())){
+                        formaTrabajo=true;
+                        String[]temasPuesto = puestosD.getTemas();
+                        HashMap temasPost = postulante.getTemas();
+                        boolean estanTodos = true;
+                        for (String temaAct : temasPuesto) {
+                            if(temasPost.containsKey(temaAct)){
+                                if(temasPost.get(temaAct) >= nivelD)
+                            } else {
+                                estanTodos = false;
+                            }
+                        }
+                        if(>=nivelD){
+                            nivelMayorIgual=true;
+                        }
+                    }
+                }
             }
             listPostulantes.addElement(postulante.getNombre());
         }

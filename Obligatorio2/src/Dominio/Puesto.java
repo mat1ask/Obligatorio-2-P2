@@ -11,6 +11,9 @@ public class Puesto {
         this.formato = formato;
         this.temas = temas;
     }
+        public Puesto (){
+    }
+    
     
     public String getNombres(){
         return nombre;
@@ -34,5 +37,9 @@ public class Puesto {
     
     public void setformato(String formato){
         this.formato=formato;
+    }
+    @Override 
+    public String toString(){
+        return this.getNombres();
     }
 }

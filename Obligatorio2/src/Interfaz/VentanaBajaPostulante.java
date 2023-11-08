@@ -11,11 +11,8 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
 
     private Sistema sistema;
     private DefaultListModel<String> listaPost = new DefaultListModel<>();
-    ArrayList<Postulante> losPostulantes = new ArrayList<Postulante>();
+    private ArrayList<Postulante> losPostulantes = new ArrayList<Postulante>();
 
-    /**
-     * Creates new form VentanaBajaPostulante
-     */
     public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
         this.sistema = sistema;

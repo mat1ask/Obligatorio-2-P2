@@ -132,8 +132,8 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         int level = (int) nivel.getValue();
-        postulante.setNivel(level);
         String tema = (String) comboTema.getSelectedItem();
+        postulante.agregarTema(tema, level);
         listaExp.addElement(tema + "(" + level + ")");
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -154,11 +154,13 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
 
         int indiceSeleccionado = listaExperiencia.getSelectedIndex();
-
         if (indiceSeleccionado != -1) {
             DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
+            postulante.eliminarTema((modeloLista.get(indiceSeleccionado)).split("-")[0]);
             modeloLista.remove(indiceSeleccionado);
+            
         }
+        
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**

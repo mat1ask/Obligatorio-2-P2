@@ -26,6 +26,14 @@ public class Postulante {
         this.temas = new HashMap();
     }
 
+    public void agregarTema(String tema, int nivel) {
+        temas.put(tema, nivel);
+    }
+    
+    public void eliminarTema(String tema){
+        temas.remove(tema);
+    }
+    
     public int getNivel() {
         return nivel;
     }
