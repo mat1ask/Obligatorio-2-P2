@@ -2,6 +2,7 @@ package interfaz;
 
 import dominio.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class VentanaIngresoEntrevista extends javax.swing.JFrame {
 
@@ -79,16 +80,16 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setText("Puntaje:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 102, 90, 17);
+        jLabel2.setBounds(20, 102, 90, 18);
 
-        puntaje.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        puntaje.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         getContentPane().add(puntaje);
-        puntaje.setBounds(116, 100, 80, 23);
+        puntaje.setBounds(116, 100, 80, 22);
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setText("Comentarios:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 139, 90, 17);
+        jLabel5.setBounds(20, 139, 90, 18);
 
         botonRegistrar.setText("Registrar");
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +137,12 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         int puntajes = (int) puntaje.getValue();
         
         Entrevista entrevista = new Entrevista(sistema.getEvaluadorCedula(evaluador),sistema.getPostulanteCedula(postulante),puntajes,comentarios);
+        sistema.agregarEntrevista(entrevista);
+        JOptionPane.showMessageDialog(this,"El numero de entrevista es "+ sistema.numeroEntrevista());
+        Sistema.limpiarCamposArea(textAreaComentarios);
+        comboEvaluador.setSelectedIndex(0);
+        comboPostulante.setSelectedIndex(0);
+        puntaje.setValue(0);
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed

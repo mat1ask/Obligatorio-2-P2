@@ -123,9 +123,12 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
                 Sistema.limpiarCamposField(textAnoDeIngreso);
                 JOptionPane.showMessageDialog(this, "Se ingreso el evaluador correctamente");
 
+            } else{
+                bien=false;
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Error en el formato de los datos.", "Registro evaluador", JOptionPane.INFORMATION_MESSAGE);
+        }
+        if(!bien) {
+            JOptionPane.showMessageDialog(this, "Error en el formato de los datos o de cedula", "Registro evaluador", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_botonRegistrarActionPerformed

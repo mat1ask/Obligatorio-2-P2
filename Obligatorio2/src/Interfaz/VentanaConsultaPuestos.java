@@ -8,10 +8,10 @@ import javax.swing.*;
 public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     private Sistema sistema;
-        private DefaultListModel<String> listPuestos = new DefaultListModel<>();
-        private ArrayList<Puesto> puestos = sistema.getPuestos();
-        private DefaultListModel<String> listPostulantes = new DefaultListModel<>();
-    
+    private DefaultListModel<String> listPuestos = new DefaultListModel<>();
+    private ArrayList<Puesto> puestos = sistema.getPuestos();
+    private DefaultListModel<String> listPostulantes = new DefaultListModel<>();
+
         public VentanaConsultaPuestos(Sistema sistema) {
             listaPuestos.setModel(listPuestos);
             listaPostulantes.setModel(listPostulantes);

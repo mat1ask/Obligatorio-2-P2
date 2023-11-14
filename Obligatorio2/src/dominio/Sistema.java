@@ -1,5 +1,6 @@
 package dominio;
 
+import java.awt.Component;
 import java.util.*;
 import javax.swing.*;
 
@@ -119,8 +120,38 @@ public class Sistema {
                     ret = false;
                 }
             }
+            
         }
         return ret;
     }
     
+    public Puesto devolverPuestos(String nombre){
+        Puesto puestoRet=new Puesto();
+        ArrayList<Puesto> lospuestos = getPuestos();
+        for (Puesto elemento : lospuestos) {
+            if(nombre.equals(elemento.toString())){
+                puestoRet=elemento;
+            }
+            break;
+        }
+        return puestoRet;
+    }
+    
+    public void agregarEntrevista(Entrevista ent){
+        this.entrevista.add(ent);
+    }
+    
+    public int numeroEntrevista(){
+        return this.entrevista.size();
+    }
+    
+    public void eliminarCheckBox(JPanel panel){
+        Component[] components = panel.getComponents();
+            for (Component component : components) {
+                    if(component instanceof JCheckBox) {
+                       JCheckBox checkBox = (JCheckBox) component;
+                       checkBox.setSelected(false);
+                    }
+                }
+            }
 }

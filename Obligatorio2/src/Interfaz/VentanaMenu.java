@@ -201,8 +201,14 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuConsultaActionPerformed
 
     private void menuItemIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIngresoEntrevistaActionPerformed
+        if(sistema.hay("evaluadores")&&(sistema.hay("postulantes"))){
         VentanaIngresoEntrevista ventana = new VentanaIngresoEntrevista(this.sistema);
         ventana.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this,"Debe ingresar postulantes y evaluadores");
+
+        }
+        
     }//GEN-LAST:event_menuItemIngresoEntrevistaActionPerformed
 
     private void menuItemRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroEvaluadorActionPerformed

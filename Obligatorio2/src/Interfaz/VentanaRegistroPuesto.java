@@ -204,9 +204,13 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         sistema.getPuestos().add(puesto); 
         JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
         sistema.limpiarCamposField(textNombre);
+        sistema.eliminarCheckBox(panelTemas);
+        GrupoFormato.clearSelection();
+        
     } else {
         JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
         sistema.limpiarCamposField(textNombre);
+        
     }
     
     }//GEN-LAST:event_botonRegistrarActionPerformed
