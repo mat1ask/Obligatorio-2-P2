@@ -1,5 +1,0 @@
-interfaz.VentanaConsultaPorTematica$2
-interfaz.VentanaConsultaPorTematica$3
-interfaz.VentanaConsultaPorTematica$4
-interfaz.VentanaConsultaPorTematica
-interfaz.VentanaConsultaPorTematica$1

@@ -38,6 +38,7 @@ public class Puesto {
     public void setformato(String formato){
         this.formato=formato;
     }
+    
     @Override 
     public String toString(){
         return this.getNombres();

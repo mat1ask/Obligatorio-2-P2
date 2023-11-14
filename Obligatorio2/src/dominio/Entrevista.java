@@ -6,12 +6,14 @@ Evaluador evaluador;
 Postulante postulante;
 int puntaje;
 String comentarios;
+long numeroEntrevista;
 
-public Entrevista (Evaluador evaluadores, Postulante postulante, int puntaje, String comentarios){
+public Entrevista (Evaluador evaluadores, Postulante postulante, int puntaje, String comentarios, long numero){
         this.evaluador = evaluadores;
         this.postulante = postulante;
         this.puntaje = puntaje;
         this.comentarios = comentarios;
+        this.numeroEntrevista = numero;
     }
     public Evaluador getEvaluadores() {
         return evaluador;
@@ -45,4 +47,7 @@ public Entrevista (Evaluador evaluadores, Postulante postulante, int puntaje, St
         this.comentarios = comentarios;
     }
     
+    public long getNumero(){
+        return this.numeroEntrevista;
+    }
 }

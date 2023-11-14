@@ -169,50 +169,54 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
-    String nombrePuesto = textNombre.getText();
-    ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
-    boolean repetido=false;
-    for (Puesto elem : listaDePuestos) {
-        if (nombrePuesto.equals(elem.getNombres())) { 
-            repetido = true;
-    break; 
-    }
-}
-    String formato = "";
-    if (radioMixto.isSelected()) {
-        formato = "Mixto";
-    } else if (radioPresencial.isSelected()) {
-        formato = "Presencial";
-    } else if (radioRemoto.isSelected()) {
-        formato = "Remoto";
-    }
-
-    Component[] components = panelTemas.getComponents();
-    ArrayList<String> temasSeleccionados = new ArrayList<>();
-
-    for (Component component : components) {
-        if (component instanceof JCheckBox) {
-            JCheckBox checkbox = (JCheckBox) component;
-            if (checkbox.isSelected()) {
-                temasSeleccionados.add(checkbox.getText());
+        String nombrePuesto = textNombre.getText();
+        ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
+        boolean repetido=false;
+        for (Puesto elem : listaDePuestos) {
+            if (nombrePuesto.equals(elem.getNombres())) { 
+                repetido = true;
+                break; 
             }
         }
-    }
-    String[] temas = temasSeleccionados.toArray(new String[0]);
-    if(repetido==false){
-        Puesto puesto = new Puesto(nombrePuesto,formato,temas);
-        sistema.getPuestos().add(puesto); 
-        JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
-        sistema.limpiarCamposField(textNombre);
-        sistema.eliminarCheckBox(panelTemas);
-        GrupoFormato.clearSelection();
-        
-    } else {
-        JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
-        sistema.limpiarCamposField(textNombre);
-        
-    }
-    
+        String formato = "";
+        if (radioMixto.isSelected()) {
+            formato = "Mixto";
+        } else if (radioPresencial.isSelected()) {
+            formato = "Presencial";
+        } else if (radioRemoto.isSelected()) {
+            formato = "Remoto";
+        }
+
+        Component[] components = panelTemas.getComponents();
+        ArrayList<String> temasSeleccionados = new ArrayList<>();
+        boolean hayTemas = false;
+        for (Component component : components) {
+            if (component instanceof JCheckBox) {
+                JCheckBox checkbox = (JCheckBox) component;
+                if (checkbox.isSelected()) {
+                    temasSeleccionados.add(checkbox.getText());
+                    hayTemas = true;
+                }
+            }
+        }
+        String[] temas = temasSeleccionados.toArray(new String[0]);
+        if (hayTemas){
+            if(repetido==false){
+                Puesto puesto = new Puesto(nombrePuesto,formato,temas);
+                sistema.getPuestos().add(puesto); 
+                JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
+                sistema.limpiarCamposField(textNombre);
+                sistema.eliminarCheckBox(panelTemas);
+                GrupoFormato.clearSelection();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
+                sistema.limpiarCamposField(textNombre);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "No selecciono temas para el puesto");
+
+        }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     /**

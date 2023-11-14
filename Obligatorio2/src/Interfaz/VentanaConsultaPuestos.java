@@ -14,22 +14,34 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
     public VentanaConsultaPuestos(Sistema sistema) {
         this.sistema = sistema;
 
+        actualizarVentana();
         initComponents();
     }
     
     public void actualizarVentana(){
         this.listPuestos = new DefaultListModel<>();
         this.listPostulantes = new DefaultListModel<>();
+        
         this.listPuestos.addAll(sistema.getPuestos());
         
         posConEntrevista = new ArrayList<>();
-        ArrayList<Entrevista> entrevistas = sistema.getEntrevista();
-        for (Entrevista ent : entrevistas) {
-            if (!posConEntrevista.contains(ent.getPostulante())) {
-                posConEntrevista.add(ent.getPostulante());
+        ArrayList<Postulante> postulantes = new ArrayList<>();
+        postulantes.addAll(sistema.getPostulantes().values());
+        for (int i = postulantes.size()-1; i >= 0; i--) {
+            if (!posConEntrevista.contains(postulantes.get(i))) {
+                posConEntrevista.add(postulantes.get(i));
             }
         }
+        Collections.sort(posConEntrevista, new Comparator<Postulante>() {
+            @Override
+            public int compare(Postulante obj1, Postulante obj2) {
+                return Integer.compare(obj1.getPuntajeUltimaEntrevista(), obj2.getPuntajeUltimaEntrevista());
+            }
+        });
     }
+
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -173,54 +185,28 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
         listPostulantes.clear();
-        
         int nivelD = (int) spinNivel.getValue();
-        ArrayList<String> temasPuesto = this.
+        Puesto puesto = this.listaPuestos.getSelectedValue();
+        String[] temasPuesto = (puesto).getTemas();
         for (Postulante pos : posConEntrevista) {
             boolean losTemas = true;
-            boolean formaTrabajo = true;
-            boolean nivelMayor = true;
-            
-        }
-        
-        
-        
-        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
-        Puesto puestosD = sistema.devolverPuestos(puestos.get(listaPostulantes.getSelectedIndex()).getNombres());
-        int nivelD = (int) spinNivel.getValue();
-        boolean esta = false;
-        boolean formaTrabajo = false;
-        boolean nivelMayorIgual = false;
-        ArrayList<Entrevista> entrevistas = new ArrayList<>();
-        entrevistas = sistema.getEntrevista();
-        for (String cedula : postulantes.keySet()) {
-            Postulante postulante = postulantes.get(cedula);
-            for (Entrevista elem : entrevistas) {
-                if (elem.getPostulante() == postulante) {
-                    esta = true;
-                    if (puestosD.getformato().equals(postulante.getFormato())) {
-                        formaTrabajo = true;
-                        String[] temasPuesto = puestosD.getTemas();
-                        HashMap temasPost = postulante.getTemas();
-                        boolean estanTodos = true;
-                        for (String temaAct : temasPuesto) {
-                            if (temasPost.containsKey(temaAct)) {
-                                if (temasPost.get(temaAct) >= nivelD) {
-                                    
-                                }
-                            } else {
-                                estanTodos = false;
-                            }
-                        }
-                        if ( >= nivelD) {
-                            nivelMayorIgual = true;
-                        }
+            boolean formaTrabajo = false;
+            HashMap<String,Integer> temasPos = pos.getTemas();
+            if (pos.getFormato().equals(puesto.getformato())){
+                formaTrabajo = true;
+            }
+            boolean agregado = false;
+            for (int i = 0; i < temasPuesto.length && formaTrabajo && losTemas && !agregado; i++) {
+                if (temasPos.containsKey(temasPuesto[i])) {
+                    if (temasPos.get(temasPuesto[i]) >= nivelD) {
+                        listPostulantes.addElement(pos);
+                        agregado = true;
                     }
+                } else {
+                    losTemas = false;
                 }
             }
-            listPostulantes.addElement(postulante.getNombre());
         }
-        int level = (int) spinNivel.getValue();
     }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonExportarActionPerformed

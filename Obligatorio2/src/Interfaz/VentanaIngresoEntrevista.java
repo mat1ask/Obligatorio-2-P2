@@ -136,9 +136,10 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
         postulante = postulante.split("-")[1];
         int puntajes = (int) puntaje.getValue();
         
-        Entrevista entrevista = new Entrevista(sistema.getEvaluadorCedula(evaluador),sistema.getPostulanteCedula(postulante),puntajes,comentarios);
+        Entrevista entrevista = new Entrevista(sistema.getEvaluadorCedula(evaluador),sistema.getPostulanteCedula(postulante),puntajes,comentarios,sistema.numeroEntrevistaActual());
+        sistema.getPostulanteCedula(postulante).setPuntajeUltimaEntrevista(puntajes);
         sistema.agregarEntrevista(entrevista);
-        JOptionPane.showMessageDialog(this,"El numero de entrevista es "+ sistema.numeroEntrevista());
+        JOptionPane.showMessageDialog(this,"El numero de entrevista es "+ entrevista.getNumero());
         Sistema.limpiarCamposArea(textAreaComentarios);
         comboEvaluador.setSelectedIndex(0);
         comboPostulante.setSelectedIndex(0);

@@ -159,7 +159,7 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
-        if(sistema.hay("puestos") && sistema.hay("postulantes")){
+        if(sistema.hay("puestos") && sistema.hay("postulantes") && sistema.hay("entrevistas")){
             VentanaConsultaPuestos ventana = new VentanaConsultaPuestos(this.sistema);
             ventana.setVisible(true);
         } else {

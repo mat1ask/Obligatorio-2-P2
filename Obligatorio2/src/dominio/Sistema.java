@@ -120,7 +120,11 @@ public class Sistema {
                     ret = false;
                 }
             }
-
+            case "entrevista" -> {
+                if(this.entrevista.isEmpty()){
+                    ret = false;
+                }
+            }
         }
         return ret;
     }
@@ -141,8 +145,8 @@ public class Sistema {
         this.entrevista.add(ent);
     }
 
-    public int numeroEntrevista() {
-        return this.entrevista.size();
+    public long numeroEntrevistaActual() {
+        return this.entrevista.size()+1;
     }
 
     public void eliminarCheckBox(JPanel panel) {

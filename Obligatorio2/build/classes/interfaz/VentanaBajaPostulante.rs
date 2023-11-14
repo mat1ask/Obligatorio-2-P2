@@ -1,4 +1,0 @@
-interfaz.VentanaBajaPostulante$3
-interfaz.VentanaBajaPostulante$2
-interfaz.VentanaBajaPostulante$1
-interfaz.VentanaBajaPostulante

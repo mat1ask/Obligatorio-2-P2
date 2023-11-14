@@ -11,9 +11,8 @@ public class Postulante {
     String mail;
     String linkedin;
     String formato;
-    HashMap temas;
-    int nivel;
-    String experiencia;
+    HashMap<String,Integer> temas;
+    int puntajeUltimaEntrevista;
 
     public Postulante(String nombre, long cedula, String direccion, String telefono, String mail, String linkedin, String formato) {
         this.nombre = nombre;
@@ -24,6 +23,7 @@ public class Postulante {
         this.linkedin = linkedin;
         this.formato = formato;
         this.temas = new HashMap();
+        puntajeUltimaEntrevista = -1;
     }
 
     public void agregarTema(String tema, int nivel) {
@@ -32,10 +32,6 @@ public class Postulante {
     
     public void eliminarTema(String tema){
         temas.remove(tema);
-    }
-    
-    public int getNivel() {
-        return nivel;
     }
 
     public String getNombre() {
@@ -70,18 +66,6 @@ public class Postulante {
         return temas;
     }
 
-    public String getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(String exp) {
-        this.experiencia = exp;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -114,6 +98,14 @@ public class Postulante {
         this.temas = temas;
     }
 
+    public void setPuntajeUltimaEntrevista(int pun){
+        this.puntajeUltimaEntrevista = pun;
+    }
+    
+    public int getPuntajeUltimaEntrevista(){
+        return this.puntajeUltimaEntrevista;
+    }
+    
     public Postulante() {
         this.nombre = "CONSTRUCTOR SIN ARGUMENTOS";
     }
