@@ -1,6 +1,5 @@
 package interfaz;
 
-
 import dominio.*;
 import java.util.*;
 import javax.swing.*;
@@ -8,22 +7,29 @@ import javax.swing.*;
 public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     private Sistema sistema;
-    private DefaultListModel<String> listPuestos = new DefaultListModel<>();
-    private ArrayList<Puesto> puestos = sistema.getPuestos();
-    private DefaultListModel<String> listPostulantes = new DefaultListModel<>();
+    private ArrayList<Postulante> posConEntrevista;
+    private DefaultListModel<Puesto> listPuestos = new DefaultListModel<>();
+    private DefaultListModel<Postulante> listPostulantes = new DefaultListModel<>();
 
-        public VentanaConsultaPuestos(Sistema sistema) {
-            listaPuestos.setModel(listPuestos);
-            listaPostulantes.setModel(listPostulantes);
-            
-        
-        for (Puesto elemento : puestos) {
-            listPuestos.addElement(elemento.toString());
-        }
-            
+    public VentanaConsultaPuestos(Sistema sistema) {
+        this.sistema = sistema;
+
         initComponents();
     }
-
+    
+    public void actualizarVentana(){
+        this.listPuestos = new DefaultListModel<>();
+        this.listPostulantes = new DefaultListModel<>();
+        this.listPuestos.addAll(sistema.getPuestos());
+        
+        posConEntrevista = new ArrayList<>();
+        ArrayList<Entrevista> entrevistas = sistema.getEntrevista();
+        for (Entrevista ent : entrevistas) {
+            if (!posConEntrevista.contains(ent.getPostulante())) {
+                posConEntrevista.add(ent.getPostulante());
+            }
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -81,11 +87,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         Puestos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Puestos.setText("Puestos:");
 
-        listaPuestos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listaPuestos.setModel(this.listPuestos);
         panelPuestos.setViewportView(listaPuestos);
 
         labelNivel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -121,8 +123,8 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Puestos)
                 .addGap(5, 5, 5)
-                .addComponent(panelPuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(panelPuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNivel)
                     .addComponent(spinNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,7 +133,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 47, 372, 228);
+        jPanel1.setBounds(20, 47, 372, 211);
 
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
@@ -139,11 +141,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Postulantes:");
 
-        listaPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listaPostulantes.setModel(this.listPostulantes);
         panelPostulantes.setViewportView(listaPostulantes);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -168,39 +166,54 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 281, 372, 179);
+        jPanel2.setBounds(20, 281, 372, 186);
 
         setBounds(0, 0, 412, 546);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
-        HashMap<String, Postulante> postulantes= sistema.getPostulantes();
+        listPostulantes.clear();
+        
+        int nivelD = (int) spinNivel.getValue();
+        ArrayList<String> temasPuesto = this.
+        for (Postulante pos : posConEntrevista) {
+            boolean losTemas = true;
+            boolean formaTrabajo = true;
+            boolean nivelMayor = true;
+            
+        }
+        
+        
+        
+        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
         Puesto puestosD = sistema.devolverPuestos(puestos.get(listaPostulantes.getSelectedIndex()).getNombres());
-        int nivelD=(int)spinNivel.getValue();
-        boolean esta=false;
-        boolean formaTrabajo=false;
-        boolean nivelMayorIgual=false;
+        int nivelD = (int) spinNivel.getValue();
+        boolean esta = false;
+        boolean formaTrabajo = false;
+        boolean nivelMayorIgual = false;
         ArrayList<Entrevista> entrevistas = new ArrayList<>();
         entrevistas = sistema.getEntrevista();
         for (String cedula : postulantes.keySet()) {
             Postulante postulante = postulantes.get(cedula);
-            for(Entrevista elem : entrevistas){
-                if(elem.getPostulante()==postulante){
-                    esta=true;
-                    if(puestosD.getformato().equals(postulante.getFormato())){
-                        formaTrabajo=true;
-                        String[]temasPuesto = puestosD.getTemas();
+            for (Entrevista elem : entrevistas) {
+                if (elem.getPostulante() == postulante) {
+                    esta = true;
+                    if (puestosD.getformato().equals(postulante.getFormato())) {
+                        formaTrabajo = true;
+                        String[] temasPuesto = puestosD.getTemas();
                         HashMap temasPost = postulante.getTemas();
                         boolean estanTodos = true;
                         for (String temaAct : temasPuesto) {
-                            if(temasPost.containsKey(temaAct)){
-                                if(temasPost.get(temaAct) >= nivelD)
+                            if (temasPost.containsKey(temaAct)) {
+                                if (temasPost.get(temaAct) >= nivelD) {
+                                    
+                                }
                             } else {
                                 estanTodos = false;
                             }
                         }
-                        if(>=nivelD){
-                            nivelMayorIgual=true;
+                        if ( >= nivelD) {
+                            nivelMayorIgual = true;
                         }
                     }
                 }
@@ -264,8 +277,8 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelNivel;
-    private javax.swing.JList<String> listaPostulantes;
-    private javax.swing.JList<String> listaPuestos;
+    private javax.swing.JList<Postulante> listaPostulantes;
+    private javax.swing.JList<Puesto> listaPuestos;
     private javax.swing.JScrollPane panelPostulantes;
     private javax.swing.JScrollPane panelPuestos;
     private javax.swing.JSpinner spinNivel;

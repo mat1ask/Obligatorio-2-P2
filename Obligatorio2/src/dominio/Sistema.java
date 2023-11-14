@@ -31,12 +31,12 @@ public class Sistema {
     public HashMap getEvaluadores() {
         return evaluadores;
     }
-    
-    public Evaluador getEvaluadorCedula(String cedula){
+
+    public Evaluador getEvaluadorCedula(String cedula) {
         return evaluadores.get(cedula);
     }
-    
-    public Postulante getPostulanteCedula(String cedula){
+
+    public Postulante getPostulanteCedula(String cedula) {
         return postulantes.get(cedula);
     }
 
@@ -65,15 +65,15 @@ public class Sistema {
     public void agregarTematica(Tematica tematica) {
         this.tematicas.add(tematica);
     }
-    
-    public boolean altaEvaluador(Evaluador evaluador){
+
+    public boolean altaEvaluador(Evaluador evaluador) {
         boolean ret = false;
-        
-        if(!evaluadores.containsKey(evaluador.cedula)){
-            this.evaluadores.put(evaluador.cedula+"", evaluador);
+
+        if (!evaluadores.containsKey(evaluador.cedula)) {
+            this.evaluadores.put(evaluador.cedula + "", evaluador);
             ret = true;
         }
-        
+
         return ret;
     }
 
@@ -120,38 +120,38 @@ public class Sistema {
                     ret = false;
                 }
             }
-            
+
         }
         return ret;
     }
-    
-    public Puesto devolverPuestos(String nombre){
-        Puesto puestoRet=new Puesto();
+
+    public Puesto devolverPuestos(String nombre) {
+        Puesto puestoRet = new Puesto();
         ArrayList<Puesto> lospuestos = getPuestos();
         for (Puesto elemento : lospuestos) {
-            if(nombre.equals(elemento.toString())){
-                puestoRet=elemento;
+            if (nombre.equals(elemento.toString())) {
+                puestoRet = elemento;
             }
             break;
         }
         return puestoRet;
     }
-    
-    public void agregarEntrevista(Entrevista ent){
+
+    public void agregarEntrevista(Entrevista ent) {
         this.entrevista.add(ent);
     }
-    
-    public int numeroEntrevista(){
+
+    public int numeroEntrevista() {
         return this.entrevista.size();
     }
-    
-    public void eliminarCheckBox(JPanel panel){
+
+    public void eliminarCheckBox(JPanel panel) {
         Component[] components = panel.getComponents();
-            for (Component component : components) {
-                    if(component instanceof JCheckBox) {
-                       JCheckBox checkBox = (JCheckBox) component;
-                       checkBox.setSelected(false);
-                    }
-                }
+        for (Component component : components) {
+            if (component instanceof JCheckBox) {
+                JCheckBox checkBox = (JCheckBox) component;
+                checkBox.setSelected(false);
             }
+        }
+    }
 }

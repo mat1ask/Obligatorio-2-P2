@@ -159,8 +159,12 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
-        VentanaConsultaPuestos ventana = new VentanaConsultaPuestos(this.sistema);
-        ventana.setVisible(true);
+        if(sistema.hay("puestos") && sistema.hay("postulantes")){
+            VentanaConsultaPuestos ventana = new VentanaConsultaPuestos(this.sistema);
+            ventana.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog( this, "Debe ingresar puestos y postulantes primero");
+        }
     }//GEN-LAST:event_menuItemConsultaPuestoActionPerformed
 
     private void menuItemHistorialPostulanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHistorialPostulanteActionPerformed
