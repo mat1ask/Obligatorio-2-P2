@@ -156,11 +156,11 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         String nombrePuesto = textNombre.getText();
         ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
-        boolean repetido=false;
+        boolean repetido = false;
         for (Puesto elem : listaDePuestos) {
-            if (nombrePuesto.equals(elem.getNombres())) { 
+            if (nombrePuesto.equals(elem.getNombres())) {
                 repetido = true;
-                break; 
+                break;
             }
         }
         String formato = "";
@@ -185,10 +185,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         }
         String[] temas = temasSeleccionados.toArray(new String[0]);
-        if (hayTemas){
-            if(repetido==false){
-                Puesto puesto = new Puesto(nombrePuesto,formato,temas);
-                sistema.getPuestos().add(puesto); 
+        if (hayTemas) {
+            if (repetido == false) {
+                Puesto puesto = new Puesto(nombrePuesto, formato, temas);
+                sistema.getPuestos().add(puesto);
                 JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
                 sistema.limpiarCamposField(textNombre);
                 sistema.eliminarCheckBox(panelTemas);
@@ -198,7 +198,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
                 sistema.limpiarCamposField(textNombre);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No selecciono temas para el puesto");
 
         }

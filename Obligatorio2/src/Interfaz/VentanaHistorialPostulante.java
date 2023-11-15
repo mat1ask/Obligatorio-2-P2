@@ -7,14 +7,14 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class VentanaHistorialPostulante extends javax.swing.JFrame {
-
+    
     private Sistema sistema;
-
+    
     private DefaultListModel<Postulante> listaPostulantes = new DefaultListModel<>();
     private ArrayList<String> cedulas = new ArrayList<>();
     private Postulante postulante = new Postulante();
     private DefaultListModel<String> listaTematicas = new DefaultListModel<>();
-
+    
     public VentanaHistorialPostulante(Sistema sistema) {
         this.sistema = sistema;
         actualizarVentana();
@@ -31,10 +31,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         });
     }
     
-    private void actualizarVentana(){
+    private void actualizarVentana() {
         HashMap<String, Postulante> postulantes = sistema.getPostulantes();
         cedulas.clear();
-        
+
         // Agregar las claves (cedulas) al ArrayList
         for (String cedula : postulantes.keySet()) {
             cedulas.add(cedula);
@@ -49,7 +49,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             listaPostulantes.addElement(postulante);
         }
     }
-
+    
     private void actualizarInformacionPostulante(String nombre) {
         Postulante postulante = this.listPostulantes.getSelectedValue();
         if (postulante != null) {
@@ -67,11 +67,11 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             System.out.println("Error: Postulante no encontrado");
         }
     }
-
+    
     private String obtenerValorSeguro(String valor) {
         return (valor != null) ? valor : "";
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

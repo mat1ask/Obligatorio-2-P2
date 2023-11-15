@@ -17,17 +17,17 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         actualizarVentana();
         initComponents();
     }
-    
-    public void actualizarVentana(){
+
+    public void actualizarVentana() {
         this.listPuestos = new DefaultListModel<>();
         this.listPostulantes = new DefaultListModel<>();
-        
+
         this.listPuestos.addAll(sistema.getPuestos());
-        
+
         posConEntrevista = new ArrayList<>();
         ArrayList<Postulante> postulantes = new ArrayList<>();
         postulantes.addAll(sistema.getPostulantes().values());
-        for (int i = postulantes.size()-1; i >= 0; i--) {
+        for (int i = postulantes.size() - 1; i >= 0; i--) {
             if (!posConEntrevista.contains(postulantes.get(i))) {
                 posConEntrevista.add(postulantes.get(i));
             }
@@ -39,9 +39,6 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
             }
         });
     }
-
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -191,8 +188,8 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
         for (Postulante pos : posConEntrevista) {
             boolean losTemas = true;
             boolean formaTrabajo = false;
-            HashMap<String,Integer> temasPos = pos.getTemas();
-            if (pos.getFormato().equals(puesto.getformato())){
+            HashMap<String, Integer> temasPos = pos.getTemas();
+            if (pos.getFormato().equals(puesto.getformato())) {
                 formaTrabajo = true;
             }
             boolean agregado = false;

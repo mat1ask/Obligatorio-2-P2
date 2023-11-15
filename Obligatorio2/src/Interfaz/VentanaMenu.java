@@ -159,11 +159,11 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemRegistroTematicaActionPerformed
 
     private void menuItemConsultaPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConsultaPuestoActionPerformed
-        if(sistema.hay("puestos") && sistema.hay("postulantes") && sistema.hay("entrevistas")){
+        if (sistema.hay("puestos") && sistema.hay("postulantes") && sistema.hay("entrevistas")) {
             VentanaConsultaPuestos ventana = new VentanaConsultaPuestos(this.sistema);
             ventana.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog( this, "Debe ingresar puestos y postulantes primero");
+            JOptionPane.showMessageDialog(this, "Debe ingresar puestos y postulantes primero");
         }
     }//GEN-LAST:event_menuItemConsultaPuestoActionPerformed
 
@@ -205,14 +205,14 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuConsultaActionPerformed
 
     private void menuItemIngresoEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemIngresoEntrevistaActionPerformed
-        if(sistema.hay("evaluadores")&&(sistema.hay("postulantes"))){
-        VentanaIngresoEntrevista ventana = new VentanaIngresoEntrevista(this.sistema);
-        ventana.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(this,"Debe ingresar postulantes y evaluadores");
+        if (sistema.hay("evaluadores") && (sistema.hay("postulantes"))) {
+            VentanaIngresoEntrevista ventana = new VentanaIngresoEntrevista(this.sistema);
+            ventana.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe ingresar postulantes y evaluadores");
 
         }
-        
+
     }//GEN-LAST:event_menuItemIngresoEntrevistaActionPerformed
 
     private void menuItemRegistroEvaluadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistroEvaluadorActionPerformed
