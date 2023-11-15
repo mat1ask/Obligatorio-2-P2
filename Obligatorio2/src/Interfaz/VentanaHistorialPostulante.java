@@ -9,15 +9,32 @@ import javax.swing.event.ListSelectionListener;
 public class VentanaHistorialPostulante extends javax.swing.JFrame {
 
     private Sistema sistema;
-    
-    private DefaultListModel<String> listaPostulantes = new DefaultListModel<>();
-    private ArrayList<String> cedulas = new ArrayList<>();
-    private  Postulante postulante = new Postulante();
-     public VentanaHistorialPostulante(Sistema sistema) {
-        this.sistema = sistema;
-        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
-        initComponents();
 
+    private DefaultListModel<Postulante> listaPostulantes = new DefaultListModel<>();
+    private ArrayList<String> cedulas = new ArrayList<>();
+    private Postulante postulante = new Postulante();
+    private DefaultListModel<String> listaTematicas = new DefaultListModel<>();
+
+    public VentanaHistorialPostulante(Sistema sistema) {
+        this.sistema = sistema;
+        actualizarVentana();
+        initComponents();
+        
+        listPostulantes.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                // Obtener el nombre del postulante seleccionado
+                String nombre = listPostulantes.getSelectedValue().getNombre();
+                // Establecer el nombre en labelNombre
+                actualizarInformacionPostulante(nombre);
+            }
+        });
+    }
+    
+    private void actualizarVentana(){
+        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
+        cedulas.clear();
+        
         // Agregar las claves (cedulas) al ArrayList
         for (String cedula : postulantes.keySet()) {
             cedulas.add(cedula);
@@ -29,22 +46,12 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         // Agregar los nombres de los postulantes a la lista
         for (String cedula : cedulas) {
             postulante = postulantes.get(cedula);
-            listaPostulantes.addElement(postulante.getNombre());
+            listaPostulantes.addElement(postulante);
         }
-         listPostulantes.setModel(listaPostulantes);
-        
-        listPostulantes.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                // Obtener el nombre del postulante seleccionado
-                String nombre = listPostulantes.getSelectedValue();
-                // Establecer el nombre en labelNombre
-                actualizarInformacionPostulante(nombre);         
-            }
-        });
-     }
-     private void actualizarInformacionPostulante(String nombre) {
-        Postulante postulante = sistema.getPostulantes().get(nombre);
+    }
+
+    private void actualizarInformacionPostulante(String nombre) {
+        Postulante postulante = this.listPostulantes.getSelectedValue();
         if (postulante != null) {
             //JLabelCedula.setText(postulante.getCedula());
             JLabelDireccion.setText(postulante.getDireccion());
@@ -52,14 +59,19 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             JLabelMail.setText(postulante.getMail());
             JLabelLinkedin.setText(postulante.getLinkedin());
             JLabelFormato.setText(postulante.getFormato());
+            listaTematicas = new DefaultListModel<>();
+            for (String tema : postulante.temasToArray()) {
+                listaTematicas.addElement(tema);
+            }
         } else {
             System.out.println("Error: Postulante no encontrado");
         }
     }
+
     private String obtenerValorSeguro(String valor) {
         return (valor != null) ? valor : "";
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -100,11 +112,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        listPostulantes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listPostulantes.setModel(this.listaPostulantes);
         panelPostulantes.setViewportView(listPostulantes);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -354,7 +362,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60))
         );
@@ -371,7 +379,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 629, 451);
+        jPanel3.setBounds(18, 65, 1025, 604);
 
         botonSalir.setText("Salir");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -383,11 +391,12 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         botonSalir.setBounds(24, 680, 72, 23);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Historial de postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(298, 12, 230, 25);
+        jLabel1.setBounds(30, 20, 950, 22);
 
-        setBounds(0, 0, 850, 748);
+        setBounds(0, 0, 1041, 747);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
@@ -471,7 +480,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JList<String> listExperiencia;
-    private javax.swing.JList<String> listPostulantes;
+    private javax.swing.JList<Postulante> listPostulantes;
     private javax.swing.JScrollPane panelExperiencia;
     private javax.swing.JScrollPane panelPostulantes;
     private javax.swing.JTextField textBuscar;

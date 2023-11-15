@@ -22,7 +22,7 @@ public class Postulante {
         this.mail = mail;
         this.linkedin = linkedin;
         this.formato = formato;
-        this.temas = new HashMap();
+        this.temas = new HashMap<String,Integer>();
         puntajeUltimaEntrevista = -1;
     }
 
@@ -108,6 +108,11 @@ public class Postulante {
     
     public Postulante() {
         this.nombre = "CONSTRUCTOR SIN ARGUMENTOS";
+    }
+    
+    public String[] temasToArray(){
+        Object[] array = temas.keySet().toArray();
+        return (String[]) array;
     }
 
     @Override

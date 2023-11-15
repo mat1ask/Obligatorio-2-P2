@@ -133,8 +133,12 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         int level = (int) nivel.getValue();
         String tema = (String) comboTema.getSelectedItem();
-        postulante.agregarTema(tema, level);
-        listaExp.addElement(tema + "(" + level + ")");
+        if ((postulante.getTemas()).containsKey(tema)) {
+            JOptionPane.showMessageDialog(this, "No puede ingresar dos veces el mismo tema", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            postulante.agregarTema(tema, level);
+            listaExp.addElement(tema + "(" + level + ")");
+        }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
@@ -143,7 +147,6 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "El postulante NO se ingreso al sistema. Tiene un error en el formato", "Alta de postulante", JOptionPane.INFORMATION_MESSAGE);
-
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
@@ -158,9 +161,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
             DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
             postulante.eliminarTema((modeloLista.get(indiceSeleccionado)).split("-")[0]);
             modeloLista.remove(indiceSeleccionado);
-            
-        }
-        
+        }                
     }//GEN-LAST:event_botonEliminarActionPerformed
 
     /**

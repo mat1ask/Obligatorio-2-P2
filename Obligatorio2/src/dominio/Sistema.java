@@ -7,10 +7,10 @@ import javax.swing.*;
 public class Sistema {
 
     HashMap<String, Postulante> postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
-    ArrayList tematicas;
+    ArrayList<Tematica> tematicas;
     HashMap<String, Evaluador> evaluadores;
-    ArrayList puestos;
-    ArrayList entrevista;
+    ArrayList<Puesto> puestos;
+    ArrayList<Entrevista> entrevista;
 
     public Sistema() {
         this.postulantes = new HashMap<String, Postulante>();
@@ -60,6 +60,11 @@ public class Sistema {
 
     public void bajaPostulante(String cedula) {
         this.postulantes.remove(cedula);
+        for (Entrevista ent : this.entrevista) { //Este for no lo probe, tiene que andar igual
+            if(ent.postulante.cedula == Long.parseLong(cedula)) {
+                entrevista.remove(ent);
+            }
+        }
     }
 
     public void agregarTematica(Tematica tematica) {

@@ -38,7 +38,6 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
-        panelRadio = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
@@ -56,17 +55,17 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         Titulo.setText("Registro Puesto");
         Titulo.setAlignmentY(0.0F);
         getContentPane().add(Titulo);
-        Titulo.setBounds(102, 6, 134, 30);
+        Titulo.setBounds(102, 6, 210, 30);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 60, 70, 16);
+        jLabel3.setBounds(20, 60, 70, 15);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Formato:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(20, 90, 70, 16);
+        jLabel7.setBounds(20, 90, 70, 15);
 
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,26 +73,12 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textNombre);
-        textNombre.setBounds(100, 60, 219, 22);
-
-        javax.swing.GroupLayout panelRadioLayout = new javax.swing.GroupLayout(panelRadio);
-        panelRadio.setLayout(panelRadioLayout);
-        panelRadioLayout.setHorizontalGroup(
-            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        panelRadioLayout.setVerticalGroup(
-            panelRadioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 21, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panelRadio);
-        panelRadio.setBounds(102, 73, 270, 21);
+        textNombre.setBounds(100, 60, 240, 23);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Temas Requeridos:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 130, 105, 16);
+        jLabel4.setBounds(20, 130, 118, 15);
 
         botonCancelar.setText("Cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +96,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonRegistrar);
-        botonRegistrar.setBounds(230, 220, 90, 23);
+        botonRegistrar.setBounds(250, 220, 90, 23);
 
         scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -119,13 +104,13 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         scrollTemas.setViewportView(panelTemas);
 
         getContentPane().add(scrollTemas);
-        scrollTemas.setBounds(150, 130, 170, 80);
+        scrollTemas.setBounds(150, 130, 190, 80);
 
         GrupoFormato.add(radioRemoto);
         radioRemoto.setText("Remoto");
         radioRemoto.setAlignmentY(0.0F);
         getContentPane().add(radioRemoto);
-        radioRemoto.setBounds(100, 90, 80, 21);
+        radioRemoto.setBounds(100, 90, 80, 30);
 
         GrupoFormato.add(radioPresencial);
         radioPresencial.setText("Presencial");
@@ -136,7 +121,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(radioPresencial);
-        radioPresencial.setBounds(180, 90, 90, 21);
+        radioPresencial.setBounds(180, 90, 90, 30);
 
         GrupoFormato.add(radioMixto);
         radioMixto.setText("Mixto");
@@ -147,7 +132,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(radioMixto);
-        radioMixto.setBounds(280, 90, 70, 21);
+        radioMixto.setBounds(280, 90, 70, 30);
 
         setBounds(0, 0, 430, 294);
     }// </editor-fold>//GEN-END:initComponents
@@ -263,7 +248,6 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel panelRadio;
     private javax.swing.JPanel panelTemas;
     private javax.swing.JRadioButton radioMixto;
     private javax.swing.JRadioButton radioPresencial;

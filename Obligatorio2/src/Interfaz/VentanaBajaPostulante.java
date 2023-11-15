@@ -84,8 +84,8 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
-        String post = losPostulantes.get(listaPostulantes.getSelectedIndex()).getCedula() + "";
-        sistema.bajaPostulante(post);
+        String cedula = losPostulantes.get(listaPostulantes.getSelectedIndex()).getCedula() + "";
+        sistema.bajaPostulante(cedula);
         JOptionPane.showMessageDialog(null, "El postulante ha sido eliminado", "Baja de postulante", JOptionPane.INFORMATION_MESSAGE);
         renovarDatos();
     }//GEN-LAST:event_botonEliminarActionPerformed
