@@ -42,10 +42,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
         scrollTemas = new javax.swing.JScrollPane();
-        panelTemas = new javax.swing.JPanel();
         radioRemoto = new javax.swing.JRadioButton();
         radioPresencial = new javax.swing.JRadioButton();
         radioMixto = new javax.swing.JRadioButton();
+        panelTemas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -99,10 +99,6 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         botonRegistrar.setBounds(250, 220, 90, 23);
 
         scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
-        scrollTemas.setViewportView(panelTemas);
-
         getContentPane().add(scrollTemas);
         scrollTemas.setBounds(150, 130, 190, 80);
 
@@ -133,6 +129,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         });
         getContentPane().add(radioMixto);
         radioMixto.setBounds(280, 90, 70, 30);
+
+        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
+        getContentPane().add(panelTemas);
+        panelTemas.setBounds(0, 0, 0, 0);
 
         setBounds(0, 0, 430, 294);
     }// </editor-fold>//GEN-END:initComponents

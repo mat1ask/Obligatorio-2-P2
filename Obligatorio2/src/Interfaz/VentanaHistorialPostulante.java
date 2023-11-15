@@ -171,11 +171,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel6.setText("Mail:");
         jLabel6.setAlignmentY(0.0F);
 
-        listExperiencia.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        listExperiencia.setModel(this.listaTematicas);
         panelExperiencia.setViewportView(listExperiencia);
 
         labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
