@@ -1,0 +1,7 @@
+interfaz.VentanaRegistroPuesto$5
+interfaz.VentanaRegistroPuesto$6
+interfaz.VentanaRegistroPuesto
+interfaz.VentanaRegistroPuesto$3
+interfaz.VentanaRegistroPuesto$4
+interfaz.VentanaRegistroPuesto$1
+interfaz.VentanaRegistroPuesto$2

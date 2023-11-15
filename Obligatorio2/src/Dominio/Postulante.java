@@ -11,7 +11,7 @@ public class Postulante {
     String mail;
     String linkedin;
     String formato;
-    HashMap<String,Integer> temas;
+    HashMap<String, Integer> temas;
     int puntajeUltimaEntrevista;
 
     public Postulante(String nombre, long cedula, String direccion, String telefono, String mail, String linkedin, String formato) {
@@ -22,15 +22,15 @@ public class Postulante {
         this.mail = mail;
         this.linkedin = linkedin;
         this.formato = formato;
-        this.temas = new HashMap<String,Integer>();
+        this.temas = new HashMap<String, Integer>();
         puntajeUltimaEntrevista = -1;
     }
 
     public void agregarTema(String tema, int nivel) {
         temas.put(tema, nivel);
     }
-    
-    public void eliminarTema(String tema){
+
+    public void eliminarTema(String tema) {
         temas.remove(tema);
     }
 
@@ -98,25 +98,35 @@ public class Postulante {
         this.temas = temas;
     }
 
-    public void setPuntajeUltimaEntrevista(int pun){
+    public void setPuntajeUltimaEntrevista(int pun) {
         this.puntajeUltimaEntrevista = pun;
     }
-    
-    public int getPuntajeUltimaEntrevista(){
+
+    public int getPuntajeUltimaEntrevista() {
         return this.puntajeUltimaEntrevista;
     }
-    
+
     public Postulante() {
         this.nombre = "CONSTRUCTOR SIN ARGUMENTOS";
     }
-    
-    public String[] temasToArray(){
-        Object[] array = temas.keySet().toArray();
-        return (String[]) array;
+
+    public String[] temasToArray() {
+        String[] temas = new String[this.temas.size()];
+        
+        Iterator<Map.Entry<String, Integer>> iterador = this.temas.entrySet().iterator();
+        int i = 0;
+        while(iterador.hasNext()) {
+            Map.Entry<String, Integer> tema = iterador.next();
+            String key = tema.getKey();
+            Integer nivel = tema.getValue();
+            temas[i] = key + "(" + nivel +")";
+            i++;
+        }
+        return temas;
     }
 
     @Override
     public String toString() {
-        return this.nombre;
+        return this.nombre + "-" + this.cedula;
     }
 }

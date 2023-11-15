@@ -5,6 +5,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableColumnModel;
 
 public class VentanaHistorialPostulante extends javax.swing.JFrame {
     
@@ -14,6 +15,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private ArrayList<String> cedulas = new ArrayList<>();
     private Postulante postulante = new Postulante();
     private DefaultListModel<String> listaTematicas = new DefaultListModel<>();
+    private TableColumnModel modeloTabla;
     
     public VentanaHistorialPostulante(Sistema sistema) {
         this.sistema = sistema;
@@ -29,12 +31,14 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                 actualizarInformacionPostulante(nombre);
             }
         });
+        modeloTabla = jTable1.getColumnModel();
+        modeloTabla.getColumn(3).setPreferredWidth(600);
     }
     
     private void actualizarVentana() {
         HashMap<String, Postulante> postulantes = sistema.getPostulantes();
         cedulas.clear();
-
+        listaTematicas = new DefaultListModel<>();
         // Agregar las claves (cedulas) al ArrayList
         for (String cedula : postulantes.keySet()) {
             cedulas.add(cedula);
@@ -53,16 +57,19 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private void actualizarInformacionPostulante(String nombre) {
         Postulante postulante = this.listPostulantes.getSelectedValue();
         if (postulante != null) {
-            //JLabelCedula.setText(postulante.getCedula());
+            labelNombre.setText(postulante.getNombre());
+            JLabelCedula.setText(postulante.getCedula()+"");
             JLabelDireccion.setText(postulante.getDireccion());
             JLabelTelefono.setText(postulante.getTelefono());
             JLabelMail.setText(postulante.getMail());
             JLabelLinkedin.setText(postulante.getLinkedin());
             JLabelFormato.setText(postulante.getFormato());
             listaTematicas = new DefaultListModel<>();
-            for (String tema : postulante.temasToArray()) {
-                listaTematicas.addElement(tema);
-            }
+            String[] losTemas = postulante.temasToArray();
+            listExperiencia.setListData(losTemas);
+//            for (String tema : losTemas) {
+//                listaTematicas.addElement(tema);
+//            }
         } else {
             System.out.println("Error: Postulante no encontrado");
         }
@@ -171,35 +178,34 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel6.setText("Mail:");
         jLabel6.setAlignmentY(0.0F);
 
-        listExperiencia.setModel(this.listaTematicas);
         panelExperiencia.setViewportView(listExperiencia);
 
         labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelNombre.setText("JLabelNombre");
+        labelNombre.setText(" ");
         labelNombre.setAlignmentY(0.0F);
 
         JLabelCedula.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelCedula.setText("JLabelCedula");
+        JLabelCedula.setText(" ");
         JLabelCedula.setAlignmentY(0.0F);
 
         JLabelDireccion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelDireccion.setText("JLabelDireccion");
+        JLabelDireccion.setText(" ");
         JLabelDireccion.setAlignmentY(0.0F);
 
         JLabelTelefono.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelTelefono.setText("JLabelTelefono");
+        JLabelTelefono.setText(" ");
         JLabelTelefono.setAlignmentY(0.0F);
 
         JLabelMail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelMail.setText("JLabelMail");
+        JLabelMail.setText(" ");
         JLabelMail.setAlignmentY(0.0F);
 
         JLabelLinkedin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelLinkedin.setText("JLabelLinkedin");
+        JLabelLinkedin.setText("  ");
         JLabelLinkedin.setAlignmentY(0.0F);
 
         JLabelFormato.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabelFormato.setText("JLabelFormato");
+        JLabelFormato.setText(" ");
         JLabelFormato.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -219,16 +225,16 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelNombre)
-                    .addComponent(JLabelCedula)
-                    .addComponent(JLabelDireccion)
-                    .addComponent(JLabelTelefono)
-                    .addComponent(JLabelMail)
-                    .addComponent(JLabelLinkedin)
-                    .addComponent(JLabelFormato)
-                    .addComponent(panelExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(labelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelCedula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelLinkedin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JLabelFormato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel10, jLabel2, jLabel3, jLabel4, jLabel5});
@@ -291,9 +297,18 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             new String [] {
                 "Nro", "Evaluador", "Puntaje", "Comentarios"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setAlignmentX(0.0F);
         jTable1.setAlignmentY(0.0F);
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane3.setViewportView(jTable1);
 
         botonBuscar.setText("Buscar");
@@ -358,7 +373,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60))
         );
@@ -375,7 +390,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 1025, 604);
+        jPanel3.setBounds(18, 65, 1020, 611);
 
         botonSalir.setText("Salir");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -390,7 +405,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Historial de postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 20, 950, 22);
+        jLabel1.setBounds(30, 20, 950, 25);
 
         setBounds(0, 0, 1041, 747);
     }// </editor-fold>//GEN-END:initComponents

@@ -1,0 +1,4 @@
+interfaz.VentanaRegistroTematica$2
+interfaz.VentanaRegistroTematica$1
+interfaz.VentanaRegistroTematica$3
+interfaz.VentanaRegistroTematica
