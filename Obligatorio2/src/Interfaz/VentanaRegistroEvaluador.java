@@ -37,7 +37,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Registro Evaluador");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(67, 0, 180, 22);
+        jLabel1.setBounds(67, 0, 230, 22);
 
         jLabel2.setText("Cedula:");
         getContentPane().add(jLabel2);
@@ -87,7 +87,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         getContentPane().add(botonCancelar);
         botonCancelar.setBounds(20, 166, 90, 23);
 
-        setBounds(0, 0, 414, 307);
+        setBounds(0, 0, 325, 246);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNombreActionPerformed
