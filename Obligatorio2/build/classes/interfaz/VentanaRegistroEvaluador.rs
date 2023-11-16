@@ -1,5 +1,0 @@
-interfaz.VentanaRegistroEvaluador$4
-interfaz.VentanaRegistroEvaluador
-interfaz.VentanaRegistroEvaluador$2
-interfaz.VentanaRegistroEvaluador$3
-interfaz.VentanaRegistroEvaluador$1

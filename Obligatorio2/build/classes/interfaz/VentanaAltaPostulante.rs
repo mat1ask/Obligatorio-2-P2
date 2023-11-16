@@ -1,7 +1,0 @@
-interfaz.VentanaAltaPostulante$4
-interfaz.VentanaAltaPostulante$3
-interfaz.VentanaAltaPostulante$6
-interfaz.VentanaAltaPostulante$5
-interfaz.VentanaAltaPostulante
-interfaz.VentanaAltaPostulante$2
-interfaz.VentanaAltaPostulante$1

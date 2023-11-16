@@ -42,10 +42,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         botonCancelar = new javax.swing.JButton();
         botonRegistrar = new javax.swing.JButton();
         scrollTemas = new javax.swing.JScrollPane();
+        panelTemas = new javax.swing.JPanel();
         radioRemoto = new javax.swing.JRadioButton();
         radioPresencial = new javax.swing.JRadioButton();
         radioMixto = new javax.swing.JRadioButton();
-        panelTemas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -99,6 +99,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         botonRegistrar.setBounds(250, 220, 90, 23);
 
         scrollTemas.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
+        scrollTemas.setViewportView(panelTemas);
+
         getContentPane().add(scrollTemas);
         scrollTemas.setBounds(150, 130, 190, 80);
 
@@ -130,10 +134,6 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         getContentPane().add(radioMixto);
         radioMixto.setBounds(280, 90, 70, 30);
 
-        panelTemas.setLayout(new java.awt.GridLayout(0, 1));
-        getContentPane().add(panelTemas);
-        panelTemas.setBounds(0, 0, 0, 0);
-
         setBounds(0, 0, 430, 294);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -156,12 +156,16 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         String nombrePuesto = textNombre.getText();
         ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
-        boolean repetido = false;
-        for (Puesto elem : listaDePuestos) {
-            if (nombrePuesto.equals(elem.getNombres())) {
-                repetido = true;
-                break;
+        boolean valido = true;
+        if(!nombrePuesto.equals("")){
+            for (Puesto elem : listaDePuestos) {
+                if (nombrePuesto.equals(elem.getNombres())) {
+                    valido = false;
+                    break;
+                }
             }
+        }else{
+            valido = false;
         }
         String formato = "";
         if (radioMixto.isSelected()) {
@@ -186,7 +190,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         }
         String[] temas = temasSeleccionados.toArray(new String[0]);
         if (hayTemas) {
-            if (repetido == false) {
+            if (valido) {
                 Puesto puesto = new Puesto(nombrePuesto, formato, temas);
                 sistema.getPuestos().add(puesto);
                 JOptionPane.showMessageDialog(this, "El puesto ha sido ingresado correctamente");
@@ -195,12 +199,10 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
                 GrupoFormato.clearSelection();
 
             } else {
-                JOptionPane.showMessageDialog(this, "Ya hay un puesto con ese nombre, intente con otro");
-                sistema.limpiarCamposField(textNombre);
+                JOptionPane.showMessageDialog(this, "Error con el nombre, intente con otro");
             }
         } else {
             JOptionPane.showMessageDialog(this, "No selecciono temas para el puesto");
-
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 

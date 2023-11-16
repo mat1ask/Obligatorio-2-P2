@@ -1,17 +1,29 @@
 package interfaz;
 
+import dominio.Postulante;
+import dominio.Puesto;
 import dominio.Sistema;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 public class VentanaConsultaPorTematica extends javax.swing.JFrame {
 
     private Sistema sistema;
+    private DefaultListModel<String> listaTemas;
 
     /**
      * Creates new form VentanaConsultaPorTematica
      */
     public VentanaConsultaPorTematica(Sistema sistema) {
-        initComponents();
         this.sistema = sistema;
+        actualizarDatos();
+        
+        initComponents();
+    }
+    
+    public void actualizarDatos(){
+        listaTemas = new DefaultListModel<String>();
+        listaTemas.addAll(sistema.getListTemas());
     }
 
     /**
@@ -27,7 +39,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listTema = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         textCantMay5 = new javax.swing.JTextField();
@@ -57,12 +69,13 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 30, 80, 15);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        listTema.setModel(this.listaTemas);
+        listTema.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listTemaValueChanged(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listTema);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(26, 52, 74, 120);
@@ -78,9 +91,8 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         jLabel5.setBounds(118, 30, 80, 15);
 
         textCantMay5.setEditable(false);
-        textCantMay5.setText("CantMay5");
         getContentPane().add(textCantMay5);
-        textCantMay5.setBounds(422, 52, 79, 23);
+        textCantMay5.setBounds(422, 52, 90, 23);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Cantidad de peuestos que lo requieren:");
@@ -88,14 +100,13 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         jLabel6.setBounds(118, 80, 298, 15);
 
         textCantPuestos.setEditable(false);
-        textCantPuestos.setText("CantPuestos");
         textCantPuestos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textCantPuestosActionPerformed(evt);
             }
         });
         getContentPane().add(textCantPuestos);
-        textCantPuestos.setBounds(422, 80, 89, 23);
+        textCantPuestos.setBounds(422, 80, 90, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -107,6 +118,33 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
     private void textCantPuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCantPuestosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textCantPuestosActionPerformed
+
+    private void listTemaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listTemaValueChanged
+        String tema = listTema.getSelectedValue();
+        ArrayList<Postulante> postulantes = new ArrayList<>();
+        postulantes.addAll(sistema.getPostulantes().values());
+        long cantPostulantes = 0;
+        for (Postulante act : postulantes) {
+            if(act.getTemas().containsKey(tema)){
+                if((int)(act.getTemas().get(tema)) > 5){
+                    cantPostulantes++;
+                }
+            }
+        }
+        ArrayList<Puesto> puestos = new ArrayList<>();
+        puestos.addAll(sistema.getPuestos());
+        long cantPuestos = 0;
+        for (Puesto act : puestos) {
+            for (String elTema : act.getTemas()){
+                if(elTema == tema) {
+                    cantPuestos++;
+                }
+            }
+        }
+        
+        this.textCantMay5.setText(cantPostulantes+"");
+        this.textCantPuestos.setText(cantPuestos+"");
+    }//GEN-LAST:event_listTemaValueChanged
 
     /**
      * @param args the command line arguments
@@ -151,8 +189,8 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listTema;
     private javax.swing.JTextField textCantMay5;
     private javax.swing.JTextField textCantPuestos;
     // End of variables declaration//GEN-END:variables

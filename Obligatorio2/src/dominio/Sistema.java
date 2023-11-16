@@ -27,6 +27,14 @@ public class Sistema {
     public ArrayList getTematicas() {
         return tematicas;
     }
+    
+    public ArrayList<String> getListTemas() {
+        ArrayList<String> ret = new ArrayList<>();
+        for (Tematica tem : tematicas) {
+            ret.add(tem.toString());
+        }
+        return ret;
+    }
 
     public HashMap getEvaluadores() {
         return evaluadores;
