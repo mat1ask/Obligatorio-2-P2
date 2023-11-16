@@ -47,6 +47,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         textCantPuestos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(565, 250));
         getContentPane().setLayout(null);
 
         botonCerrar.setText("Cerrar");

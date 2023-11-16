@@ -48,6 +48,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         radioMixto = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(360, 260));
         getContentPane().setLayout(null);
 
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -134,7 +135,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         getContentPane().add(radioMixto);
         radioMixto.setBounds(280, 90, 70, 30);
 
-        setBounds(0, 0, 430, 294);
+        setBounds(0, 0, 349, 281);
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioPresencialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPresencialActionPerformed
@@ -167,6 +168,8 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         }else{
             valido = false;
         }
+        
+        boolean select = true;
         String formato = "";
         if (radioMixto.isSelected()) {
             formato = "Mixto";
@@ -174,6 +177,8 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             formato = "Presencial";
         } else if (radioRemoto.isSelected()) {
             formato = "Remoto";
+        } else {
+            select = false;
         }
 
         Component[] components = panelTemas.getComponents();
@@ -189,7 +194,7 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
             }
         }
         String[] temas = temasSeleccionados.toArray(new String[0]);
-        if (hayTemas) {
+        if (select && hayTemas) {
             if (valido) {
                 Puesto puesto = new Puesto(nombrePuesto, formato, temas);
                 sistema.getPuestos().add(puesto);
@@ -197,12 +202,11 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
                 sistema.limpiarCamposField(textNombre);
                 sistema.eliminarCheckBox(panelTemas);
                 GrupoFormato.clearSelection();
-
             } else {
                 JOptionPane.showMessageDialog(this, "Error con el nombre, intente con otro");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "No selecciono temas para el puesto");
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 

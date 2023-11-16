@@ -54,25 +54,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         }
     }
     
+    
+    
     private void actualizarInformacionPostulante(String nombre) {
-        Postulante postulante = this.listPostulantes.getSelectedValue();
-        if (postulante != null) {
-            labelNombre.setText(postulante.getNombre());
-            JLabelCedula.setText(postulante.getCedula()+"");
-            JLabelDireccion.setText(postulante.getDireccion());
-            JLabelTelefono.setText(postulante.getTelefono());
-            JLabelMail.setText(postulante.getMail());
-            JLabelLinkedin.setText(postulante.getLinkedin());
-            JLabelFormato.setText(postulante.getFormato());
-            listaTematicas = new DefaultListModel<>();
-            String[] losTemas = postulante.temasToArray();
-            listExperiencia.setListData(losTemas);
-//            for (String tema : losTemas) {
-//                listaTematicas.addElement(tema);
-//            }
-        } else {
-            System.out.println("Error: Postulante no encontrado");
-        }
+        
     }
     
     private String obtenerValorSeguro(String valor) {
@@ -120,6 +105,11 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         listPostulantes.setModel(this.listaPostulantes);
+        listPostulantes.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listPostulantesValueChanged(evt);
+            }
+        });
         panelPostulantes.setViewportView(listPostulantes);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -390,7 +380,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(18, 65, 1020, 611);
+        jPanel3.setBounds(18, 65, 1026, 604);
 
         botonSalir.setText("Salir");
         botonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -405,7 +395,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Historial de postulante");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 20, 950, 25);
+        jLabel1.setBounds(30, 20, 950, 22);
 
         setBounds(0, 0, 1041, 747);
     }// </editor-fold>//GEN-END:initComponents
@@ -425,6 +415,27 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonBuscarActionPerformed
+
+    private void listPostulantesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesValueChanged
+        Postulante postulante = this.listPostulantes.getSelectedValue();
+        if (postulante != null) {
+            labelNombre.setText(postulante.getNombre());
+            JLabelCedula.setText(postulante.getCedula()+"");
+            JLabelDireccion.setText(postulante.getDireccion());
+            JLabelTelefono.setText(postulante.getTelefono());
+            JLabelMail.setText(postulante.getMail());
+            JLabelLinkedin.setText(postulante.getLinkedin());
+            JLabelFormato.setText(postulante.getFormato());
+            listaTematicas = new DefaultListModel<>();
+            String[] losTemas = postulante.temasToArray();
+            listExperiencia.setListData(losTemas);
+//            for (String tema : losTemas) {
+//                listaTematicas.addElement(tema);
+//            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: Postulante no encontrado");
+        }
+    }//GEN-LAST:event_listPostulantesValueChanged
 
     /**
      * @param args the command line arguments
