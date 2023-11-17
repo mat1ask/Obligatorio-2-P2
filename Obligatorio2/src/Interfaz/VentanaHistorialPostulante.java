@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableColumnModel;
+import javax.swing.table.*;
 
 public class VentanaHistorialPostulante extends javax.swing.JFrame {
     
@@ -22,17 +22,19 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         actualizarVentana();
         initComponents();
         
-        listPostulantes.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                // Obtener el nombre del postulante seleccionado
-                String nombre = listPostulantes.getSelectedValue().getNombre();
-                // Establecer el nombre en labelNombre
-                actualizarInformacionPostulante(nombre);
-            }
-        });
-        modeloTabla = jTable1.getColumnModel();
+//        listPostulantes.addListSelectionListener(new ListSelectionListener() {
+//            @Override
+//            public void valueChanged(ListSelectionEvent e) {
+//                // Obtener el nombre del postulante seleccionado
+//                String nombre = listPostulantes.getSelectedValue().getNombre();
+//            }
+//        });
+        modeloTabla = tablaEntrevista.getColumnModel();
+        modeloTabla.getColumn(0).setPreferredWidth(55);
+        modeloTabla.getColumn(1).setPreferredWidth(255);
+        modeloTabla.getColumn(2).setPreferredWidth(125);
         modeloTabla.getColumn(3).setPreferredWidth(600);
+        
     }
     
     private void actualizarVentana() {
@@ -53,17 +55,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             listaPostulantes.addElement(postulante);
         }
     }
-    
-    
-    
-    private void actualizarInformacionPostulante(String nombre) {
-        
-    }
-    
-    private String obtenerValorSeguro(String valor) {
-        return (valor != null) ? valor : "";
-    }
-    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -95,7 +87,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         textBuscar = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaEntrevista = new javax.swing.JTable();
         botonBuscar = new javax.swing.JButton();
         botonReset = new javax.swing.JButton();
         botonSalir = new javax.swing.JButton();
@@ -277,7 +269,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
 
         jLabel11.setText("Buscar:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEntrevista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -296,10 +288,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAlignmentX(0.0F);
-        jTable1.setAlignmentY(0.0F);
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jScrollPane3.setViewportView(jTable1);
+        tablaEntrevista.setAlignmentX(0.0F);
+        tablaEntrevista.setAlignmentY(0.0F);
+        tablaEntrevista.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane3.setViewportView(tablaEntrevista);
 
         botonBuscar.setText("Buscar");
         botonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -401,7 +393,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
-        // TODO add your handling code here:
+        cargaTablaDefecto(sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue()));
     }//GEN-LAST:event_botonResetActionPerformed
 
     private void textBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textBuscarActionPerformed
@@ -413,7 +405,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        // TODO add your handling code here:
+        String pal = this.textBuscar.getText();
+        ArrayList<Entrevista> entrevistas = sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue());
+        
+        cargaTablaBuscador(entrevistas,pal);
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void listPostulantesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesValueChanged
@@ -429,14 +424,42 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             listaTematicas = new DefaultListModel<>();
             String[] losTemas = postulante.temasToArray();
             listExperiencia.setListData(losTemas);
-//            for (String tema : losTemas) {
-//                listaTematicas.addElement(tema);
-//            }
+            cargaTablaDefecto(sistema.getEntrevistaPostulante(postulante));
         } else {
             JOptionPane.showMessageDialog(this, "Error: Postulante no encontrado");
         }
     }//GEN-LAST:event_listPostulantesValueChanged
+    
+    public String colorPalabra(String palabra, String comentarios) {
+        String ret = "";
+        int comienzo = comentarios.indexOf(palabra);
+        int fin = comienzo + palabra.length();
+        
+        ret = comentarios.substring(0,comienzo) + "<html><font color='red'>" + palabra + "</font></html>" + comentarios.substring(fin);
 
+        return ret;
+    }
+    
+    public void cargaTablaDefecto(ArrayList<Entrevista> entrevistas){
+        DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
+        modeloT.setRowCount(0);
+        for (Entrevista ent : entrevistas) {
+           Object[] fila = {ent.getNumero() , ent.getEvaluadores() , ent.getPuntaje() , ent.getComentarios()};
+           modeloT.addRow(fila);
+        }
+    }
+    
+    public void cargaTablaBuscador(ArrayList<Entrevista> entrevistas , String palabra) {
+        DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
+        modeloT.setRowCount(0);
+        for (Entrevista ent : entrevistas ) {
+            String comentario = ent.getComentarios();
+            Object[] fila = {ent.getNumero() , ent.getEvaluadores() , ent.getPuntaje() , colorPalabra(comentario, palabra)};
+            modeloT.addRow(fila);
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -499,12 +522,12 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelNombre;
     private javax.swing.JList<String> listExperiencia;
     private javax.swing.JList<Postulante> listPostulantes;
     private javax.swing.JScrollPane panelExperiencia;
     private javax.swing.JScrollPane panelPostulantes;
+    private javax.swing.JTable tablaEntrevista;
     private javax.swing.JTextField textBuscar;
     // End of variables declaration//GEN-END:variables
 }

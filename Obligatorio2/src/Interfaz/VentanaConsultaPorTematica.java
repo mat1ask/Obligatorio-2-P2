@@ -96,7 +96,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
         textCantMay5.setBounds(422, 52, 90, 23);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("Cantidad de peuestos que lo requieren:");
+        jLabel6.setText("Cantidad de puestos que lo requieren:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(118, 80, 298, 15);
 

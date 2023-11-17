@@ -52,8 +52,18 @@ public class Sistema {
         return puestos;
     }
 
-    public ArrayList getEntrevista() {
+    public ArrayList<Entrevista> getEntrevista() {
         return entrevista;
+    }
+    
+    public ArrayList<Entrevista> getEntrevistaPostulante(Postulante pos) {
+        ArrayList<Entrevista> ret = new ArrayList<>();
+        for(Entrevista ent : entrevista) {
+            if (ent.postulante.equals(pos)) {
+                ret.add(ent);
+            }
+        }
+        return ret;
     }
 
     public boolean altaPostulante(Postulante postulante) {
