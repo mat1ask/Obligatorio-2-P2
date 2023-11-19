@@ -1,13 +1,10 @@
 package interfaz;
 
-import dominio.Sistema;
-import dominio.Postulante;
-import java.util.ArrayList;
-import java.util.Collection;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
+import dominio.*;
+import java.util.*;
+import javax.swing.*;
 
-public class VentanaBajaPostulante extends javax.swing.JFrame {
+public class VentanaBajaPostulante extends javax.swing.JFrame implements Observer {
 
     private Sistema sistema;
     private DefaultListModel<String> listaPost = new DefaultListModel<>();
@@ -16,7 +13,7 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     public VentanaBajaPostulante(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
-
+        sistema.addObserver(this);
         this.renovarDatos();
     }
 
@@ -133,4 +130,8 @@ public class VentanaBajaPostulante extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPostulantes;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void update(Observable o, Object arg) {
+        this.renovarDatos();
+    }
 }

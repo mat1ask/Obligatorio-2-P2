@@ -1,18 +1,15 @@
 package interfaz;
 
-import dominio.Postulante;
-import dominio.Sistema;
-import dominio.ComprobarFormato;
-import static java.lang.Integer.parseInt;
+import dominio.*;
 import javax.swing.JOptionPane;
 
 public class VentanaAltaPostulante extends javax.swing.JFrame {
 
     private Sistema sistema;
 
-    public VentanaAltaPostulante(Sistema sistema) {
+    public VentanaAltaPostulante(Sistema sis) {
         initComponents();
-        this.sistema = sistema;
+        this.sistema = sis;
     }
 
     /**
@@ -185,7 +182,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         boolean bien = true;
 
         for (int i = 0; i < valores.length && bien; i++) {
-            if (!(valores[i].length() > 1) || valores[i] == null) {
+            if (valores[i] == null || valores[i] == "" || valores[i] == " ") {
                 bien = false;
             }
         }
@@ -288,4 +285,5 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textTelefono;
     // End of variables declaration//GEN-END:variables
+
 }

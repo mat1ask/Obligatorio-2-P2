@@ -98,7 +98,7 @@ public class VentanaRegistroEvaluador extends javax.swing.JFrame {
         String[] valores = {textNombre.getText(), textCedula.getText(), TextDireccion.getText(), textAnoDeIngreso.getText()};
         boolean bien = true;
         for (int i = 0; i < valores.length && bien; i++) {
-            if (!(valores[i].length() > 1) || valores[i] == null) {
+            if (valores[i] == null || valores[i] == "" || valores[i] == " ") {
                 bien = false;
             }
         }

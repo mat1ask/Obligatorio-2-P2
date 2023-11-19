@@ -3,18 +3,14 @@ package interfaz;
 import dominio.*;
 import java.awt.Cursor;
 import java.awt.Desktop;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.*;
 
-public class VentanaHistorialPostulante extends javax.swing.JFrame {
+public class VentanaHistorialPostulante extends javax.swing.JFrame implements Observer{
     
     private Sistema sistema;
     
@@ -27,12 +23,13 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         this.sistema = sistema;
         actualizarVentana();
         initComponents();
-
+        sistema.addObserver(this);
+        
         modeloTabla = tablaEntrevista.getColumnModel();
         modeloTabla.getColumn(0).setPreferredWidth(55);
         modeloTabla.getColumn(1).setPreferredWidth(255);
         modeloTabla.getColumn(2).setPreferredWidth(125);
-        modeloTabla.getColumn(3).setPreferredWidth(600);
+        modeloTabla.getColumn(3).setPreferredWidth(500);
         
     }
     
@@ -582,4 +579,9 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private javax.swing.JTable tablaEntrevista;
     private javax.swing.JTextField textBuscar;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        actualizarVentana();
+    }
 }

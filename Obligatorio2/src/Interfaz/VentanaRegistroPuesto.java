@@ -18,7 +18,6 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         ArrayList<Tematica> temas = this.sistema.getTematicas();
 
         for (Tematica elem : temas) {
-            System.out.println(elem.toString());
             JCheckBox checkbox = new JCheckBox(elem.toString());
             panelTemas.add(checkbox);
         }

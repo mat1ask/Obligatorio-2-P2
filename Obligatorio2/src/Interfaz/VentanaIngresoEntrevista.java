@@ -4,13 +4,18 @@ import dominio.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-public class VentanaIngresoEntrevista extends javax.swing.JFrame {
+public class VentanaIngresoEntrevista extends javax.swing.JFrame implements Observer{
 
     private Sistema sistema;
 
     public VentanaIngresoEntrevista(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
+        sistema.addObserver(this);
+        actualizarVentana();
+    }
+    
+    public void actualizarVentana(){
         comboEvaluador.removeAllItems();
         comboPostulante.removeAllItems();
 
@@ -202,4 +207,9 @@ public class VentanaIngresoEntrevista extends javax.swing.JFrame {
     private javax.swing.JSpinner puntaje;
     private javax.swing.JTextArea textAreaComentarios;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        actualizarVentana();
+    }
 }

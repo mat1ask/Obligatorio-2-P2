@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.*;
 import javax.swing.*;
 
-public class Sistema implements Serializable{
+public class Sistema extends Observable implements Serializable  {
 
     private HashMap<String, Postulante> postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
     private ArrayList<Tematica> tematicas;
@@ -24,6 +24,7 @@ public class Sistema implements Serializable{
     
     public int getProximaEntrevista() {
         this.proximaEntrevista++;
+        hayCambio();
         return this.proximaEntrevista;
     }
 
@@ -94,20 +95,24 @@ public class Sistema implements Serializable{
             this.postulantes.put(cedula, postulante);
             ret = true;
         }
+        hayCambio();
         return ret;
     }
 
     public void bajaPostulante(String cedula) {
         this.postulantes.remove(cedula);
-        for (Entrevista ent : this.entrevista) { //Este for no lo probe, tiene que andar igual
+        ArrayList<Entrevista> lasEntrevistas = (ArrayList<Entrevista>)entrevista.clone();
+        for (Entrevista ent : lasEntrevistas) {
             if(ent.postulante.cedula == Long.parseLong(cedula)) {
                 entrevista.remove(ent);
             }
         }
+        hayCambio();
     }
 
     public void agregarTematica(Tematica tematica) {
         this.tematicas.add(tematica);
+        hayCambio();
     }
 
     public boolean altaEvaluador(Evaluador evaluador) {
@@ -117,7 +122,7 @@ public class Sistema implements Serializable{
             this.evaluadores.put(evaluador.cedula + "", evaluador);
             ret = true;
         }
-
+        hayCambio();
         return ret;
     }
 
@@ -136,6 +141,7 @@ public class Sistema implements Serializable{
             this.evaluadores.put(cedula, evaluador);
             ret = true;
         }
+        hayCambio();
         return ret;
     }
 
@@ -187,6 +193,7 @@ public class Sistema implements Serializable{
 
     public void agregarEntrevista(Entrevista ent) {
         this.entrevista.add(ent);
+        hayCambio();
     }
 
     public long numeroEntrevistaActual() {
@@ -201,5 +208,10 @@ public class Sistema implements Serializable{
                 checkBox.setSelected(false);
             }
         }
+    }
+    
+    public void hayCambio(){
+        setChanged();
+        notifyObservers();
     }
 }

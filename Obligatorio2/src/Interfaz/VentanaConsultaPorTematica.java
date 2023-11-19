@@ -1,12 +1,12 @@
 package interfaz;
 
-import dominio.Postulante;
-import dominio.Puesto;
-import dominio.Sistema;
+import dominio.*;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.DefaultListModel;
 
-public class VentanaConsultaPorTematica extends javax.swing.JFrame {
+public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Observer{
 
     private Sistema sistema;
     private DefaultListModel<String> listaTemas;
@@ -17,7 +17,7 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
     public VentanaConsultaPorTematica(Sistema sistema) {
         this.sistema = sistema;
         actualizarDatos();
-        
+        sistema.addObserver(this);
         initComponents();
     }
     
@@ -195,4 +195,10 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame {
     private javax.swing.JTextField textCantMay5;
     private javax.swing.JTextField textCantPuestos;
     // End of variables declaration//GEN-END:variables
+    
+    @Override
+    public void update(Observable o, Object arg) {
+        actualizarDatos();
+    }
 }
+

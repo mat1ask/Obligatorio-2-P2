@@ -4,7 +4,7 @@ import dominio.*;
 import java.util.*;
 import javax.swing.*;
 
-public class VentanaConsultaPuestos extends javax.swing.JFrame {
+public class VentanaConsultaPuestos extends javax.swing.JFrame implements Observer{
 
     private Sistema sistema;
     private ArrayList<Postulante> posConEntrevista;
@@ -13,7 +13,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
 
     public VentanaConsultaPuestos(Sistema sistema) {
         this.sistema = sistema;
-
+        sistema.addObserver(this);
         actualizarVentana();
         initComponents();
     }
@@ -266,4 +266,9 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelPuestos;
     private javax.swing.JSpinner spinNivel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        actualizarVentana();
+    }
 }
