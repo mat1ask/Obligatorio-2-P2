@@ -82,6 +82,10 @@ public class Sistema implements Serializable{
         }
         return ret;
     }
+    
+    public boolean cedulaUnica(String cedula) {
+        return !postulantes.containsKey(cedula);
+    }
 
     public boolean altaPostulante(Postulante postulante) {
         boolean ret = false;

@@ -1,6 +1,13 @@
 package interfaz;
 
 import dominio.*;
+import java.awt.Cursor;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -13,7 +20,6 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     
     private DefaultListModel<Postulante> listaPostulantes = new DefaultListModel<>();
     private ArrayList<String> cedulas = new ArrayList<>();
-    private Postulante postulante = new Postulante();
     private DefaultListModel<String> listaTematicas = new DefaultListModel<>();
     private TableColumnModel modeloTabla;
     
@@ -44,7 +50,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
 
         // Agregar los nombres de los postulantes a la lista
         for (String cedula : cedulas) {
-            postulante = postulantes.get(cedula);
+            Postulante postulante = postulantes.get(cedula);
             listaPostulantes.addElement(postulante);
         }
     }
@@ -178,6 +184,17 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         JLabelLinkedin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelLinkedin.setText("  ");
         JLabelLinkedin.setAlignmentY(0.0F);
+        JLabelLinkedin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelLinkedinMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLabelLinkedinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JLabelLinkedinMouseExited(evt);
+            }
+        });
 
         JLabelFormato.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelFormato.setText(" ");
@@ -420,9 +437,6 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             JLabelDireccion.setText(postulante.getDireccion());
             JLabelTelefono.setText(postulante.getTelefono());
             JLabelMail.setText(postulante.getMail());
-            
-            
-            
             JLabelLinkedin.setText("<html><a href=\"" + postulante.getLinkedin() + "\">" + postulante.getLinkedin() + "</a></html>");
             JLabelFormato.setText(postulante.getFormato());
             listaTematicas = new DefaultListModel<>();
@@ -441,6 +455,31 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     private void JLabelFormatoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelFormatoMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_JLabelFormatoMouseEntered
+
+    private void JLabelLinkedinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelLinkedinMouseClicked
+        Postulante postulante = this.listPostulantes.getSelectedValue();
+        String linkedinUrl = postulante.getLinkedin();
+
+        if (linkedinUrl != null && !linkedinUrl.isEmpty()) {
+            try {
+                Desktop desktop = Desktop.getDesktop();
+                URI uri = new URI(linkedinUrl);
+                desktop.browse(uri);
+            } catch (IOException | URISyntaxException e) {
+                JOptionPane.showMessageDialog(this, "Error abriendo el link");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El link no esta disponible");
+        }
+    }//GEN-LAST:event_JLabelLinkedinMouseClicked
+
+    private void JLabelLinkedinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelLinkedinMouseEntered
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_JLabelLinkedinMouseEntered
+
+    private void JLabelLinkedinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelLinkedinMouseExited
+        setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_JLabelLinkedinMouseExited
     
     public String colorPalabra(String comentarios, String palabra) {
         String ret = "";
@@ -499,7 +538,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaHistorialPostulante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

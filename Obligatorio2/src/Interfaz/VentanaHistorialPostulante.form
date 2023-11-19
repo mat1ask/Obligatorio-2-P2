@@ -350,6 +350,11 @@
                 <Property name="text" type="java.lang.String" value="  "/>
                 <Property name="alignmentY" type="float" value="0.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelLinkedinMouseClicked"/>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelLinkedinMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelLinkedinMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="JLabelFormato">
               <Properties>
