@@ -1,16 +1,18 @@
 package dominio;
 
 import java.awt.Component;
+import java.io.Serializable;
 import java.util.*;
 import javax.swing.*;
 
-public class Sistema {
+public class Sistema implements Serializable{
 
-    HashMap<String, Postulante> postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
-    ArrayList<Tematica> tematicas;
-    HashMap<String, Evaluador> evaluadores;
-    ArrayList<Puesto> puestos;
-    ArrayList<Entrevista> entrevista;
+    private HashMap<String, Postulante> postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
+    private ArrayList<Tematica> tematicas;
+    private HashMap<String, Evaluador> evaluadores;
+    private ArrayList<Puesto> puestos;
+    private ArrayList<Entrevista> entrevista;
+    private int proximaEntrevista;
 
     public Sistema() {
         this.postulantes = new HashMap<String, Postulante>();
@@ -18,6 +20,11 @@ public class Sistema {
         this.evaluadores = new HashMap<String, Evaluador>();
         this.puestos = new ArrayList<Puesto>();
         this.entrevista = new ArrayList<>();
+    }
+    
+    public int getProximaEntrevista() {
+        this.proximaEntrevista++;
+        return this.proximaEntrevista;
     }
 
     public HashMap<String, Postulante> getPostulantes() {
@@ -56,10 +63,20 @@ public class Sistema {
         return entrevista;
     }
     
-    public ArrayList<Entrevista> getEntrevistaPostulante(Postulante pos) {
+    public ArrayList<Entrevista> getEntrevistaPostulante(Postulante pos, String pal) {
         ArrayList<Entrevista> ret = new ArrayList<>();
         for(Entrevista ent : entrevista) {
-            if (ent.postulante.equals(pos)) {
+            if (ent.postulante.equals(pos) && ent.comentarios.contains(pal)) {
+                ret.add(ent);
+            }
+        }
+        return ret;
+    }
+    
+    public ArrayList<Entrevista> getEntrevistaPalabra(Postulante pos, String pal) {
+        ArrayList<Entrevista> ret = new ArrayList<>();
+        for(Entrevista ent : entrevista) {
+            if (ent.postulante.equals(pos) && ent.comentarios.contains(pal)) {
                 ret.add(ent);
             }
         }

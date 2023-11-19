@@ -1,6 +1,8 @@
 package dominio;
 
-public class Puesto {
+import java.io.Serializable;
+
+public class Puesto implements Serializable{
 
     String nombre;
     String formato;

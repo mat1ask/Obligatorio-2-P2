@@ -21,14 +21,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         this.sistema = sistema;
         actualizarVentana();
         initComponents();
-        
-//        listPostulantes.addListSelectionListener(new ListSelectionListener() {
-//            @Override
-//            public void valueChanged(ListSelectionEvent e) {
-//                // Obtener el nombre del postulante seleccionado
-//                String nombre = listPostulantes.getSelectedValue().getNombre();
-//            }
-//        });
+
         modeloTabla = tablaEntrevista.getColumnModel();
         modeloTabla.getColumn(0).setPreferredWidth(55);
         modeloTabla.getColumn(1).setPreferredWidth(255);
@@ -189,6 +182,14 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
         JLabelFormato.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelFormato.setText(" ");
         JLabelFormato.setAlignmentY(0.0F);
+        JLabelFormato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelFormatoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLabelFormatoMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -393,7 +394,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonResetActionPerformed
-        cargaTablaDefecto(sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue()));
+        cargaTablaDefecto(sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue(), ""));
     }//GEN-LAST:event_botonResetActionPerformed
 
     private void textBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textBuscarActionPerformed
@@ -405,10 +406,10 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        String pal = this.textBuscar.getText();
-        ArrayList<Entrevista> entrevistas = sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue());
+        String palabra = this.textBuscar.getText();
+        ArrayList<Entrevista> entrevistas = sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue(),palabra);
         
-        cargaTablaBuscador(entrevistas,pal);
+        cargaTablaBuscador(entrevistas,palabra);
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void listPostulantesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesValueChanged
@@ -419,23 +420,35 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame {
             JLabelDireccion.setText(postulante.getDireccion());
             JLabelTelefono.setText(postulante.getTelefono());
             JLabelMail.setText(postulante.getMail());
-            JLabelLinkedin.setText(postulante.getLinkedin());
+            
+            
+            
+            JLabelLinkedin.setText("<html><a href=\"" + postulante.getLinkedin() + "\">" + postulante.getLinkedin() + "</a></html>");
             JLabelFormato.setText(postulante.getFormato());
             listaTematicas = new DefaultListModel<>();
             String[] losTemas = postulante.temasToArray();
             listExperiencia.setListData(losTemas);
-            cargaTablaDefecto(sistema.getEntrevistaPostulante(postulante));
+            cargaTablaDefecto(sistema.getEntrevistaPostulante(postulante,""));
         } else {
             JOptionPane.showMessageDialog(this, "Error: Postulante no encontrado");
         }
     }//GEN-LAST:event_listPostulantesValueChanged
+
+    private void JLabelFormatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelFormatoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLabelFormatoMouseClicked
+
+    private void JLabelFormatoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelFormatoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JLabelFormatoMouseEntered
     
-    public String colorPalabra(String palabra, String comentarios) {
+    public String colorPalabra(String comentarios, String palabra) {
         String ret = "";
         int comienzo = comentarios.indexOf(palabra);
         int fin = comienzo + palabra.length();
         
-        ret = comentarios.substring(0,comienzo) + "<html><font color='red'>" + palabra + "</font></html>" + comentarios.substring(fin);
+        ret = "<html><font color='black'>" + comentarios.substring(0,comienzo) + "</font>" + "<font color='red'>" + palabra + "</font>";
+        ret += "<font color='black'>" + comentarios.substring(fin, comentarios.length()) + "</font></html>";
 
         return ret;
     }

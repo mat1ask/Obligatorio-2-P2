@@ -1,8 +1,9 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Postulante {
+public class Postulante implements Serializable{
 
     String nombre;
     long cedula;

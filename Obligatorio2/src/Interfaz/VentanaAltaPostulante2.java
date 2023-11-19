@@ -158,7 +158,7 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         int indiceSeleccionado = listaExperiencia.getSelectedIndex();
         if (indiceSeleccionado != -1) {
             DefaultListModel<String> modeloLista = (DefaultListModel<String>) listaExperiencia.getModel();
-            postulante.eliminarTema((modeloLista.get(indiceSeleccionado)).split("-")[0]);
+            postulante.eliminarTema((modeloLista.get(indiceSeleccionado)).split("\\(")[0]);
             modeloLista.remove(indiceSeleccionado);
         }
     }//GEN-LAST:event_botonEliminarActionPerformed

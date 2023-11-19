@@ -1,16 +1,17 @@
 package interfaz;
 
 import dominio.Sistema;
+import java.io.*;
+import java.nio.file.*;
 import javax.swing.JOptionPane;
 
 public class VentanaMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form menuFrame
-     */
-    public VentanaMenu() {
+    private Sistema sistema;
+    
+    public VentanaMenu(Sistema sis) {
         initComponents();
-        this.sistema = new Sistema();
+        this.sistema = sis;
     }
 
     /**
@@ -39,6 +40,14 @@ public class VentanaMenu extends javax.swing.JFrame {
         menuItemIngresoEntrevista = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         TituloMenu.setFont(new java.awt.Font("Javanese Text", 1, 18)); // NOI18N
@@ -229,6 +238,25 @@ public class VentanaMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuItemRegistroPuestoActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        guardaDatos();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        guardaDatos();
+    }//GEN-LAST:event_formWindowClosing
+
+    
+    public void guardaDatos(){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("Archivo.datos")));
+            out.writeObject(sistema);
+            out.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "No se encontro el archivo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        System.exit(0);
+    }
     /**
      * @param args the command line arguments
      */
@@ -260,7 +288,8 @@ public class VentanaMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaMenu().setVisible(true);
+                Sistema sistema = new Sistema();
+                new VentanaMenu(sistema).setVisible(true);
             }
         });
     }
@@ -282,5 +311,5 @@ public class VentanaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemRegistroPuesto;
     private javax.swing.JMenuItem menuItemRegistroTematica;
     // End of variables declaration//GEN-END:variables
-    private Sistema sistema;
+
 }
