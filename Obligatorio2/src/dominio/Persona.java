@@ -2,7 +2,7 @@ package dominio;
 
 import java.io.Serializable;
 
-public class Persona implements Serializable{
+public class Persona implements Serializable {
 
     String nombre;
     long cedula;
@@ -37,5 +37,5 @@ public class Persona implements Serializable{
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
 }

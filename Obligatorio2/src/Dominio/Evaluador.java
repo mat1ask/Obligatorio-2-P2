@@ -2,7 +2,7 @@ package dominio;
 
 import java.io.Serializable;
 
-public class Evaluador extends Persona implements Serializable{
+public class Evaluador extends Persona implements Serializable {
 
     int anoIngreso;
 
@@ -18,9 +18,9 @@ public class Evaluador extends Persona implements Serializable{
     public void setAnoIngreso(int anoIngreso) {
         this.anoIngreso = anoIngreso;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.nombre + "-" + this.cedula;
     }
 }

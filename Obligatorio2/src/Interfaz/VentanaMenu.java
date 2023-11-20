@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class VentanaMenu extends javax.swing.JFrame {
 
     private Sistema sistema;
-    
+
     public VentanaMenu(Sistema sis) {
         initComponents();
         this.sistema = sis;
@@ -246,8 +246,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         guardaDatos();
     }//GEN-LAST:event_formWindowClosing
 
-    
-    public void guardaDatos(){
+    public void guardaDatos() {
         try {
             ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("Archivo.datos")));
             out.writeObject(sistema);
@@ -257,6 +256,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         }
         System.exit(0);
     }
+
     /**
      * @param args the command line arguments
      */

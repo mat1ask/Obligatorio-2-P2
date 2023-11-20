@@ -190,7 +190,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
         if (!ComprobarFormato.soloNumeros(textCedula.getText()) && !sistema.cedulaUnica(textCedula.getText())) {
             bien = false;
         }
-        
+
         if (bien) {
             long cedula = Long.parseLong(textCedula.getText());
             Postulante postulante = new Postulante(textNombre.getText(), cedula, textDireccion.getText(), textTelefono.getText(), textMail.getText(), textLinkedin.getText(), formato);
@@ -203,7 +203,7 @@ public class VentanaAltaPostulante extends javax.swing.JFrame {
             Sistema.limpiarCamposField(textTelefono);
             Sistema.limpiarCamposField(textLinkedin);
         } else {
-            if(!sistema.cedulaUnica(textCedula.getText())){
+            if (!sistema.cedulaUnica(textCedula.getText())) {
                 JOptionPane.showMessageDialog(this, "La cedula ingresada ya existe.", "Alta de postulante", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Error de formato en alguno de los datos.", "Alta de postulante", JOptionPane.ERROR_MESSAGE);

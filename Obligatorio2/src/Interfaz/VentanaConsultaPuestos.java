@@ -4,7 +4,7 @@ import dominio.*;
 import java.util.*;
 import javax.swing.*;
 
-public class VentanaConsultaPuestos extends javax.swing.JFrame implements Observer{
+public class VentanaConsultaPuestos extends javax.swing.JFrame implements Observer {
 
     private Sistema sistema;
     private ArrayList<Postulante> posConEntrevista;

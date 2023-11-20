@@ -1,29 +1,29 @@
 package interfaz;
 
 import dominio.*;
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 import javax.swing.DefaultListModel;
 
-public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Observer{
+public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Observer {
 
     private Sistema sistema;
     private DefaultListModel<String> listaTemas;
 
-    /**
-     * Creates new form VentanaConsultaPorTematica
-     */
-    public VentanaConsultaPorTematica(Sistema sistema) {
-        this.sistema = sistema;
-        actualizarDatos();
+    public VentanaConsultaPorTematica(Sistema sis) {
+        this.sistema = sis;
+        listaTemas = new DefaultListModel<String>();
         sistema.addObserver(this);
         initComponents();
+        actualizarDatos();
+        listTema.setModel(listaTemas);
     }
-    
-    public void actualizarDatos(){
-        listaTemas = new DefaultListModel<String>();
+
+    public void actualizarDatos() {
+        listaTemas.clear();
         listaTemas.addAll(sistema.getListTemas());
+        if (!listTema.isSelectionEmpty()) {
+            estadisticas();
+        }
     }
 
     /**
@@ -70,7 +70,6 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Ob
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 30, 80, 15);
 
-        listTema.setModel(this.listaTemas);
         listTema.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listTemaValueChanged(evt);
@@ -121,13 +120,17 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Ob
     }//GEN-LAST:event_textCantPuestosActionPerformed
 
     private void listTemaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listTemaValueChanged
+        estadisticas();
+    }//GEN-LAST:event_listTemaValueChanged
+
+    public void estadisticas() {
         String tema = listTema.getSelectedValue();
         ArrayList<Postulante> postulantes = new ArrayList<>();
         postulantes.addAll(sistema.getPostulantes().values());
         long cantPostulantes = 0;
         for (Postulante act : postulantes) {
-            if(act.getTemas().containsKey(tema)){
-                if((int)(act.getTemas().get(tema)) > 5){
+            if (act.getTemas().containsKey(tema)) {
+                if ((int) (act.getTemas().get(tema)) > 5) {
                     cantPostulantes++;
                 }
             }
@@ -136,16 +139,16 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Ob
         puestos.addAll(sistema.getPuestos());
         long cantPuestos = 0;
         for (Puesto act : puestos) {
-            for (String elTema : act.getTemas()){
-                if(elTema == tema) {
+            for (String elTema : act.getTemas()) {
+                if (elTema == tema) {
                     cantPuestos++;
                 }
             }
         }
-        
-        this.textCantMay5.setText(cantPostulantes+"");
-        this.textCantPuestos.setText(cantPuestos+"");
-    }//GEN-LAST:event_listTemaValueChanged
+
+        this.textCantMay5.setText(cantPostulantes + "");
+        this.textCantPuestos.setText(cantPuestos + "");
+    }
 
     /**
      * @param args the command line arguments
@@ -195,10 +198,9 @@ public class VentanaConsultaPorTematica extends javax.swing.JFrame implements Ob
     private javax.swing.JTextField textCantMay5;
     private javax.swing.JTextField textCantPuestos;
     // End of variables declaration//GEN-END:variables
-    
+
     @Override
     public void update(Observable o, Object arg) {
         actualizarDatos();
     }
 }
-

@@ -1,22 +1,25 @@
 package interfaz;
 
 import dominio.*;
-import dominio.Tematica;
 import java.awt.Component;
-import java.util.ArrayList;
+import java.util.*;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
-public class VentanaRegistroPuesto extends javax.swing.JFrame {
+public class VentanaRegistroPuesto extends javax.swing.JFrame implements Observer {
 
     private Sistema sistema;
 
     public VentanaRegistroPuesto(Sistema sistema) {
         initComponents();
         this.sistema = sistema;
+        actualizarVentana();
+        sistema.addObserver(this);
+    }
 
+    public void actualizarVentana() {
+        panelTemas.removeAll();
         ArrayList<Tematica> temas = this.sistema.getTematicas();
-
         for (Tematica elem : temas) {
             JCheckBox checkbox = new JCheckBox(elem.toString());
             panelTemas.add(checkbox);
@@ -157,17 +160,17 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
         String nombrePuesto = textNombre.getText();
         ArrayList<Puesto> listaDePuestos = sistema.getPuestos();
         boolean valido = true;
-        if(!nombrePuesto.equals("")){
+        if (!nombrePuesto.equals("")) {
             for (Puesto elem : listaDePuestos) {
                 if (nombrePuesto.equals(elem.getNombres())) {
                     valido = false;
                     break;
                 }
             }
-        }else{
+        } else {
             valido = false;
         }
-        
+
         boolean select = true;
         String formato = "";
         if (radioMixto.isSelected()) {
@@ -260,4 +263,9 @@ public class VentanaRegistroPuesto extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollTemas;
     private javax.swing.JTextField textNombre;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        this.actualizarVentana();
+    }
 }

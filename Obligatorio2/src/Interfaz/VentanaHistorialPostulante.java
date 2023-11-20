@@ -10,32 +10,34 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-public class VentanaHistorialPostulante extends javax.swing.JFrame implements Observer{
-    
+public class VentanaHistorialPostulante extends javax.swing.JFrame implements Observer {
+
     private Sistema sistema;
-    
+
     private DefaultListModel<Postulante> listaPostulantes = new DefaultListModel<>();
     private ArrayList<String> cedulas = new ArrayList<>();
     private DefaultListModel<String> listaTematicas = new DefaultListModel<>();
     private TableColumnModel modeloTabla;
-    
+
     public VentanaHistorialPostulante(Sistema sistema) {
         this.sistema = sistema;
-        actualizarVentana();
         initComponents();
+
+        actualizarVentana();
         sistema.addObserver(this);
-        
+
         modeloTabla = tablaEntrevista.getColumnModel();
         modeloTabla.getColumn(0).setPreferredWidth(55);
         modeloTabla.getColumn(1).setPreferredWidth(255);
         modeloTabla.getColumn(2).setPreferredWidth(125);
         modeloTabla.getColumn(3).setPreferredWidth(500);
-        
+
     }
-    
+
     private void actualizarVentana() {
-        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
+        listaPostulantes.clear();
         cedulas.clear();
+        HashMap<String, Postulante> postulantes = sistema.getPostulantes();
         listaTematicas = new DefaultListModel<>();
         // Agregar las claves (cedulas) al ArrayList
         for (String cedula : postulantes.keySet()) {
@@ -50,8 +52,11 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame implements Ob
             Postulante postulante = postulantes.get(cedula);
             listaPostulantes.addElement(postulante);
         }
+
+        DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
+        modeloT.setRowCount(0);
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -421,16 +426,16 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame implements Ob
 
     private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
         String palabra = this.textBuscar.getText();
-        ArrayList<Entrevista> entrevistas = sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue(),palabra);
-        
-        cargaTablaBuscador(entrevistas,palabra);
+        ArrayList<Entrevista> entrevistas = sistema.getEntrevistaPostulante(this.listPostulantes.getSelectedValue(), palabra);
+
+        cargaTablaBuscador(entrevistas, palabra);
     }//GEN-LAST:event_botonBuscarActionPerformed
 
     private void listPostulantesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listPostulantesValueChanged
         Postulante postulante = this.listPostulantes.getSelectedValue();
         if (postulante != null) {
             labelNombre.setText(postulante.getNombre());
-            JLabelCedula.setText(postulante.getCedula()+"");
+            JLabelCedula.setText(postulante.getCedula() + "");
             JLabelDireccion.setText(postulante.getDireccion());
             JLabelTelefono.setText(postulante.getTelefono());
             JLabelMail.setText(postulante.getMail());
@@ -439,9 +444,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame implements Ob
             listaTematicas = new DefaultListModel<>();
             String[] losTemas = postulante.temasToArray();
             listExperiencia.setListData(losTemas);
-            cargaTablaDefecto(sistema.getEntrevistaPostulante(postulante,""));
-        } else {
-            JOptionPane.showMessageDialog(this, "Error: Postulante no encontrado");
+            cargaTablaDefecto(sistema.getEntrevistaPostulante(postulante, ""));
         }
     }//GEN-LAST:event_listPostulantesValueChanged
 
@@ -477,38 +480,37 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame implements Ob
     private void JLabelLinkedinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelLinkedinMouseExited
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_JLabelLinkedinMouseExited
-    
+
     public String colorPalabra(String comentarios, String palabra) {
         String ret = "";
         int comienzo = comentarios.indexOf(palabra);
         int fin = comienzo + palabra.length();
-        
-        ret = "<html><font color='black'>" + comentarios.substring(0,comienzo) + "</font>" + "<font color='red'>" + palabra + "</font>";
+
+        ret = "<html><font color='black'>" + comentarios.substring(0, comienzo) + "</font>" + "<font color='red'>" + palabra + "</font>";
         ret += "<font color='black'>" + comentarios.substring(fin, comentarios.length()) + "</font></html>";
 
         return ret;
     }
-    
-    public void cargaTablaDefecto(ArrayList<Entrevista> entrevistas){
+
+    public void cargaTablaDefecto(ArrayList<Entrevista> entrevistas) {
         DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
         modeloT.setRowCount(0);
         for (Entrevista ent : entrevistas) {
-           Object[] fila = {ent.getNumero() , ent.getEvaluadores() , ent.getPuntaje() , ent.getComentarios()};
-           modeloT.addRow(fila);
-        }
-    }
-    
-    public void cargaTablaBuscador(ArrayList<Entrevista> entrevistas , String palabra) {
-        DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
-        modeloT.setRowCount(0);
-        for (Entrevista ent : entrevistas ) {
-            String comentario = ent.getComentarios();
-            Object[] fila = {ent.getNumero() , ent.getEvaluadores() , ent.getPuntaje() , colorPalabra(comentario, palabra)};
+            Object[] fila = {ent.getNumero(), ent.getEvaluadores(), ent.getPuntaje(), ent.getComentarios()};
             modeloT.addRow(fila);
         }
     }
-    
-    
+
+    public void cargaTablaBuscador(ArrayList<Entrevista> entrevistas, String palabra) {
+        DefaultTableModel modeloT = (DefaultTableModel) tablaEntrevista.getModel();
+        modeloT.setRowCount(0);
+        for (Entrevista ent : entrevistas) {
+            String comentario = ent.getComentarios();
+            Object[] fila = {ent.getNumero(), ent.getEvaluadores(), ent.getPuntaje(), colorPalabra(comentario, palabra)};
+            modeloT.addRow(fila);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -535,7 +537,7 @@ public class VentanaHistorialPostulante extends javax.swing.JFrame implements Ob
             java.util.logging.Logger.getLogger(VentanaHistorialPostulante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -11,8 +11,9 @@ public class Obligatorio2 {
 
     public static void main(String[] args) throws ClassNotFoundException{
         boolean empezo = false;
+        int siNo;
         while (!empezo) {
-            int siNo = JOptionPane.showConfirmDialog(null,"Quiere Utilizar datos previos?", "Persistencia", JOptionPane.YES_NO_OPTION);
+            siNo = JOptionPane.showConfirmDialog(null,"Quiere Utilizar datos previos?", "Persistencia", JOptionPane.YES_NO_OPTION);
             if(siNo == JOptionPane.YES_OPTION) {
                 try {
                     ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get("Archivo.datos")));
@@ -24,7 +25,7 @@ public class Obligatorio2 {
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "No se encontro el archivo");
                 }
-            } else {
+            } else if(siNo == JOptionPane.NO_OPTION) {
                 empezo = true;
                 Sistema sis = new Sistema();
                 VentanaMenu vent = new VentanaMenu(sis);

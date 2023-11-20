@@ -3,7 +3,7 @@ package dominio;
 import java.io.Serializable;
 import java.util.*;
 
-public class Postulante implements Serializable{
+public class Postulante implements Serializable {
 
     String nombre;
     long cedula;
@@ -113,14 +113,14 @@ public class Postulante implements Serializable{
 
     public String[] temasToArray() {
         String[] temas = new String[this.temas.size()];
-        
+
         Iterator<Map.Entry<String, Integer>> iterador = this.temas.entrySet().iterator();
         int i = 0;
-        while(iterador.hasNext()) {
+        while (iterador.hasNext()) {
             Map.Entry<String, Integer> tema = iterador.next();
             String key = tema.getKey();
             Integer nivel = tema.getValue();
-            temas[i] = key + "(" + nivel +")";
+            temas[i] = key + "(" + nivel + ")";
             i++;
         }
         return temas;

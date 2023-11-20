@@ -6,7 +6,7 @@ import dominio.Postulante;
 import java.util.*;
 import javax.swing.*;
 
-public class VentanaAltaPostulante2 extends javax.swing.JFrame {
+public class VentanaAltaPostulante2 extends javax.swing.JFrame implements Observer {
 
     private Postulante postulante;
     private Sistema sistema;
@@ -16,8 +16,13 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
         initComponents();
         this.sistema = sistema;
         this.postulante = postulante;
-        comboTema.removeAllItems();
         listaExperiencia.setModel(listaExp);
+        sistema.addObserver(this);
+        actualizarVentana();
+    }
+
+    public void actualizarVentana() {
+        comboTema.removeAllItems();
 
         ArrayList<Tematica> tematicas = sistema.getTematicas();
         for (Tematica elemento : tematicas) {
@@ -213,4 +218,9 @@ public class VentanaAltaPostulante2 extends javax.swing.JFrame {
     private javax.swing.JSpinner nivel;
     private javax.swing.JScrollPane scrollExperiencias;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable o, Object arg) {
+        this.actualizarVentana();
+    }
 }

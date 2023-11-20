@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.*;
 import javax.swing.*;
 
-public class Sistema extends Observable implements Serializable  {
+public class Sistema extends Observable implements Serializable {
 
     private HashMap<String, Postulante> postulantes; //Usar hashmap o ArrayList postulante + ArrayList cedulaPostulante
     private ArrayList<Tematica> tematicas;
@@ -21,7 +21,7 @@ public class Sistema extends Observable implements Serializable  {
         this.puestos = new ArrayList<Puesto>();
         this.entrevista = new ArrayList<>();
     }
-    
+
     public int getProximaEntrevista() {
         this.proximaEntrevista++;
         hayCambio();
@@ -35,7 +35,7 @@ public class Sistema extends Observable implements Serializable  {
     public ArrayList getTematicas() {
         return tematicas;
     }
-    
+
     public ArrayList<String> getListTemas() {
         ArrayList<String> ret = new ArrayList<>();
         for (Tematica tem : tematicas) {
@@ -63,27 +63,27 @@ public class Sistema extends Observable implements Serializable  {
     public ArrayList<Entrevista> getEntrevista() {
         return entrevista;
     }
-    
+
     public ArrayList<Entrevista> getEntrevistaPostulante(Postulante pos, String pal) {
         ArrayList<Entrevista> ret = new ArrayList<>();
-        for(Entrevista ent : entrevista) {
+        for (Entrevista ent : entrevista) {
             if (ent.postulante.equals(pos) && ent.comentarios.contains(pal)) {
                 ret.add(ent);
             }
         }
         return ret;
     }
-    
+
     public ArrayList<Entrevista> getEntrevistaPalabra(Postulante pos, String pal) {
         ArrayList<Entrevista> ret = new ArrayList<>();
-        for(Entrevista ent : entrevista) {
+        for (Entrevista ent : entrevista) {
             if (ent.postulante.equals(pos) && ent.comentarios.contains(pal)) {
                 ret.add(ent);
             }
         }
         return ret;
     }
-    
+
     public boolean cedulaUnica(String cedula) {
         return !postulantes.containsKey(cedula);
     }
@@ -101,9 +101,9 @@ public class Sistema extends Observable implements Serializable  {
 
     public void bajaPostulante(String cedula) {
         this.postulantes.remove(cedula);
-        ArrayList<Entrevista> lasEntrevistas = (ArrayList<Entrevista>)entrevista.clone();
+        ArrayList<Entrevista> lasEntrevistas = (ArrayList<Entrevista>) entrevista.clone();
         for (Entrevista ent : lasEntrevistas) {
-            if(ent.postulante.cedula == Long.parseLong(cedula)) {
+            if (ent.postulante.cedula == Long.parseLong(cedula)) {
                 entrevista.remove(ent);
             }
         }
@@ -171,7 +171,7 @@ public class Sistema extends Observable implements Serializable  {
                 }
             }
             case "entrevista" -> {
-                if(this.entrevista.isEmpty()){
+                if (this.entrevista.isEmpty()) {
                     ret = false;
                 }
             }
@@ -197,7 +197,7 @@ public class Sistema extends Observable implements Serializable  {
     }
 
     public long numeroEntrevistaActual() {
-        return this.entrevista.size()+1;
+        return this.entrevista.size() + 1;
     }
 
     public void eliminarCheckBox(JPanel panel) {
@@ -209,8 +209,8 @@ public class Sistema extends Observable implements Serializable  {
             }
         }
     }
-    
-    public void hayCambio(){
+
+    public void hayCambio() {
         setChanged();
         notifyObservers();
     }
