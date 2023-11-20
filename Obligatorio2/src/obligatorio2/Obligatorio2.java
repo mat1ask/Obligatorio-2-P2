@@ -23,15 +23,22 @@ public class Obligatorio2 {
                     VentanaMenu vent = new VentanaMenu(sistema);
                     vent.setVisible(true);
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "No se encontro el archivo");
+                    JOptionPane.showMessageDialog(null, "No se encontro el archivo, empezaremos sin datos previos.");
+                    empezo = true;
+                    empezarSinDatos();
                 }
             } else if(siNo == JOptionPane.NO_OPTION) {
                 empezo = true;
-                Sistema sis = new Sistema();
-                VentanaMenu vent = new VentanaMenu(sis);
-                vent.setVisible(true);
+                empezarSinDatos();
             }
         }
         
     }
+    public static void empezarSinDatos(){
+        Sistema sis = new Sistema();
+        VentanaMenu vent = new VentanaMenu(sis);
+        vent.setVisible(true);
+    }
 }
+
+

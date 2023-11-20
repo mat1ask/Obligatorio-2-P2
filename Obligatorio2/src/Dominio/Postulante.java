@@ -126,6 +126,10 @@ public class Postulante implements Serializable {
         return temas;
     }
 
+    public String paraArchivo(){
+        return this.nombre + "-" + this.cedula + "-" + this.mail;
+    }
+    
     @Override
     public String toString() {
         return this.nombre + "-" + this.cedula;

@@ -1,5 +1,6 @@
 package interfaz;
 
+import ArchivoTexto.ArchivoGrabacion;
 import dominio.*;
 import java.util.*;
 import javax.swing.*;
@@ -10,6 +11,7 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame implements Observ
     private ArrayList<Postulante> posConEntrevista;
     private DefaultListModel<Puesto> listPuestos = new DefaultListModel<>();
     private DefaultListModel<Postulante> listPostulantes = new DefaultListModel<>();
+    private ArrayList<Postulante> paraExportar;
 
     public VentanaConsultaPuestos(Sistema sistema) {
         this.sistema = sistema;
@@ -181,33 +183,44 @@ public class VentanaConsultaPuestos extends javax.swing.JFrame implements Observ
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarActionPerformed
-        listPostulantes.clear();
-        int nivelD = (int) spinNivel.getValue();
-        Puesto puesto = this.listaPuestos.getSelectedValue();
-        String[] temasPuesto = (puesto).getTemas();
-        for (Postulante pos : posConEntrevista) {
-            boolean losTemas = true;
-            boolean formaTrabajo = false;
-            HashMap<String, Integer> temasPos = pos.getTemas();
-            if (pos.getFormato().equals(puesto.getformato())) {
-                formaTrabajo = true;
-            }
-            boolean agregado = false;
-            for (int i = 0; i < temasPuesto.length && formaTrabajo && losTemas && !agregado; i++) {
-                if (temasPos.containsKey(temasPuesto[i])) {
-                    if (temasPos.get(temasPuesto[i]) >= nivelD) {
-                        listPostulantes.addElement(pos);
-                        agregado = true;
+        if (!listaPuestos.isSelectionEmpty()) {
+            paraExportar = new ArrayList<Postulante>();
+            listPostulantes.clear();
+            int nivelD = (int) spinNivel.getValue();
+            Puesto puesto = this.listaPuestos.getSelectedValue();
+            String[] temasPuesto = (puesto).getTemas();
+            for (Postulante pos : posConEntrevista) {
+                boolean losTemas = true;
+                boolean formaTrabajo = false;
+                HashMap<String, Integer> temasPos = pos.getTemas();
+                if (pos.getFormato().equals(puesto.getformato())) {
+                    formaTrabajo = true;
+                }
+                boolean agregado = false;
+                for (int i = 0; i < temasPuesto.length && formaTrabajo && losTemas && !agregado; i++) {
+                    if (temasPos.containsKey(temasPuesto[i])) {
+                        if (temasPos.get(temasPuesto[i]) >= nivelD) {
+                            listPostulantes.addElement(pos);
+                            paraExportar.add(pos);
+                            agregado = true;
+                        }
+                    } else {
+                        losTemas = false;
                     }
-                } else {
-                    losTemas = false;
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un puesto", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonConsultarActionPerformed
 
     private void botonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonExportarActionPerformed
-        // TODO add your handling code here:
+        ArchivoGrabacion arch = new ArchivoGrabacion("Consulta.txt");
+        for (Postulante pos : this.paraExportar) {
+            arch.grabarLinea(pos.paraArchivo());
+        }
+        arch.cerrar();
+        JOptionPane.showMessageDialog(this, "Se ha guardado su consulta en \"Conslta.txt\"");
     }//GEN-LAST:event_botonExportarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
